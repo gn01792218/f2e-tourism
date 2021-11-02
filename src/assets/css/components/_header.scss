@@ -1,0 +1,10 @@
+
+.header{
+    font-size: $font-large;
+    @include desktop-below {
+        font-size:$font-midium
+    }
+    @include pad{
+        font-size: $font-small;
+    }
+}

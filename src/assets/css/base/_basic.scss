@@ -1,0 +1,14 @@
+body{
+    background-color: beige;
+}
+ul{
+    list-style: none;
+    padding-left:0;
+}
+img{
+    max-width: 100%;
+    height:auto;
+}
+*,*::before,*::after{
+	box-sizing:border-box;
+}

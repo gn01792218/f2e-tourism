@@ -1,0 +1,12 @@
+//Utils
+@import './utils/variables';
+@import './utils/mixin';
+@import './utils/utils';
+
+//Base
+@import './base/normalize';
+@import './base/basic';
+
+//component
+@import './components/header';
+@import './components/footer';
