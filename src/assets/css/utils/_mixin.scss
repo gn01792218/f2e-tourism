@@ -3,6 +3,13 @@
     background-repeat: no-repeat;
     background-position: center center;
 }
+@mixin textOverFlowHidden($lineClamp){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lineClamp;
+    -webkit-box-orient: vertical;
+}
 
 //RWD
 @mixin desktop-below {
