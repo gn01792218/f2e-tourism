@@ -1,24 +1,25 @@
 <template>
-          {{data}}
         {{location}}
-        <button class="btn btn-primary" 
-            data-bs-target="#collapseTarget" 
-            data-bs-toggle="collapse">
-            Bootstrap collapse
-        </button>
-        <div class="collapse py-2" id="collapseTarget">
-            This is the toggle-able content!
+        <div class="d-md-flex flex-md-wrap">
+           <Card class="me-md-5"
+          v-for="(item,index) in data" :key="index"
+          :imgSrc="item.Picture?.PictureUrl1"
+          :imgAlt="item.picture?.PictureDescription1"
+          :title="item.Name"
+          :description="item.DescriptionDetail"
+          :openTime="item.OpenTime"
+        />
         </div>
-        <i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue;"></i>
-        
-        <div><Loading v-if="isloading"/></div>
- 
+       
+      <Loading v-if="isloading"/>
 </template>
 
 <script lang="ts">
 import { defineComponent,ref } from 'vue';
 import {getTourismDataByCity} from '../api'
+import Card from '../components/Card.vue'
 import Loading from './Loading.vue'
+
 enum City {
     Taipei ="Taipei",
     NewTaipei = "NewTaipei",
@@ -46,7 +47,7 @@ enum City {
 
 export default defineComponent({
   components:{
-    Loading,
+    Loading,Card
   },
   props: {
     msg: String,
@@ -56,7 +57,7 @@ export default defineComponent({
     const isloading = ref(true)
     const data = ref<any>({})
     const location = ref({})
-    getTourismDataByCity(City.NewTaipei,200)?.then(async(r:any)=>{
+    getTourismDataByCity(City.NewTaipei,50)?.then(async(r:any)=>{
       data.value =await r.data
       console.log(r.data)
       location.value =await r.data[0].Position
