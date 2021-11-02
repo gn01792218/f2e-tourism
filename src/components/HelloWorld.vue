@@ -1,8 +1,7 @@
 <template>
-  <div class="hello">
-    {{data}}
-    {{location}}
-    <button class="btn btn-primary" 
+          {{data}}
+        {{location}}
+        <button class="btn btn-primary" 
             data-bs-target="#collapseTarget" 
             data-bs-toggle="collapse">
             Bootstrap collapse
@@ -11,12 +10,15 @@
             This is the toggle-able content!
         </div>
         <i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue;"></i>
-  </div>
+        
+        <div><Loading v-if="isloading"/></div>
+ 
 </template>
 
 <script lang="ts">
 import { defineComponent,ref } from 'vue';
 import {getTourismDataByCity} from '../api'
+import Loading from './Loading.vue'
 enum City {
     Taipei ="Taipei",
     NewTaipei = "NewTaipei",
@@ -43,22 +45,25 @@ enum City {
 }
 
 export default defineComponent({
-  name: 'HelloWorld',
+  components:{
+    Loading,
+  },
   props: {
     msg: String,
   },
   setup(){
     //測試
+    const isloading = ref(true)
     const data = ref<any>({})
     const location = ref({})
-    getTourismDataByCity(City.NewTaipei)?.then((r:any)=>{
-      data.value = r.data[0]
-      console.log(r.data[0])
-      location.value = r.data[0].Position
+    getTourismDataByCity(City.NewTaipei,200)?.then(async(r:any)=>{
+      data.value =await r.data
+      console.log(r.data)
+      location.value =await r.data[0].Position
+      isloading.value = false
     })
-
-    return{
-      data,location
+    return{ 
+      data,location,isloading
     }
   }
 });

@@ -1,0 +1,6 @@
+.LoadingPage{
+    top:0;
+    background-color: $backdrop-color;
+    background-image: $loading-img;
+    @include bgImg-center-norepeat;
+}

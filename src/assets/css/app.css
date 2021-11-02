@@ -1,3 +1,9 @@
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -374,5 +380,13 @@ img {
   .header {
     font-size: 1rem;
   }
+}
+
+.LoadingPage {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.836);
+  background-image: url("../images/loading.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 /*# sourceMappingURL=app.css.map */
