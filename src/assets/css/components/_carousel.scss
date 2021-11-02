@@ -1,0 +1,19 @@
+.bi-arrow-bar-right{
+    color:red;
+    transform: scale(2);
+}
+.bi-box-arrow-in-left{
+    color:blue;
+    transform: scale(2);
+}
+.carousel-caption{
+    // color:white;
+    // font-size: $font-midium;
+}
+.carousel-item{
+    overflow: hidden;
+    img:hover{
+        transform:scale(1.5);
+        transition: all;
+    }
+}

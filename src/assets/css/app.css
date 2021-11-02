@@ -411,4 +411,27 @@ img {
 .card-text {
   font-size: 0.8rem;
 }
+
+.bi-arrow-bar-right {
+  color: red;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.bi-box-arrow-in-left {
+  color: blue;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.carousel-item {
+  overflow: hidden;
+}
+
+.carousel-item img:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: all;
+  transition: all;
+}
 /*# sourceMappingURL=app.css.map */

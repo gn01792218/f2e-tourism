@@ -1,5 +1,5 @@
 //引入你配置的axios
-import req from '@/http'
+import req from './http'
 
 //旅遊景點API
 export const getAllTourismData = (top = 30) => {
