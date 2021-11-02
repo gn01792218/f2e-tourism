@@ -2,5 +2,7 @@
     top:0;
     background-color: $backdrop-color;
     background-image: $loading-img;
+    color: beige;
+    font-size: $font-midium;
     @include bgImg-center-norepeat;
 }

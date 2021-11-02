@@ -386,6 +386,8 @@ img {
   top: 0;
   background-color: rgba(0, 0, 0, 0.836);
   background-image: url("../images/loading.svg");
+  color: beige;
+  font-size: 1.6rem;
   background-repeat: no-repeat;
   background-position: center center;
 }

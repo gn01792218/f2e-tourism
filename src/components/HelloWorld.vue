@@ -1,4 +1,6 @@
 <template>
+        基隆活動
+        {{active}}
         {{location}}
         <div class="d-md-flex flex-md-wrap">
            <Card class="me-md-5"
@@ -16,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent,ref } from 'vue';
-import {getTourismDataByCity} from '../api'
+import {getTourismDataByCity,getRestaurantByCity,getAllHotel,getHotelByCity,getAllActivity,getActivityByCity} from '../api'
 import Card from '../components/Card.vue'
 import Loading from './Loading.vue'
 
@@ -57,14 +59,36 @@ export default defineComponent({
     const isloading = ref(true)
     const data = ref<any>({})
     const location = ref({})
-    getTourismDataByCity(City.NewTaipei,50)?.then(async(r:any)=>{
-      data.value =await r.data
+    const eat = ref({})
+    const hotel = ref({})
+    const active = ref({})
+    // getAllHotel()?.then((r:any)=>{
+    //   hotel.value = r.data
+    //   console.log(r.data)
+    // })
+    // getAllActivity(12)?.then((r=>{
+    //   active.value = r.data
+    //   console.log(r.data)
+    // }))
+    getActivityByCity(City.LienchiangCounty)?.then((r:any)=>{
+      active.value = r.data
       console.log(r.data)
-      location.value =await r.data[0].Position
+    })
+    getRestaurantByCity(City.NantouCounty)?.then((r:any)=>{
+      eat.value = r.data
+    })
+    getHotelByCity(City.Keelung,10)?.then((r:any)=>{
+      hotel.value = r.data
+      console.log(r.data)
+    })
+    getTourismDataByCity(City.NewTaipei,10)?.then((r:any)=>{
+      data.value =r.data
+      console.log(r.data)
+      location.value =r.data[0].Position
       isloading.value = false
     })
     return{ 
-      data,location,isloading
+      data,location,isloading,eat,hotel,active
     }
   }
 });
