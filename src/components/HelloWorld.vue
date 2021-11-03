@@ -1,8 +1,8 @@
 <template>
-        
-        基隆活動
+      {{Scene}}
+        <!-- 基隆活動
         {{active}}
-        {{location}}
+        {{location}} -->
         <div class="d-md-flex flex-md-wrap">
            <Card class="me-md-5"
           v-for="(item,index) in data" :key="index"
@@ -14,39 +14,40 @@
         />
         </div>
        
-      <Loading v-if="isloading"/>
+      <!-- <Loading v-if="isloading"/> -->
 </template>
 
 <script lang="ts">
-import { defineComponent,ref } from 'vue';
+import { computed, defineComponent,ref, watch } from 'vue';
 import {getTourismDataByCity,getRestaurantByCity,getAllHotel,getHotelByCity,getAllActivity,getActivityByCity} from '../api'
 import Card from '../components/Card.vue'
 import Loading from './Loading.vue'
+import {useStore} from 'vuex'
 
-// enum City {
-//     Taipei ="Taipei",
-//     NewTaipei = "NewTaipei",
-//     Taoyuan = "Taoyuan",
-//     Taichung = "Taichung",
-//     Tainan = "Tainan",
-//     Kaohsiung = "Kaohsiung",
-//     Keelung = "Keelung",
-//     Hsinchu = "Hsinchu",
-//     HsinchuCounty = "HsinchuCounty",
-//     MiaoliCounty = "MiaoliCounty",
-//     ChanghuaCounty = "ChanghuaCounty",
-//     NantouCounty = "NantouCounty",
-//     YunlinCounty = "YunlinCounty",
-//     ChiayiCounty ="ChiayiCounty",
-//     Chiayi = "Chiayi",
-//     PingtungCounty = "PingtungCounty",
-//     YilanCounty = "YilanCounty",
-//     HualienCounty = "HualienCounty",
-//     TaitungCounty ="TaitungCounty",
-//     KinmenCounty ="KinmenCounty",
-//     PenghuCounty = "PenghuCounty",
-//     LienchiangCounty ="LienchiangCounty",
-// }
+enum City {
+    Taipei ="Taipei",
+    NewTaipei = "NewTaipei",
+    Taoyuan = "Taoyuan",
+    Taichung = "Taichung",
+    Tainan = "Tainan",
+    Kaohsiung = "Kaohsiung",
+    Keelung = "Keelung",
+    Hsinchu = "Hsinchu",
+    HsinchuCounty = "HsinchuCounty",
+    MiaoliCounty = "MiaoliCounty",
+    ChanghuaCounty = "ChanghuaCounty",
+    NantouCounty = "NantouCounty",
+    YunlinCounty = "YunlinCounty",
+    ChiayiCounty ="ChiayiCounty",
+    Chiayi = "Chiayi",
+    PingtungCounty = "PingtungCounty",
+    YilanCounty = "YilanCounty",
+    HualienCounty = "HualienCounty",
+    TaitungCounty ="TaitungCounty",
+    KinmenCounty ="KinmenCounty",
+    PenghuCounty = "PenghuCounty",
+    LienchiangCounty ="LienchiangCounty",
+}
 
 export default defineComponent({
   components:{
@@ -57,6 +58,17 @@ export default defineComponent({
   },
   setup(){
     //測試
+    const store = useStore()
+   
+    
+      store.commit('Scene/loadAllScene')
+    
+    const Scene = computed(()=>{
+      return store.state.Scene.allScene
+    })
+    watch(Scene,()=>{
+
+    })
     const isloading = ref(true)
     const data = ref<any>({})
     const location = ref({})
@@ -71,25 +83,25 @@ export default defineComponent({
     //   active.value = r.data
     //   console.log(r.data)
     // }))
-    getActivityByCity(City.LienchiangCounty)?.then((r:any)=>{
-      active.value = r.data
-      console.log(r.data)
-    })
-    getRestaurantByCity(City.NantouCounty)?.then((r:any)=>{
-      eat.value = r.data
-    })
-    getHotelByCity(City.Keelung,10)?.then((r:any)=>{
-      hotel.value = r.data
-      console.log(r.data)
-    })
-    getTourismDataByCity(City.NewTaipei,10)?.then((r:any)=>{
-      data.value =r.data
-      console.log(r.data)
-      location.value =r.data[0].Position
-      isloading.value = false
-    })
+    // getActivityByCity(City.LienchiangCounty)?.then((r:any)=>{
+    //   active.value = r.data
+    //   console.log(r.data)
+    // })
+    // getRestaurantByCity(City.NantouCounty)?.then((r:any)=>{
+    //   eat.value = r.data
+    // })
+    // getHotelByCity(City.Keelung,10)?.then((r:any)=>{
+    //   hotel.value = r.data
+    //   console.log(r.data)
+    // })
+    // getTourismDataByCity(City.NewTaipei,10)?.then((r:any)=>{
+    //   data.value =r.data
+    //   console.log(r.data)
+    //   location.value =r.data[0].Position
+    //   isloading.value = false
+    // })
     return{ 
-      data,location,isloading,eat,hotel,active
+      data,location,isloading,eat,hotel,active,Scene
     }
   }
 });

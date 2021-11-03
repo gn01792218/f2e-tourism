@@ -44,6 +44,22 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
+  props:{
+    imgSrc:{
+      type:String,
+      default:""
+    },
+    title:{
+      type:String,
+    },
+    description:{
+      type:String,
+    },
+    startTime:{
+      type:String,
+    },
+    
+  }
  
 });
 </script>
