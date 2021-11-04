@@ -59,12 +59,12 @@ export default defineComponent({
   setup(){
     //測試
     const store = useStore()
-   
-    
-      store.commit('Scene/loadAllScene')
-    
+    // store.commit('Scene/loadAllScene')
+    // store.commit('Hotel/loadAllHotel')
+    // store.commit('Food/loadAllFood')
+    store.commit('Activity/loadAllActivity')
     const Scene = computed(()=>{
-      return store.state.Scene.allScene
+      return store.state.Activity.allActivity
     })
     watch(Scene,()=>{
 

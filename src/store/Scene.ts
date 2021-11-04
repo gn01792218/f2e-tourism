@@ -1,4 +1,3 @@
-import store from '.';
 import {getAllTourismData,getTourismDataByCity} from '../api'
 export const state = {
     allScene:{},
@@ -7,7 +6,7 @@ export const state = {
   }
   
   export const mutations = {
-    loadAllScene(state:any) { //接收wbSocket的訊息
+    loadAllScene(state:any) { 
      if(JSON.stringify(state.allScene)== '{}'){
         console.log("執行")
         getAllTourismData()?.then(res=>{

@@ -1,18 +1,18 @@
+import {getAllHotel,getHotelByCity} from '../api'
 export const state = {
-    TableJoinRecall:{
-      table:{
-        betStatus:{},
-        streamingUrl:"",
-      }
-    },
+    allHotel:{}
   };
   export const actions = {}
   
   export const mutations = {
-    TableJoinRecall(state:any, payload:any) { //接收wbSocket的訊息
-      state.TableJoinRecall=payload
-      // console.log("vuex-tableInfo資料更新",state.TableJoinRecall)
-    },
+    loadAllHotel(state:any) { //接收wbSocket的訊息
+      if(JSON.stringify(state.allHotel)== '{}'){
+         console.log("執行旅宿")
+         getAllHotel()?.then(res=>{
+             state.allHotel = res.data
+         })
+      }
+     },
   };
   export const getters = {
    
