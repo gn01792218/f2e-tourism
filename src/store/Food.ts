@@ -1,6 +1,7 @@
 import {getAllRestaurant,getRestaurantByCity} from '../api'
 export const state = {
-    allFood:{}
+    allFood:{},
+    foodByCity:{},
   };
   export const actions = {}
   
@@ -13,6 +14,15 @@ export const state = {
         })
      }
     },
+    loadFoodByCity(state:any,cityName:City) {
+      if(!state.foodByCity[cityName]){
+        console.log("尋找城市旅宿",cityName)
+        getRestaurantByCity(cityName)?.then(res=>{
+          state.foodByCity[cityName] = res.data
+          console.log(state.foodByCity)
+        })
+      }
+    }
   };
   export const getters = {
    

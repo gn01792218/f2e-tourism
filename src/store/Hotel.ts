@@ -1,6 +1,7 @@
 import {getAllHotel,getHotelByCity} from '../api'
 export const state = {
-    allHotel:{}
+    allHotel:{},
+    hotelByCity:{},
   };
   export const actions = {}
   
@@ -13,6 +14,15 @@ export const state = {
          })
       }
      },
+     loadHotelByCity(state:any,cityName:City) {
+      if(!state.hotelByCity[cityName]){
+        console.log("尋找城市旅宿",cityName)
+        getHotelByCity(cityName)?.then(res=>{
+          state.hotelByCity[cityName] = res.data
+          console.log(state.hotelByCity)
+        })
+      }
+    }
   };
   export const getters = {
    

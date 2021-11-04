@@ -13,7 +13,8 @@
           :openTime="item.OpenTime"
         />
         </div>
-       
+        <button @click="getTinan">取得台南</button>
+        <button @click="getTaipai">取得台北</button>
       <!-- <Loading v-if="isloading"/> -->
 </template>
 
@@ -62,9 +63,22 @@ export default defineComponent({
     // store.commit('Scene/loadAllScene')
     // store.commit('Hotel/loadAllHotel')
     // store.commit('Food/loadAllFood')
-    store.commit('Activity/loadAllActivity')
+    // store.commit('Activity/loadAllActivity')
+    function getTinan (){
+      store.commit('Scene/loadSceneByCity',City.Tainan)
+      store.commit('Hotel/loadHotelByCity',City.Tainan)
+      store.commit('Food/loadFoodByCity',City.Tainan)
+      store.commit('Activity/loadActivityByCity',City.Tainan)
+    }
+    function getTaipai () {
+      store.commit('Scene/loadSceneByCity',City.Taipei)
+      store.commit('Hotel/loadHotelByCity',City.Taipei)
+      store.commit('Food/loadFoodByCity',City.Taipei)
+      store.commit('Activity/loadActivityByCity',City.Taipei)
+    }
+    
     const Scene = computed(()=>{
-      return store.state.Activity.allActivity
+      return store.state.Scene.sceneByCity
     })
     watch(Scene,()=>{
 
@@ -101,7 +115,10 @@ export default defineComponent({
     //   isloading.value = false
     // })
     return{ 
-      data,location,isloading,eat,hotel,active,Scene
+      data,location,isloading,eat,hotel,active,Scene,
+
+      //methods
+      getTinan,getTaipai
     }
   }
 });

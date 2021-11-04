@@ -1,6 +1,7 @@
 import {getAllActivity,getActivityByCity} from '../api'
 export const state = {
   allActivity:{},
+  activityByCity:{},
 };
   export const actions = {}
   
@@ -13,6 +14,15 @@ export const state = {
          })
       }
      },
+     loadActivityByCity(state:any,cityName:City) {
+      if(!state.activityByCity[cityName]){
+        console.log("尋找城市景點",cityName)
+        getActivityByCity(cityName)?.then(res=>{
+          state.activityByCity[cityName] = res.data
+          console.log(state.activityByCity)
+        })
+      }
+    }
   };
   export const getters = {
    
