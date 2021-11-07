@@ -1,4 +1,10 @@
 
+//基本排版
+@mixin left-right-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 //flex相關
 @mixin flex-wramp {
     display: flex;
@@ -14,6 +20,10 @@
     display: -webkit-box;
     -webkit-line-clamp: $lineClamp;
     -webkit-box-orient: vertical;
+}
+@mixin flex-justifyContent ($justifyMethods:center) {
+    display: flex;
+    justify-content: $justifyMethods;
 }
 
 //RWD

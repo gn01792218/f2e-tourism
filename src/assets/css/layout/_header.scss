@@ -1,0 +1,11 @@
+.header{
+    height:50vh;
+}
+.nav{
+    width: 97%;
+    top:0;
+    background-color: rgba(254, 224, 177, 0.5);
+    box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
+    @include left-right-center;
+    @include flex-justifyContent(space-around);
+}

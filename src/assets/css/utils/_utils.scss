@@ -3,3 +3,10 @@
 .flex{
     display: flex;
 }
+
+//line
+.decorateLine {
+    width:100%;
+    border:$decoration_color2 solid 5px;
+    margin-bottom: 20px;
+}

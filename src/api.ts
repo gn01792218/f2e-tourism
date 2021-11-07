@@ -10,8 +10,7 @@ const activityProperty = "$select=ID%2CName%2CDescription%2CParticpation%2CLocat
 export const getAllTourismData = (top = 200) => {
   return req('get',`/v2/Tourism/ScenicSpot?${sceneProperty}$top=${top}&$format=JSON`)
 }
-
-export const getTourismDataByCity = (city:City,top = 200) => {  //給預設的靜態頁面使用
+export const getTourismDataByCity = (city:City,top = 200) => {  
   return req('get',`/v2/Tourism/ScenicSpot/${city}?${sceneProperty}$top=${top}&$format=JSON`)
 }
 

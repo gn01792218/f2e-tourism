@@ -1,0 +1,8 @@
+.hotScene,.hotActivity,.hotFood,.hotHtel{
+    @include flex-wramp ;
+    margin-bottom: 10px;
+    p{
+        color:$decoration_color2;
+        margin: 0;
+    }
+}

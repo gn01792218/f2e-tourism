@@ -4,6 +4,12 @@
   display: flex;
 }
 
+.decorateLine {
+  width: 100%;
+  border: #5A6F49 solid 5px;
+  margin-bottom: 20px;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -348,7 +354,7 @@ template {
 }
 
 body {
-  background-color: beige;
+  background-color: #f9f1ec;
 }
 
 ul {
@@ -369,6 +375,46 @@ img {
 a {
   color: blue;
   text-decoration: underline;
+}
+
+.header {
+  height: 50vh;
+}
+
+.nav {
+  width: 97%;
+  top: 0;
+  background-color: rgba(254, 224, 177, 0.5);
+  -webkit-box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
+          box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.hotScene, .hotActivity, .hotFood, .hotHtel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.hotScene p, .hotActivity p, .hotFood p, .hotHtel p {
+  color: #5A6F49;
+  margin: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #926E56;
+  text-align: center;
 }
 
 .cardList {
@@ -422,6 +468,16 @@ a {
 
 .sceneCard-img img {
   height: 100%;
+}
+
+.sceneCard-img:hover {
+  -webkit-transform: translateX(5%);
+          transform: translateX(5%);
+}
+
+.sceneCard-content:hover {
+  -webkit-transform: translateX(-10%);
+          transform: translateX(-10%);
 }
 
 .sceneCard-content {

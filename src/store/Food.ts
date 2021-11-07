@@ -2,12 +2,22 @@ import {getAllRestaurant,getRestaurantByCity} from '../api'
 import  {City} from '@/types/enum';
 import store from '../store'
 export const state = {
+    hotFood:{},
     allFood:{},
     foodByCity:{},
   };
   export const actions = {}
   
   export const mutations = {
+    loadHotFood(state:any){
+      if(JSON.stringify(state.hotFood)== '{}'){
+        console.log("熱門餐飲")
+        getAllRestaurant(4)?.then(res=>{
+            state.hotFood = res.data
+            console.log('hotFood',state.hotFood)
+        })
+     }
+    },
     loadAllFood(state:any) { //接收wbSocket的訊息
       if(JSON.stringify(state.allFood)== '{}'){
         console.log("執行餐飲")

@@ -2,13 +2,23 @@ import {getAllTourismData,getTourismDataByCity} from '../api'
 import  {City} from '@/types/enum';
 import store from '../store'
 export const state = {
-    allScene:{},
+    hotScene:{}, //給首頁使用
+    allScene:{}, 
     sceneByCity:{},  //給預設的靜態頁面使用
   };
   export const actions = {
   }
   
   export const mutations = {
+    loadHotScene(state:any){
+      if(JSON.stringify(state.hotScene)== '{}'){
+        console.log("熱門景點")
+        getAllTourismData(4)?.then(res=>{
+            state.hotScene = res.data
+            console.log('hotScene',state.hotScene)
+        })
+     }
+    },
     loadAllScene(state:any) { 
      if(JSON.stringify(state.allScene)== '{}'){
         store.commit('isloading')

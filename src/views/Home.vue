@@ -1,24 +1,62 @@
 <template>
   <div class="home">
-    <Carousel />
-    <img alt="Vue logo" src="../assets/logo.png">
-    
-    <!-- <HelloWorld/> -->
+   <div class="hotScene">
+     <p>熱門景點</p>
+     <span class="decorateLine"></span>
+      <SceneCardItem 
+        v-for="(scene,index) in hotScene" :key="index"
+        :sceneData="scene"
+      />
+   </div>
+   <div class="hotActivity">
+     <p>熱門活動</p>
+     <span class="decorateLine"></span>
+     {{hotActivity}}
+   </div>
+   <div class="hotFood">
+     <p>熱門食物</p>
+     <span class="decorateLine"></span>
+     {{hotFood}}
+   </div>
+   <div class="hotHtel">
+     <p>熱門旅宿</p>
+     <span class="decorateLine"></span>
+     {{hotHotel}}
+   </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent} from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-import Carousel from '@/components/Carousel.vue'
+import { computed, defineComponent} from 'vue';
+import { useStore } from 'vuex';
+import SceneCardItem from '../components/SceneCardItem.vue'
 export default defineComponent({
   components: {
-    HelloWorld,Carousel,
+    SceneCardItem,
   },
   setup(){
-    //這裡只渲染前X筆 all的資料
+    //這裡就先發出請求ALL的資料
+    const store = useStore()
+    store.commit('Scene/loadHotScene')
+    store.commit('Hotel/loadHotHotel')
+    store.commit('Food/loadHotFood')
+    store.commit('Activity/loadHotActivity')
+    //data
+    const hotScene = computed(()=>{
+      return store.state.Scene.hotScene
+    })
+    const hotHotel = computed(()=>{
+      return store.state.Hotel.hotHotel
+    })
+    const hotFood = computed(()=>{
+      return store.state.Food.hotFood
+    })
+    const hotActivity = computed(()=>{
+      return store.state.Activity.hotActivity
+    })
     return {
-
+      //data
+      hotScene,hotHotel,hotFood,hotActivity,
     }
   }
 });

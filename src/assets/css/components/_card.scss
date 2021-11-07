@@ -3,18 +3,27 @@
     height:250px;
     align-items: center;
 }
+
 .sceneCard-img{
     height: 100%;
     img{
         height:100%;
     }
+    
+}
+.sceneCard-img:hover{
+    transform: translateX(5%);
+    // transform: translate3d(5%,0, 0);
+}
+.sceneCard-content:hover{
+    transform: translateX(-10%);
+    // transform: translate3d(-10%,0, 0);
 }
 .sceneCard-content{
     margin-left: -25%;
     height:95%;
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    
     h3{
         font-size: $font-midium-2;
         font-weight: bolder;
@@ -31,11 +40,11 @@
         @include textOverFlowHidden(1);
     }
     .bi-geo-alt-fill{
-        color:red;
+        color:$decoration_color_alert;
     }
     .btn{
         color: #926E56;
-        background-color: #7FB1BA;
+        background-color: $decoration_color;
         margin-left: auto;
         line-height: 1;
     }

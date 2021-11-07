@@ -1,5 +1,5 @@
 //Utils
-@import './utils/variables';
+@import './base/variables';
 @import './utils/mixin';
 @import './utils/utils';
 
@@ -8,6 +8,9 @@
 @import './base/basic';
 
 //layout
+@import './layout/header';
+@import './layout//home';
+@import './layout/footer';
 @import './layout/cityRecommend';
 
 //component
