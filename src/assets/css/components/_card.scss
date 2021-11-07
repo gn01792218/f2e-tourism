@@ -3,17 +3,17 @@
     height:250px;
     align-items: center;
 }
-
 .sceneCard-img{
     height: 100%;
+    overflow: hidden;
+    padding: 0;
     img{
         height:100%;
     }
-    
-}
-.sceneCard-img:hover{
-    transform: translateX(5%);
-    // transform: translate3d(5%,0, 0);
+    img:hover{
+        transform: scale(1.2);
+        transition: all 0.5 ease-in;
+    }
 }
 .sceneCard-content:hover{
     transform: translateX(-10%);
@@ -29,8 +29,6 @@
         font-weight: bolder;
         border-bottom: black 2px solid;
         padding-bottom: 10px;
-        // @include textOverFlowHidden(1);
-        
     }
     p{
         @include textOverFlowHidden(3);

@@ -400,6 +400,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-bottom: 10px;
@@ -464,15 +467,19 @@ a {
 
 .sceneCard-img {
   height: 100%;
+  overflow: hidden;
+  padding: 0;
 }
 
 .sceneCard-img img {
   height: 100%;
 }
 
-.sceneCard-img:hover {
-  -webkit-transform: translateX(5%);
-          transform: translateX(5%);
+.sceneCard-img img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.5 ease-in;
+  transition: all 0.5 ease-in;
 }
 
 .sceneCard-content:hover {

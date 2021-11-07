@@ -1,5 +1,6 @@
 .hotScene,.hotActivity,.hotFood,.hotHtel{
-    @include flex-wramp ;
+    @include flex-justifyContent(space-between);
+    flex-wrap: wrap;
     margin-bottom: 10px;
     p{
         color:$decoration_color2;

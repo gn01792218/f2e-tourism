@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <div class="test">
+      <img src="https://picsum.photos/id/1029/600/400" alt="">
+    </div>
    <div class="hotScene">
      <p>熱門景點</p>
      <span class="decorateLine"></span>
@@ -61,3 +64,16 @@ export default defineComponent({
   }
 });
 </script>
+<style scoped lang="scss">
+  .test{
+    width:100px;
+    height:100px;
+    border:2px solid blue;
+    overflow: hidden;
+    img:hover{
+      width:100%;
+      height:100%;
+      transform: scale(2);
+    }
+  }
+</style>
