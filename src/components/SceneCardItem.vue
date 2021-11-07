@@ -1,5 +1,6 @@
 <template>
-  <div class="sceneCard row mb-3">
+<!-- 沒有填縣市的將會被自動排除!!!!! -->
+  <div class="sceneCard row mb-3" v-if="city">
     <div class="sceneCard-img col-8">
       <img class="w-100" :src=imgSrc :alt=imgAlt>
     </div>

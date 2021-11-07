@@ -19,6 +19,7 @@
 <script lang="ts">
 import {computed, defineComponent, onMounted, watch} from 'vue'
 import SceneCardItem from '@/components/SceneCardItem.vue'
+import {useRoute} from 'vue-router'
 import {useStore} from 'vuex'
 import {CardCategory,City} from '../types/enum'
 export default defineComponent({
@@ -26,12 +27,13 @@ export default defineComponent({
         SceneCardItem,
     },
     setup(){
+        const route = useRoute()
         const store = useStore()
         const city = computed(()=>{  //字串
             return store.state.currentCity
         })
         const cardCategory = computed(()=>{  //回傳Enum的index
-            return store.state.currentCategory
+            return route.params.category
         })
         const filterData = computed(()=>{
             switch(cardCategory.value){

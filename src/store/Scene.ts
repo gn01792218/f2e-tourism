@@ -11,11 +11,11 @@ export const state = {
   export const mutations = {
     loadAllScene(state:any) { 
      if(JSON.stringify(state.allScene)== '{}'){
-        console.log("執行")
         store.commit('isloading')
         getAllTourismData()?.then(res=>{
             state.allScene = res.data
             store.commit('loaded')
+            console.log('all',state.allScene)
         })
      }
     },
@@ -23,11 +23,10 @@ export const state = {
       //sceneByCity中沒有要篩選的cityName的話，才進行請求
       if(!state.sceneByCity[cityName]){
         store.commit('isloading')
-        console.log("尋找城市景點",cityName)
         getTourismDataByCity(cityName)?.then(res=>{
           state.sceneByCity[cityName] = res.data
           store.commit('loaded')
-          console.log(state.sceneByCity)
+          console.log('city',state.sceneByCity)
         })
       }
     }
