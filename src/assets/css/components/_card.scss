@@ -1,12 +1,45 @@
-.card{
-    max-width: 540px;
-    p{
-        @include textOverFlowHidden(2)
+.sceneCard{
+    width:45%;
+    height:250px;
+    align-items: center;
+}
+.sceneCard-img{
+    height: 100%;
+    img{
+        height:100%;
     }
 }
-.card-title{
-    font-size: $font-midium;
-}
-.card-text{
-    font-size: $font-small;
-}
+.sceneCard-content{
+    margin-left: -25%;
+    height:95%;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    
+    h3{
+        font-size: $font-midium-2;
+        font-weight: bolder;
+        border-bottom: black 2px solid;
+        padding-bottom: 10px;
+        // @include textOverFlowHidden(1);
+        
+    }
+    p{
+        @include textOverFlowHidden(3);
+        margin: 5px;
+    }
+    i{
+        @include textOverFlowHidden(1);
+    }
+    .bi-geo-alt-fill{
+        color:red;
+    }
+    .btn{
+        color: #926E56;
+        background-color: #7FB1BA;
+        margin-left: auto;
+        line-height: 1;
+    }
+    .btn:hover{
+        color:white;
+    }
+  }

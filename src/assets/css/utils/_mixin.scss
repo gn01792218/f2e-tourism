@@ -1,4 +1,9 @@
 
+//flex相關
+@mixin flex-wramp {
+    display: flex;
+    flex-wrap: wrap;
+}
 @mixin bgImg-center-norepeat {
     background-repeat: no-repeat;
     background-position: center center;

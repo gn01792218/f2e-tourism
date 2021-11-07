@@ -4,7 +4,7 @@
         {{active}}
         {{location}} -->
         <div class="d-md-flex flex-md-wrap">
-           <Card class="me-md-5"
+           <SceneCardItem class="me-md-5"
           v-for="(item,index) in data" :key="index"
           :imgSrc="item.Picture?.PictureUrl1"
           :imgAlt="item.picture?.PictureDescription1"
@@ -15,50 +15,30 @@
         </div>
         <button @click="getTinan">取得台南</button>
         <button @click="getTaipai">取得台北</button>
-      <!-- <Loading v-if="isloading"/> -->
+      <Loading v-if="isloading"/>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent,ref, watch } from 'vue';
 import {getTourismDataByCity,getRestaurantByCity,getAllHotel,getHotelByCity,getAllActivity,getActivityByCity} from '../api'
-import Card from '../components/Card.vue'
+import SceneCardItem from '@/components/SceneCardItem.vue'
 import Loading from './Loading.vue'
 import {useStore} from 'vuex'
-
-enum City {
-    Taipei ="Taipei",
-    NewTaipei = "NewTaipei",
-    Taoyuan = "Taoyuan",
-    Taichung = "Taichung",
-    Tainan = "Tainan",
-    Kaohsiung = "Kaohsiung",
-    Keelung = "Keelung",
-    Hsinchu = "Hsinchu",
-    HsinchuCounty = "HsinchuCounty",
-    MiaoliCounty = "MiaoliCounty",
-    ChanghuaCounty = "ChanghuaCounty",
-    NantouCounty = "NantouCounty",
-    YunlinCounty = "YunlinCounty",
-    ChiayiCounty ="ChiayiCounty",
-    Chiayi = "Chiayi",
-    PingtungCounty = "PingtungCounty",
-    YilanCounty = "YilanCounty",
-    HualienCounty = "HualienCounty",
-    TaitungCounty ="TaitungCounty",
-    KinmenCounty ="KinmenCounty",
-    PenghuCounty = "PenghuCounty",
-    LienchiangCounty ="LienchiangCounty",
-}
-
+import  {City,CardCategory}  from '@/types/enum';
+import {SceneCard} from '@/types/CardFactory'
 export default defineComponent({
   components:{
-    Loading,Card
+    Loading,SceneCardItem
   },
   props: {
     msg: String,
   },
   setup(){
-    //測試
+    function getSceneList () {
+      store.commit('Scene/loadAllScene')
+      
+    }
+    //vuex的使用測試
     const store = useStore()
     // store.commit('Scene/loadAllScene')
     // store.commit('Hotel/loadAllHotel')
@@ -89,10 +69,10 @@ export default defineComponent({
     const eat = ref({})
     const hotel = ref({})
     const active = ref({})
-    // getAllHotel()?.then((r:any)=>{
-    //   hotel.value = r.data
-    //   console.log(r.data)
-    // })
+    getAllHotel()?.then((r:any)=>{
+      hotel.value = r.data
+      console.log(r.data)
+    })
     // getAllActivity(12)?.then((r=>{
     //   active.value = r.data
     //   console.log(r.data)

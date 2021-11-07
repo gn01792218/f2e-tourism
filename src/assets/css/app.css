@@ -366,6 +366,22 @@ img {
           box-sizing: border-box;
 }
 
+a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.cardList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .header {
   font-size: 2rem;
 }
@@ -392,24 +408,67 @@ img {
   background-position: center center;
 }
 
-.card {
-  max-width: 540px;
+.sceneCard {
+  width: 45%;
+  height: 250px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.card p {
+.sceneCard-img {
+  height: 100%;
+}
+
+.sceneCard-img img {
+  height: 100%;
+}
+
+.sceneCard-content {
+  margin-left: -25%;
+  height: 95%;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sceneCard-content h3 {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  border-bottom: black 2px solid;
+  padding-bottom: 10px;
+}
+
+.sceneCard-content p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: 5px;
+}
+
+.sceneCard-content i {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
-.card-title {
-  font-size: 1.6rem;
+.sceneCard-content .bi-geo-alt-fill {
+  color: red;
 }
 
-.card-text {
-  font-size: 0.8rem;
+.sceneCard-content .btn {
+  color: #926E56;
+  background-color: #7FB1BA;
+  margin-left: auto;
+  line-height: 1;
+}
+
+.sceneCard-content .btn:hover {
+  color: white;
 }
 
 .bi-arrow-bar-right {
