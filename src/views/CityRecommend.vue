@@ -1,30 +1,45 @@
 <template>
-    <h1>{{city}}{{cardCategory}}推薦</h1>
+    <h1>{{city}}{{category}}推薦</h1>
     <!-- 1.預設展示所有城市相關推薦景點前200名 -->
-    <!-- {{filterData}} -->
-    <div class="cardList">
-        <SceneCardItem 
-        v-for="(card,index) in filterData" :key="index"
-        :imgSrc="card.Picture.PictureUrl1"
-        :title="card.Name"
-        :imgAlt="card.Picture.PictureDescription1"
-        :description="card.DescriptionDetail"
-        :openTime="card.OpenTime"
-        :city="card.City"
-        />
-    </div>
-    
+        <div class="cardList row" v-if="category=='Scene'">
+            <SceneCardItem 
+                v-for="(scene,index) in filterData" :key="index"
+                :sceneData="scene"
+            />
+        </div>
+        <!-- {{filterData}} -->
+        <div class="cardList" v-if="category=='Hotel'">
+            <HotelCardItem
+                v-for="(hotel,index) in filterData" :key="index"
+                :hotelData="hotel"
+            />
+        </div>
+        <div class="cardList" v-if="category=='Activity'">
+            <ActivityCardItem
+                v-for="(active,index) in filterData" :key="index"
+                :hotelData="active"
+            />
+        </div>
+        <div class="cardList" v-if="category=='Food'">
+            <FoodCardItem
+                v-for="(food,index) in filterData" :key="index"
+                :hotelData="food"
+            />
+        </div>
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onMounted, watch} from 'vue'
+import {computed, defineComponent,onMounted,watch} from 'vue'
 import SceneCardItem from '@/components/SceneCardItem.vue'
+import HotelCardItem from '@/components/HotelCardItem.vue'
+import ActivityCardItem from '@/components/ActivityCardItem.vue'
+import FoodCardItem from '@/components/FoodCardItem.vue'
 import {useRoute} from 'vue-router'
 import {useStore} from 'vuex'
 import {CardCategory,City} from '../types/enum'
 export default defineComponent({
     components:{
-        SceneCardItem,
+        SceneCardItem,HotelCardItem,ActivityCardItem,FoodCardItem,
     },
     setup(){
         const route = useRoute()
@@ -32,52 +47,57 @@ export default defineComponent({
         const city = computed(()=>{  //字串
             return store.state.currentCity
         })
-        const cardCategory = computed(()=>{  //回傳Enum的index
+        const category = computed(()=>{
             return route.params.category
         })
         const filterData = computed(()=>{
-            switch(cardCategory.value){
+            switch(category.value){
                 case CardCategory[0]:
                     if(city.value!==City[0]){ //有點選縣市的話
-                        return getCurrentCityData(store.state.Hotel.hotelByCity)
+                        return  getCurrentCityData(store.state.Hotel.hotelByCity)
                     }else{
+                        console.log("預設的旅宿資料",store.state.Hotel.allHotel)
                         return store.state.Hotel.allHotel
                     }
                 case CardCategory[1]:
                      if(city.value!==City[0]){
-                          return getCurrentCityData(store.state.Activity.activityByCity)
+                          return  getCurrentCityData(store.state.Activity.activityByCity)
                      }else{
+                         console.log("預設的活動資料",store.state.Activity.allActivity)
                           return store.state.Activity.allActivity  
                      }
                 case CardCategory[2]:
                     if(city.value!==City[0]){
                           return getCurrentCityData(store.state.Scene.sceneByCity)
                      }else{
+                         console.log("預設的場警資料",store.state.Scene.allScene)
                           return store.state.Scene.allScene  
                      }
                 case CardCategory[3]:
                     if(city.value!==City[0]){
                           return getCurrentCityData(store.state.Food.foodByCity)
                      }else{
+                         console.log("預設的餐廳資料",store.state.Food.allFood)
                           return store.state.Food.allFood  
                      }
-                    
             }
         })
         watch(city,()=>{
             //請求縣市資料
             if(city.value==City[0]){
-                store.commit(`${cardCategory.value}/loadAll${cardCategory.value}`)
+                store.commit(`${category.value}/loadAll${category.value}`)
             }else{
-                store.commit(`${cardCategory.value}/load${cardCategory.value}ByCity`,city.value)
+                store.commit(`${category.value}/load${category.value}ByCity`,city.value)
             }
         })
-        //取得靜態所有景點資料
-        //之後考慮只渲染top前100
-        onMounted(()=>{
-            getdefaultData()  //一開始就請求資料
+        watch(category,()=>{ //每次進入時，都會先取得靜態所有景點資料
+            getdefaultData()
         })
-        function getCurrentCityData (filterData:any) {
+        onMounted(()=>{
+            getdefaultData() //先求一次資料
+        })
+        function getCurrentCityData (filterData:any) :any {
+            console.log(filterData)
             let temp = filterData
             //最後要返回當前城市
             temp = temp[city.value]
@@ -86,28 +106,13 @@ export default defineComponent({
         }
         function getdefaultData () {
             //要根據不同種類做篩選
-            store.commit(`${cardCategory.value}/loadAll${cardCategory.value}`)
+            // console.log(`${category.value}/getAll${category.value}`==="Hotel/getAllHotel")
+            // store.dispatch(`${category.value}/getAll${category.value}`)
+            store.commit(`${category.value}/loadAll${category.value}`)
         }
-        // loadDefaultItem(cardCategory.value)
-        // function loadDefaultItem (category:string) {  //載入推薦的行程
-        //     switch(category){
-        //         case CardCategory[0]:
-        //             store.commit('Scene/loadSceneByCity',city.value)
-        //             break
-        //         case CardCategory[1]:
-        //             store.commit('Hotel/loadHotelByCity',city.value)
-        //             break
-        //         case CardCategory[2]:
-        //             store.commit('Food/loadFoodByCity',city.value)
-        //             break
-        //         case CardCategory[3]:
-        //             store.commit('Activity/loadActivityByCity',city.value)
-        //             break
-        //     }
-        // }  
         return{
             //data
-            city,cardCategory,filterData,
+            city,category,filterData,
         }
     }
 })

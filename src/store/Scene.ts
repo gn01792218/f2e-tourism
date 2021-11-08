@@ -7,18 +7,30 @@ export const state = {
     sceneByCity:{},  //給預設的靜態頁面使用
   };
   export const actions = {
+    // getAllScene(context:any){
+    //   if(JSON.stringify(state.hotScene)== '{}'){
+    //     store.commit('isloading')
+    //     getAllTourismData()?.then(res=>{
+    //     context.commit('loadAllScene',res.data)
+    //     store.commit('loaded')
+    //   })
+    //   }
+    // }
   }
   
   export const mutations = {
     loadHotScene(state:any){
       if(JSON.stringify(state.hotScene)== '{}'){
-        console.log("熱門景點")
+        // console.log("熱門景點")
         getAllTourismData(4)?.then(res=>{
             state.hotScene = res.data
-            console.log('hotScene',state.hotScene)
+            // console.log('hotScene',state.hotScene)
         })
      }
     },
+    // loadAllScene(state:any,payload:any) { 
+    //   state.allScene = payload
+    // },
     loadAllScene(state:any) { 
      if(JSON.stringify(state.allScene)== '{}'){
         store.commit('isloading')

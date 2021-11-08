@@ -11,16 +11,15 @@ export const state = {
   export const mutations = {
     loadHotActivity(state:any){
       if(JSON.stringify(state.hotActivity)== '{}'){
-        console.log("熱門活動")
+        // console.log("熱門活動")
         getAllActivity(4)?.then(res=>{
             state.hotActivity = res.data
-            console.log('hotActivity',state.hotActivity)
+            // console.log('hotActivity',state.hotActivity)
         })
      }
     },
     loadAllActivity(state:any) { //接收wbSocket的訊息
       if(JSON.stringify(state.allActivity)== '{}'){
-         console.log("執行活動")
          store.commit('isloading')
          getAllActivity()?.then(res=>{
              state.allActivity = res.data

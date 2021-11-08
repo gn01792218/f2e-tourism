@@ -6,25 +6,38 @@ export const state = {
     allHotel:{},
     hotelByCity:{},
   };
-  export const actions = {}
+  export const actions = {
+    // getAllHotel(context:any) {
+    //   if(JSON.stringify(state.allHotel)== '{}'){ //假如沒有資料
+    //     store.commit('isloading')
+    //     getAllHotel()?.then(res=>{
+    //       context.commit('loadAllHotel',res.data)
+    //       store.commit('loaded')
+    //     })
+    //   }
+    // }
+  }
   
   export const mutations = {
     loadHotHotel(state:any){
       if(JSON.stringify(state.hotHotel)== '{}'){
-        console.log("熱門旅宿")
+        // console.log("熱門旅宿")
         getAllHotel(2)?.then(res=>{
             state.hotHotel = res.data
-            console.log('hotHotel',state.hotHotel)
+            // console.log('hotHotel',state.hotHotel)
         })
      }
     },
-    loadAllHotel(state:any) { //接收wbSocket的訊息
+    // loadAllHotel(state:any,paload:any) { 
+    //   state.allHotel = paload
+    //  },
+     loadAllHotel(state:any) { 
       if(JSON.stringify(state.allHotel)== '{}'){
-         console.log("執行旅宿")
          store.commit('isloading')
          getAllHotel()?.then(res=>{
              state.allHotel = res.data
              store.commit('loaded')
+             console.log(state.allHotel)
          })
       }
      },

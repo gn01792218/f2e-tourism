@@ -482,11 +482,6 @@ a {
   transition: all 0.5 ease-in;
 }
 
-.sceneCard-content:hover {
-  -webkit-transform: translateX(-10%);
-          transform: translateX(-10%);
-}
-
 .sceneCard-content {
   margin-left: -25%;
   height: 95%;
@@ -532,6 +527,65 @@ a {
 
 .sceneCard-content .btn:hover {
   color: white;
+}
+
+.hotelCard {
+  width: 45%;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.hotelCard-img {
+  border: 1px blanchedalmond solid;
+  height: 100%;
+  padding: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
+}
+
+.hotelCard-img img {
+  height: 100%;
+}
+
+.hotelCard-content .bi-telephone-forward-fill {
+  color: blueviolet;
+  margin-right: 5px;
+}
+
+.hotelName {
+  border-bottom: 1px solid black;
+}
+
+.phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FBE9CF;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 80%;
+  height: 20%;
+  font-size: 0.8rem;
+  font-weight: bolder;
+}
+
+.phone:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .bi-arrow-bar-right {

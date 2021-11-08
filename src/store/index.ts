@@ -19,11 +19,9 @@ export default createStore({
     },
     switchCategory(state:any,CardCategory:CardCategory){
       state.currentCategory = CardCategory
-      console.log("現在的標籤是"+state.currentCategory)
     },
     switchCity(state:any,city=City.Taiwan){
       state.currentCity = city
-      console.log("現在縣市是"+state.currentCity)
     }
   },
   actions: {
