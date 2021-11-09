@@ -1,4 +1,4 @@
-import {getAllRestaurant,getRestaurantByCity} from '../api'
+import {getAllRestaurant,getFoodByCity} from '../api'
 import  {City} from '@/types/enum';
 import store from '../store'
 export const state = {
@@ -47,7 +47,7 @@ export const state = {
       if(!state.foodByCity[cityName]){
         store.commit('isloading')
         console.log("尋找城市餐飲",cityName)
-        getRestaurantByCity(cityName)?.then(res=>{
+        getFoodByCity(cityName)?.then(res=>{
           state.foodByCity[cityName] = res.data
           store.commit('loaded')
           console.log(state.foodByCity)

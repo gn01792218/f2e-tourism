@@ -30,17 +30,13 @@
 import { computed, defineComponent, onMounted} from 'vue';
 import { useStore } from 'vuex';
 import SceneCardItem from '../components/SceneCardItem.vue'
-import gsap from 'gsap'
 export default defineComponent({
   components: {
     SceneCardItem,
   },
   setup(){
-    onMounted(()=>{  //測試gsap效果
-    //   gsap.to('.hotFood',{
-    //   duration:1,
-    //   y:-1000,
-    // })
+    onMounted(()=>{  
+
     
     })
     //這裡就先發出請求ALL的資料

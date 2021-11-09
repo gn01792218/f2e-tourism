@@ -10,16 +10,27 @@ const activityProperty = "$select=ID%2CName%2CDescription%2CParticpation%2CLocat
 export const getAllTourismData = (top = 200) => {
   return req('get',`/v2/Tourism/ScenicSpot?${sceneProperty}$top=${top}&$format=JSON`)
 }
-export const getTourismDataByCity = (city:City,top = 200) => {  
+export const getSceneByCity = (city:City,top = 200) => {  
   return req('get',`/v2/Tourism/ScenicSpot/${city}?${sceneProperty}$top=${top}&$format=JSON`)
 }
-
+export const getRandomSceneByCity = (city:string,top = 300) => {  
+  return req('get',`/v2/Tourism/ScenicSpot/${city}?${sceneProperty}$top=${top}&$format=JSON`)
+}
+export const getSceneNearby = (lat:number,lon:number,distance:number) => {
+  return req('get',`/v2/Tourism/ScenicSpot?$spatialFilter=nearby(${lat}%2C${lon}%2C${distance})&$format=JSON`)
+}
 //餐飲API
 export const getAllRestaurant = (top = 200) => {
   return req('get',`/v2/Tourism/Restaurant?${foodProperty}$top=${top}&$format=JSON`)
 }
-export const getRestaurantByCity = (city:City,top = 200) => {
+export const getFoodByCity = (city:City,top = 200) => {
   return req('get',`/v2/Tourism/Restaurant/${city}?${foodProperty}$top=${top}&$format=JSON`)
+}
+export const getRandomFoodByCity = (city:string,top = 200) => {
+  return req('get',`/v2/Tourism/Restaurant/${city}?${foodProperty}$top=${top}&$format=JSON`)
+}
+export const getFoodNearby = (lat:number,lon:number,distance:number) => {
+  return req('get',`/v2/Tourism/Restaurant?$spatialFilter=nearby(${lat}%2C${lon}%2C${distance})&$format=JSON`)
 }
 
 //旅宿
@@ -29,11 +40,22 @@ export const getAllHotel = (top = 200) => {
 export const getHotelByCity = (city:City,top = 200) => {
   return req('get',`/v2/Tourism/Hotel/${city}?${hotelProperty}$top=${top}&$format=JSON`)
 }
-
+export const getRandomHotelByCity = (city:string,top =300) =>{
+  return req('get',`/v2/Tourism/Hotel/${city}?${hotelProperty}$top=${top}&$format=JSON`)
+}
+export const getHotelNearby = (lat:number,lon:number,distance:number) => {
+  return req('get',`/v2/Tourism/Hotel?$spatialFilter=nearby(${lat}%2C${lon}%2C${distance})&$format=JSON`)
+}
 //活動
 export const getAllActivity = (top = 200) => {
   return req('get',`/v2/Tourism/Activity?${activityProperty}$top=${top}&$format=JSON`)
 }
 export const getActivityByCity = (city:City,top = 200) => {
   return req('get',`/v2/Tourism/Activity/${city}?${activityProperty}$top=${top}&$format=JSON`)
+}
+export const getRandomActivityByCity = (city:string,top = 300) => {
+  return req('get',`/v2/Tourism/Activity/${city}?${activityProperty}$top=${top}&$format=JSON`)
+}
+export const getActivityNearby = (lat:number,lon:number,distance:number) => {
+  return req('get',`/v2/Tourism/Activity?$spatialFilter=nearby(${lat}%2C${lon}%2C${distance})&$format=JSON`)
 }

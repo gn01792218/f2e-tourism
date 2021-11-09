@@ -1,4 +1,4 @@
-import {getAllTourismData,getTourismDataByCity} from '../api'
+import {getAllTourismData,getSceneByCity} from '../api'
 import  {City} from '@/types/enum';
 import store from '../store'
 export const state = {
@@ -48,7 +48,7 @@ export const state = {
       //sceneByCity中沒有要篩選的cityName的話，才進行請求
       if(!state.sceneByCity[cityName]){
         store.commit('isloading')
-        getTourismDataByCity(cityName)?.then(res=>{
+        getSceneByCity(cityName)?.then(res=>{
           state.sceneByCity[cityName] = res.data
           store.commit('loaded')
           console.log('city',state.sceneByCity)
