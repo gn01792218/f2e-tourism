@@ -378,23 +378,24 @@ a {
   text-decoration: underline;
 }
 
-.header {
-  height: 50vh;
-}
-
 .nav {
-  width: 97%;
-  top: 0;
+  width: 5%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
   background-color: rgba(254, 224, 177, 0.5);
   -webkit-box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
           box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
-  margin-left: auto;
-  margin-right: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .hotScene, .hotActivity, .hotFood, .hotHtel {

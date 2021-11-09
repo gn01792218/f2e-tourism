@@ -29,9 +29,9 @@ export default defineComponent({
         const cityChinesName =ref("")
         const city = ref("")
         onMounted(()=>{
-            test()
+            mapInit()
         })
-        async function test () {
+        async function mapInit () {
         const map = document.querySelector('#map') as HTMLElement
         const width = Number(map?.offsetWidth.toFixed())
         const height = Number(map?.offsetHeight.toFixed())
@@ -57,11 +57,11 @@ export default defineComponent({
             .on('click',(d:any) => {
                 cityChinesName.value= d.properties.COUNTYNAME.split(" ")[0]; // 換中文名
                 city.value= d.properties.COUNTYENG.split(" ")[0]; // 換英文名
-                store.commit('switchCity',city.value)
+                store.commit('switchCity',city.value)  //更換當下選擇的縣市
                 if(document.querySelector('.active')){
                     document.querySelector('.active')?.classList.remove('active')
                 }
-                document.getElementById(`city${d.properties.COUNTYCODE}`)?.classList.add('active')
+                 document.getElementById(`city${d.properties.COUNTYCODE}`)?.classList.add('active')
             })
             .on('mouseover',(d:any)=>{
                 document.getElementById(`city${d.properties.COUNTYCODE}`)?.classList.add('hover')

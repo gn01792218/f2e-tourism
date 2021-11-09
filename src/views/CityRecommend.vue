@@ -44,7 +44,7 @@ export default defineComponent({
     setup(){
         const route = useRoute()
         const store = useStore()
-        const city = computed(()=>{  //字串
+        const city = computed(()=>{  //vuex中的當前縣市
             return store.state.currentCity
         })
         const category = computed(()=>{
@@ -84,21 +84,24 @@ export default defineComponent({
         })
         watch(city,()=>{
             //請求縣市資料
-            if(city.value==City[0]){
-                store.commit(`${category.value}/loadAll${category.value}`)
-            }else{
-                store.commit(`${category.value}/load${category.value}ByCity`,city.value)
-            }
+            getCurrentCityDefaultData()
         })
         watch(category,()=>{ //每次進入時，都會先取得靜態所有景點資料
-        console.log("切換標籤",category.value)
+            console.log("切換標籤",category.value)
             getdefaultData()
         })
         onMounted(()=>{
             console.log("初始化請求資料")
             getdefaultData() //先求一次資料
         })
-        function getCurrentCityData (filterData:any) :any {
+        function getCurrentCityDefaultData () {
+            if(city.value==City[0]){
+                store.commit(`${category.value}/loadAll${category.value}`)
+            }else{
+                store.commit(`${category.value}/load${category.value}ByCity`,city.value)
+            }
+        }
+        function getCurrentCityData (filterData:any) :any {  //請求當前縣市的所有資料
             console.log(filterData)
             let temp = filterData
             //最後要返回當前城市
@@ -106,12 +109,10 @@ export default defineComponent({
             console.log(temp)
             return temp
         }
-        function getdefaultData () {
+        function getdefaultData () { //請求各種類的"全臺"所有資料
             //要根據不同種類做篩選
-            // console.log(`${category.value}/getAll${category.value}`==="Hotel/getAllHotel")
             console.log("執行vuex請求資料")
             store.dispatch(`${category.value}/getAll${category.value}`)
-            // store.commit(`${category.value}/loadAll${category.value}`)
         }
         return{
             //data

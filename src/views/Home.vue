@@ -13,7 +13,7 @@
      <span class="decorateLine"></span>
      {{hotActivity}}
    </div>
-   <div class="hotFood">
+   <div  class="hotFood">
      <p>熱門食物</p>
      <span class="decorateLine"></span>
      {{hotFood}}
@@ -27,14 +27,22 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent} from 'vue';
+import { computed, defineComponent, onMounted} from 'vue';
 import { useStore } from 'vuex';
 import SceneCardItem from '../components/SceneCardItem.vue'
+import gsap from 'gsap'
 export default defineComponent({
   components: {
     SceneCardItem,
   },
   setup(){
+    onMounted(()=>{  //測試gsap效果
+    //   gsap.to('.hotFood',{
+    //   duration:1,
+    //   y:-1000,
+    // })
+    
+    })
     //這裡就先發出請求ALL的資料
     const store = useStore()
     store.commit('Scene/loadHotScene')
