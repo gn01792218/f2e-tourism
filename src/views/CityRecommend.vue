@@ -17,13 +17,13 @@
         <div class="cardList" v-if="category=='Activity'">
             <ActivityCardItem
                 v-for="(active,index) in filterData" :key="index"
-                :hotelData="active"
+                :activityData="active"
             />
         </div>
         <div class="cardList" v-if="category=='Food'">
             <FoodCardItem
                 v-for="(food,index) in filterData" :key="index"
-                :hotelData="food"
+                :foodyData="food"
             />
         </div>
 </template>
