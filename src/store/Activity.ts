@@ -6,7 +6,19 @@ export const state = {
   allActivity:{},
   activityByCity:{},
 };
-  export const actions = {}
+  export const actions = {
+    getAllActivity(context:any){
+      console.log("判斷是否請求")
+      if(JSON.stringify(state.allActivity)== '{}'){
+        store.commit('isloading')
+        getAllActivity()?.then(res=>{
+        console.log("1.請求資料")
+        context.commit('loadAllActivity',res.data)
+        store.commit('loaded')
+      })
+      }
+    }
+  }
   
   export const mutations = {
     loadHotActivity(state:any){
@@ -18,14 +30,18 @@ export const state = {
         })
      }
     },
-    loadAllActivity(state:any) { //接收wbSocket的訊息
-      if(JSON.stringify(state.allActivity)== '{}'){
-         store.commit('isloading')
-         getAllActivity()?.then(res=>{
-             state.allActivity = res.data
-             store.commit('loaded')
-         })
-      }
+    // loadAllActivity(state:any) {
+    //   if(JSON.stringify(state.allActivity)== '{}'){
+    //      store.commit('isloading')
+    //      getAllActivity()?.then(res=>{
+    //          state.allActivity = res.data
+    //          store.commit('loaded')
+    //      })
+    //   }
+    //  },
+     loadAllActivity(state:any,payload:any) {
+       console.log("2.裝資料")
+      state.allActivity = payload
      },
      loadActivityByCity(state:any,cityName:City) {
       if(!state.activityByCity[cityName]){

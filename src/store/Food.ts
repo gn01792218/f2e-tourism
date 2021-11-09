@@ -6,7 +6,19 @@ export const state = {
     allFood:{},
     foodByCity:{},
   };
-  export const actions = {}
+  export const actions = {
+    getAllFood(context:any){
+      console.log("判斷是否請求")
+      if(JSON.stringify(state.allFood)== '{}'){
+        store.commit('isloading')
+        getAllRestaurant()?.then(res=>{
+        console.log("1.請求資料")
+        context.commit('loadAllFood',res.data)
+        store.commit('loaded')
+      })
+      }
+    }
+  }
   
   export const mutations = {
     loadHotFood(state:any){
@@ -18,14 +30,18 @@ export const state = {
         })
      }
     },
-    loadAllFood(state:any) { //接收wbSocket的訊息
-      if(JSON.stringify(state.allFood)== '{}'){
-        store.commit('isloading')
-        getAllRestaurant()?.then(res=>{
-            state.allFood = res.data
-            store.commit('loaded')
-        })
-     }
+    // loadAllFood(state:any) { 
+    //   if(JSON.stringify(state.allFood)== '{}'){
+    //     store.commit('isloading')
+    //     getAllRestaurant()?.then(res=>{
+    //         state.allFood = res.data
+    //         store.commit('loaded')
+    //     })
+    //  }
+    // },
+    loadAllFood(state:any,payload:any) { 
+      console.log("2.裝資料")
+      state.allFood = payload
     },
     loadFoodByCity(state:any,cityName:City) {
       if(!state.foodByCity[cityName]){

@@ -354,7 +354,8 @@ template {
 }
 
 body {
-  background-color: #f9f1ec;
+  background-image: url("../images/bg.jpg");
+  background-repeat: repeat;
 }
 
 ul {

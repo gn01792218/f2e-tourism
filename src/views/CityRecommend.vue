@@ -56,28 +56,28 @@ export default defineComponent({
                     if(city.value!==City[0]){ //有點選縣市的話
                         return  getCurrentCityData(store.state.Hotel.hotelByCity)
                     }else{
-                        console.log("預設的旅宿資料",store.state.Hotel.allHotel)
+                        console.log("3.下載旅宿預設資料",store.state.Hotel.allHotel)
                         return store.state.Hotel.allHotel
                     }
                 case CardCategory[1]:
                      if(city.value!==City[0]){
                           return  getCurrentCityData(store.state.Activity.activityByCity)
                      }else{
-                         console.log("預設的活動資料",store.state.Activity.allActivity)
+                         console.log("3.下載旅宿預設資料",store.state.Activity.allActivity)
                           return store.state.Activity.allActivity  
                      }
                 case CardCategory[2]:
                     if(city.value!==City[0]){
                           return getCurrentCityData(store.state.Scene.sceneByCity)
                      }else{
-                         console.log("預設的場警資料",store.state.Scene.allScene)
+                         console.log("3.下載場景預設資料",store.state.Scene.allScene)
                           return store.state.Scene.allScene  
                      }
                 case CardCategory[3]:
                     if(city.value!==City[0]){
                           return getCurrentCityData(store.state.Food.foodByCity)
                      }else{
-                         console.log("預設的餐廳資料",store.state.Food.allFood)
+                         console.log("3.下載餐飲預設資料",store.state.Food.allFood)
                           return store.state.Food.allFood  
                      }
             }
@@ -91,9 +91,11 @@ export default defineComponent({
             }
         })
         watch(category,()=>{ //每次進入時，都會先取得靜態所有景點資料
+        console.log("切換標籤",category.value)
             getdefaultData()
         })
         onMounted(()=>{
+            console.log("初始化請求資料")
             getdefaultData() //先求一次資料
         })
         function getCurrentCityData (filterData:any) :any {
@@ -107,8 +109,9 @@ export default defineComponent({
         function getdefaultData () {
             //要根據不同種類做篩選
             // console.log(`${category.value}/getAll${category.value}`==="Hotel/getAllHotel")
-            // store.dispatch(`${category.value}/getAll${category.value}`)
-            store.commit(`${category.value}/loadAll${category.value}`)
+            console.log("執行vuex請求資料")
+            store.dispatch(`${category.value}/getAll${category.value}`)
+            // store.commit(`${category.value}/loadAll${category.value}`)
         }
         return{
             //data

@@ -7,15 +7,16 @@ export const state = {
     hotelByCity:{},
   };
   export const actions = {
-    // getAllHotel(context:any) {
-    //   if(JSON.stringify(state.allHotel)== '{}'){ //假如沒有資料
-    //     store.commit('isloading')
-    //     getAllHotel()?.then(res=>{
-    //       context.commit('loadAllHotel',res.data)
-    //       store.commit('loaded')
-    //     })
-    //   }
-    // }
+    getAllHotel(context:any) {
+      if(JSON.stringify(state.allHotel)== '{}'){ //假如沒有資料
+        store.commit('isloading')
+        getAllHotel()?.then((res)=>{
+          console.log("1.取得資料")
+          context.commit('loadAllHotel',res.data)
+          store.commit('loaded')
+        })
+      }
+    }
   }
   
   export const mutations = {
@@ -28,19 +29,20 @@ export const state = {
         })
      }
     },
-    // loadAllHotel(state:any,paload:any) { 
-    //   state.allHotel = paload
-    //  },
-     loadAllHotel(state:any) { 
-      if(JSON.stringify(state.allHotel)== '{}'){
-         store.commit('isloading')
-         getAllHotel()?.then(res=>{
-             state.allHotel = res.data
-             store.commit('loaded')
-             console.log(state.allHotel)
-         })
-      }
+    loadAllHotel(state:any,paload:any) { 
+      console.log("2.裝資料")
+      state.allHotel = paload
      },
+    //  loadAllHotel(state:any) { 
+    //   if(JSON.stringify(state.allHotel)== '{}'){
+    //      store.commit('isloading')
+    //      getAllHotel()?.then(res=>{
+    //          state.allHotel = res.data
+    //          store.commit('loaded')
+    //          console.log(state.allHotel)
+    //      })
+    //   }
+    //  },
      loadHotelByCity(state:any,cityName:City) {
       if(!state.hotelByCity[cityName]){
         store.commit('isloading')

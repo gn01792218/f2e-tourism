@@ -1,5 +1,5 @@
 body{
-    background-color: $main_color;
+    @include bg-norepeat($bg-img);
 }
 ul{
     list-style: none;

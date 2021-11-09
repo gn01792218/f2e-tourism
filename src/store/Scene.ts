@@ -7,15 +7,17 @@ export const state = {
     sceneByCity:{},  //給預設的靜態頁面使用
   };
   export const actions = {
-    // getAllScene(context:any){
-    //   if(JSON.stringify(state.hotScene)== '{}'){
-    //     store.commit('isloading')
-    //     getAllTourismData()?.then(res=>{
-    //     context.commit('loadAllScene',res.data)
-    //     store.commit('loaded')
-    //   })
-    //   }
-    // }
+    getAllScene(context:any){
+      console.log("判斷是否請求")
+      if(JSON.stringify(state.allScene)== '{}'){
+        store.commit('isloading')
+        getAllTourismData()?.then(res=>{
+        console.log("1.請求資料")
+        context.commit('loadAllScene',res.data)
+        store.commit('loaded')
+      })
+      }
+    }
   }
   
   export const mutations = {
@@ -28,19 +30,20 @@ export const state = {
         })
      }
     },
-    // loadAllScene(state:any,payload:any) { 
-    //   state.allScene = payload
-    // },
-    loadAllScene(state:any) { 
-     if(JSON.stringify(state.allScene)== '{}'){
-        store.commit('isloading')
-        getAllTourismData()?.then(res=>{
-            state.allScene = res.data
-            store.commit('loaded')
-            console.log('all',state.allScene)
-        })
-     }
+    loadAllScene(state:any,payload:any) { 
+      console.log("2.裝資料")
+      state.allScene = payload
     },
+    // loadAllScene(state:any) { 
+    //  if(JSON.stringify(state.allScene)== '{}'){
+    //     store.commit('isloading')
+    //     getAllTourismData()?.then(res=>{
+    //         state.allScene = res.data
+    //         store.commit('loaded')
+    //         console.log('all',state.allScene)
+    //     })
+    //  }
+    // },
     loadSceneByCity(state:any,cityName:City) {
       //sceneByCity中沒有要篩選的cityName的話，才進行請求
       if(!state.sceneByCity[cityName]){
