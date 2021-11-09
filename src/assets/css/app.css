@@ -590,6 +590,22 @@ a {
           transform: scale(1.1);
 }
 
+.sv {
+  height: 350px;
+  background-color: yellow;
+  fill: yellowgreen;
+  stroke: white;
+}
+
+.active {
+  fill: red;
+}
+
+.hover {
+  fill: burlywood;
+  cursor: pointer;
+}
+
 .bi-arrow-bar-right {
   color: red;
   -webkit-transform: scale(2);

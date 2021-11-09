@@ -9,6 +9,7 @@ export default createStore({
     loading:false, //掌管資料loading
     currentCategory:CardCategory, //掌管使用者切換到了哪個種類
     currentCity:City[0],
+    currentCityChinessName:"臺灣",
   },
   mutations: {
     isloading(state:any){  
@@ -22,6 +23,10 @@ export default createStore({
     },
     switchCity(state:any,city=City.Taiwan){
       state.currentCity = city
+      
+    },
+    switchCityChinese(state:any,cityChinesName:string){
+      state.currentCityChinessName = cityChinesName
     }
   },
   actions: {
