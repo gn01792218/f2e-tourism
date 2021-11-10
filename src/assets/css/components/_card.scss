@@ -1,3 +1,13 @@
+
+//收藏icon
+.collect{
+   @include icon;
+   background-position: 0px 0px;
+}
+.disCollect{
+    @include icon;
+    background-position: -65px 0px;
+ }
 //景點卡
 .sceneCard{
     width:45%;
@@ -46,6 +56,9 @@
     .btn:hover{
         color:white;
     }
+  }
+  .sceneCard-header{
+      @include flex-justifyContent(space-between);
   }
 //旅宿卡
 .hotelCard{

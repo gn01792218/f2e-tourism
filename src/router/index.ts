@@ -2,10 +2,6 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 
 const routes: Array<RouteRecordRaw> = [
-  // {
-  //   path:'*',
-  //   redirect:'/'
-  // },
   {
     path: '/',
     name: 'Home',
@@ -26,6 +22,11 @@ const routes: Array<RouteRecordRaw> = [
     name:'CityRecommend',
     component: () => import('@/views/CityRecommend.vue')
   },
+  {
+    path:"/Schedule",
+    name:"Schedule",
+    component: () => import('@/views/Schedule.vue')
+  }
 ]
 
 const router = createRouter({

@@ -459,6 +459,22 @@ a {
   background-position: center center;
 }
 
+.collect {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 65px;
+  height: 65px;
+  background-position: 0px 0px;
+}
+
+.disCollect {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 65px;
+  height: 65px;
+  background-position: -65px 0px;
+}
+
 .sceneCard {
   width: 45%;
   height: 250px;
@@ -529,6 +545,15 @@ a {
 
 .sceneCard-content .btn:hover {
   color: white;
+}
+
+.sceneCard-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .hotelCard {

@@ -1,11 +1,11 @@
 <template>
     <header class="header">
         <Carousel/>
+        <router-link to="/Schedule">行程規劃</router-link>
     </header>
 </template>
 <script lang="ts">
 import {defineComponent} from 'vue'
-
 import Carousel from '@/components/Carousel.vue'
 export default defineComponent({
     components:{
