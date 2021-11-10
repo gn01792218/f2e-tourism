@@ -84,6 +84,9 @@
         margin-right: 5px;
     }
 }
+.hotelCard-header{
+    @include flex-justifyContent(space-between);
+}
 .hotelName{
     border-bottom: 1px solid black;
 }
@@ -100,4 +103,8 @@
 }
 .phone:hover{
     transform: scale(1.1);
+}
+//activity
+.activityCard-header{
+    @include flex-justifyContent(space-between);
 }

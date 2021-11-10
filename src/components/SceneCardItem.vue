@@ -56,7 +56,7 @@ export default defineComponent({
              localStorage.setItem(`${category}CollectList`,temp)
         }
       }else{
-        localStorage.removeItem(sceneData.ID)
+        localStorage.removeItem(id)
         if(localStorage.getItem(`${category}CollectList`)){ //把清單裡面的ID排除
           let temp = localStorage.getItem(`${category}CollectList`) as string
           let dataList = temp.split('#')

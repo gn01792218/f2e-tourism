@@ -23,7 +23,7 @@
         <div class="cardList" v-if="category=='Food'">
             <FoodCardItem
                 v-for="(food,index) in filterData" :key="index"
-                :foodyData="food"
+                :foodData="food"
             />
         </div>
 </template>

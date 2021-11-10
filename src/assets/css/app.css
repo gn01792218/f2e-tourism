@@ -586,6 +586,15 @@ a {
   margin-right: 5px;
 }
 
+.hotelCard-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .hotelName {
   border-bottom: 1px solid black;
 }
@@ -613,6 +622,15 @@ a {
 .phone:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.activityCard-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .sv {
