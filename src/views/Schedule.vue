@@ -7,15 +7,15 @@
     <div>Day5</div>
 
     <div id="test"  draggable="true">拖曳區</div>
-
+    <CollectionContainer />
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue'
-
+import CollectionContainer from '@/components/CollectionContainer.vue'
 export default defineComponent({
     components:{
-
+        CollectionContainer,
     },
     setup(){
         
