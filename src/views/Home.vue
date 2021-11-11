@@ -37,7 +37,6 @@ export default defineComponent({
   setup(){
     onMounted(()=>{  
       // window.localStorage.clear()
-    
     })
     //這裡就先發出請求ALL的資料
     const store = useStore()

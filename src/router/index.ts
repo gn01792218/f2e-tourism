@@ -23,9 +23,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/CityRecommend.vue')
   },
   {
-    path:"/Schedule",
-    name:"Schedule",
-    component: () => import('@/views/Schedule.vue')
+    path:"/MyCollection",
+    name:"MyCollection",
+    component: () => import('@/views/MyCollection.vue')
   }
 ]
 

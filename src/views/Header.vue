@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <Carousel/>
-        <router-link to="/Schedule">行程規劃</router-link>
+        <router-link to="/MyCollection">行程規劃</router-link>
     </header>
 </template>
 <script lang="ts">

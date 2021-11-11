@@ -7,12 +7,6 @@
 @import './base/normalize';
 @import './base/basic';
 
-//layout
-@import './layout/header';
-@import './layout//home';
-@import './layout/footer';
-@import './layout/cityRecommend';
-
 //component
 @import './components/header';
 @import './components/footer';
@@ -20,3 +14,13 @@
 @import './components/card';
 @import './components/taiwanMap';
 @import './components/carousel';
+@import './components/schedule';
+
+//layout
+@import './layout/header';
+@import './layout//home';
+@import './layout/footer';
+@import './layout/cityRecommend';
+@import './layout/myCollection';
+
+
