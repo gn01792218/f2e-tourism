@@ -1,5 +1,5 @@
 <template>
-    <div class="activityCard row">
+    <div class="activityCard row" draggable="true">
         <div class="activityCard-img">
             <img :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
         </div>

@@ -1,6 +1,6 @@
 <template>
-    <div class="foodCard row">
-        <div class="foodCard-img">
+    <div class="foodCard row" draggable="true">
+        <div class="foodCard-img d-flex">
             <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.ID,foodData)"></span>
             <img :src="foodData.Picture.PictureUrl1" :alt="foodData.Picture.PictureDescription1">
         </div>

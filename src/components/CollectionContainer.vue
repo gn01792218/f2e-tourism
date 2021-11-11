@@ -5,25 +5,25 @@
         <button @click="currentTag='餐飲'">餐飲</button>
         <button @click="currentTag='活動'">活動</button>
     </div>
-    <div class="d-flex flex-wrap" v-if="currentTag='景點'">
+    <div class="d-flex flex-wrap" v-if="currentTag=='景點'">
         <SceneCardItem 
             v-for="(scene,index) in SceneDataList" :key="index"
             :sceneData="scene"
         />
     </div>
-    <div class="d-flex flex-wrap" v-if="currentTag='旅宿'">
+    <div class="d-flex flex-wrap" v-if="currentTag=='旅宿'">
         <HotelCardItem 
             v-for="(hotel,index) in HotelDataList" :key="index"
             :hotelData="hotel"
         />
     </div>
-    <div class="d-flex flex-wrap" v-if="currentTag='餐飲'">
+    <div class="d-flex flex-wrap" v-if="currentTag=='餐飲'">
         <FoodCardItem 
             v-for="(food,index) in FoodDataList" :key="index"
             :foodData="food"
         />
     </div>
-    <div class="d-flex flex-wrap" v-if="currentTag='活動'">
+    <div class="d-flex flex-wrap" v-if="currentTag=='活動'">
         <ActivityCardItem 
             v-for="(active,index) in ActivityDataList" :key="index"
             :activityData="active"
@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onMounted, reactive, ref} from 'vue'
+import {computed, defineComponent, onMounted, reactive, ref, watch} from 'vue'
 import SceneCardItem from '@/components/SceneCardItem.vue'
 import HotelCardItem from '@/components/HotelCardItem.vue'
 import FoodCardItem from '@/components/FoodCardItem.vue'
@@ -45,6 +45,9 @@ export default defineComponent({
        
         const localStorage = window.localStorage
         const currentTag = ref("餐飲")
+        watch(currentTag,()=>{
+            console.log(currentTag.value)
+        })
         const sceneList = computed(()=>{ //清單陣列
             return localStorage.getItem('sceneCollectList')?.split('#')
         })
