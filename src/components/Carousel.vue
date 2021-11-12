@@ -9,21 +9,22 @@
   <div class="carousel-inner">
       <!-- 給carousel-item 元素下 data-bs-interval="2000"來控制每一張的時間-->
     <div class="carousel-item active" data-bs-interval="200">
-      <img src="https://picsum.photos/id/684/600/400" alt="">
+      <img class="w-100" src="https://picsum.photos/id/684/600/400"  alt="">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
-    <div class="carousel-item" data-bs-interval="200">
-      <img src="https://picsum.photos/id/1020/600/400" alt="">
+    <div class="container">
+          <div class="carousel-item" data-bs-interval="200">
+      <img class="w-100" src="https://picsum.photos/id/1020/600/400" w-100 alt="">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://picsum.photos/id/684/600/400" alt="">
+      <img class="w-100" src="https://picsum.photos/id/684/600/400" w-100 alt="">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Some representative placeholder content for the third slide.</p>
@@ -39,6 +40,8 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+</div>
+  
 </template>
 
 <script lang="ts">

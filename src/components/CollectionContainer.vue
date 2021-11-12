@@ -42,12 +42,8 @@ export default defineComponent({
         SceneCardItem,HotelCardItem,FoodCardItem,ActivityCardItem,
     },
     setup(){
-       
         const localStorage = window.localStorage
         const currentTag = ref("餐飲")
-        watch(currentTag,()=>{
-            console.log(currentTag.value)
-        })
         const sceneList = computed(()=>{ //清單陣列
             return localStorage.getItem('sceneCollectList')?.split('#')
         })

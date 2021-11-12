@@ -29,8 +29,8 @@ export default defineComponent({
         })
         const localstorage = window.localStorage
         watch(dateRange,()=>{
-            console.log("選擇的起始日星期",Week[dateRange.value?.start.getDay()])
-            console.log("選擇的茄樹日期",Week[dateRange.value?.end.getDay()])
+            // console.log("選擇的起始日星期",Week[dateRange.value?.start.getDay()])
+            // console.log("選擇的結束日期",Week[dateRange.value?.end.getDay()])
             if(selectedDays.value>5){
                 alert("大冒險最多只能玩5天唷~")
             }
@@ -59,13 +59,13 @@ export default defineComponent({
         function getDateObject (dateString:string):Date{
             let dateStringArr=dateString.split('-')
             let temp = new Date(parseInt(dateStringArr[0]),parseInt(dateStringArr[1]),parseInt(dateStringArr[2]))
-           console.log(Week[temp.getDay()])
+        //    console.log(Week[temp.getDay()])
            return temp
         }
          function getDayListWeek (dayList:Array<string>):Array<string>{
             let weekList = new Array
             weekList =dayList.map((i)=>{
-                console.log("轉換星期",Week[getDateObject(i).getDay()])
+                // console.log("轉換星期",Week[getDateObject(i).getDay()])
                 return Week[getDateObject(i).getDay()]
             })
             return weekList
