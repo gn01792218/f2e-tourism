@@ -24,7 +24,6 @@ export const state = {
         if(map){
             map.splice(map.length-1,1)
             state.sceneList = map.map(i=>{
-                console.log(JSON.parse(localStorage.getItem(i) as string))
                 return JSON.parse(localStorage.getItem(i) as string)
             })
         }

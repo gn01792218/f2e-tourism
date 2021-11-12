@@ -1,19 +1,24 @@
 <template>
-    <div class="activityCard row" draggable="true">
-        <div class="activityCard-img">
-            <img :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
+    <div class="hotelCard mb-3">
+        <div class="hotelCard-img col-12 col-lg-7">
+            <img class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
         </div>
-        <div class="activityCard-content">
-            <header class="activityCard-header">
-                <p>{{activityData.Name}}</p>
-                <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('activity',activityData.ID,activityData)"></span>
+        <div class="hotelCard-content col-12 col-lg-4">
+            <header class="hotelCard-header">
+                <div>
+                    <p>{{hotelData.Class}}</p>
+                    <p class="hotelName">{{hotelData.Name}}</p>
+                </div>
+                  <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('hotel',hotelData.ID,hotelData)"></span>
             </header>
+          
             
-            <p>{{activityData.Organizer}}</p>
-            <p>{{activityData.Location}}</p>
-            <p>舉辦時間{{activityData.StartTime}}</p>
+            <p>{{hotelData.Address}}</p>
+            <div class="phone"><i class="bi bi-telephone-forward-fill"></i><i>{{hotelData.Phone}}</i></div>
+            
         </div>
-    </div>
+</div>
+    
  
 </template>
 
@@ -22,15 +27,15 @@ import {defineComponent,onMounted,ref} from 'vue'
 
 export default defineComponent({
     props:{
-        activityData:{
+        hotelData:{
             type: Object,
             default: {}
         }
     },
-    setup({activityData}){
-     onMounted(()=>{
+    setup({hotelData}){
+        onMounted(()=>{
         //判斷local中的收藏id是否符合本卡id，若是，就顯示true
-        if(localStorage.getItem(activityData.ID)){
+        if(localStorage.getItem(hotelData.ID)){
             collected.value = true
         }else{
             collected.value = false

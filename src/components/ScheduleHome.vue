@@ -6,7 +6,7 @@
             @nextStep="scheduleStep=2"
         />
         <button v-show="scheduleStep==1" @click="scheduleStep=2">看行程表</button>
-        <ScheduleDragContainer
+        <ScheduleOrder
             v-show="scheduleStep==2"
             @preStep="scheduleStep=1"
         />
@@ -17,10 +17,10 @@
 <script lang="ts">
 import {defineComponent,ref} from 'vue'
 import SelectDate from '@/components/SelectDate.vue'
-import ScheduleDragContainer from '@/components/ScheduleDragContainer.vue'
+import ScheduleOrder from '@/components/ScheduleOrder.vue'
 export default defineComponent({
     components:{
-        SelectDate,ScheduleDragContainer,
+        SelectDate,ScheduleOrder,
     },
     setup(){
         const scheduleStep = ref<number>(1)

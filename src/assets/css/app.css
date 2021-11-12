@@ -665,6 +665,32 @@ a {
   background-color: chocolate;
 }
 
+.scheduleHeader {
+  cursor: pointer;
+}
+
+.scheduleHeader div {
+  border: blue 1px solid;
+  background-color: brown;
+  color: wheat;
+}
+
+.activeSchedule {
+  background-color: yellowgreen !important;
+  color: black !important;
+}
+
+.dragContainer {
+  height: 100px;
+  background-color: white;
+}
+
+.drageItem {
+  cursor: pointer;
+  width: 100px;
+  background-color: yellowgreen;
+}
+
 .nav {
   width: 5%;
   position: -webkit-sticky;

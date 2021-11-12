@@ -29,7 +29,7 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted} from 'vue';
 import { useStore } from 'vuex';
-import SceneCardItem from '../components/SceneCardItem.vue'
+import SceneCardItem from '../components/card/SceneCardItem.vue'
 export default defineComponent({
   components: {
     SceneCardItem,

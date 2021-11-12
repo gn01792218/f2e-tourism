@@ -30,10 +30,10 @@
 
 <script lang="ts">
 import {computed, defineComponent,onMounted,watch} from 'vue'
-import SceneCardItem from '@/components/SceneCardItem.vue'
-import HotelCardItem from '@/components/HotelCardItem.vue'
-import ActivityCardItem from '@/components/ActivityCardItem.vue'
-import FoodCardItem from '@/components/FoodCardItem.vue'
+import SceneCardItem from '@/components/card/SceneCardItem.vue'
+import HotelCardItem from '@/components/card/HotelCardItem.vue'
+import ActivityCardItem from '@/components/card/ActivityCardItem.vue'
+import FoodCardItem from '@/components/card/FoodCardItem.vue'
 import {useRoute} from 'vue-router'
 import {useStore} from 'vuex'
 import {CardCategory,City} from '../types/enum'

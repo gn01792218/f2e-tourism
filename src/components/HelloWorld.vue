@@ -21,7 +21,7 @@
 <script lang="ts">
 import { computed, defineComponent,ref, watch } from 'vue';
 import {getTourismDataByCity,getRestaurantByCity,getAllHotel,getHotelByCity,getAllActivity,getActivityByCity} from '../api'
-import SceneCardItem from '@/components/SceneCardItem.vue'
+import SceneCardItem from '@/components/card/SceneCardItem.vue'
 import Loading from './Loading.vue'
 import {useStore} from 'vuex'
 import  {City,CardCategory}  from '@/types/enum';

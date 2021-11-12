@@ -36,7 +36,7 @@
 <script lang="ts">
 import {computed, defineComponent, onMounted, reactive, ref, watch} from 'vue'
 import Loading from '@/components/Loading.vue'
-import SceneCardItem from '@/components/SceneCardItem.vue'
+import SceneCardItem from '@/components/card/SceneCardItem.vue'
 import {City,CardCategory} from '../types/enum'
 import {getSceneNearby,getFoodNearby,getHotelNearby,getActivityNearby,getRandomHotelByCity,getRandomActivityByCity,getRandomSceneByCity,getRandomFoodByCity} from '../api'
 //1.可以隨機亂骰

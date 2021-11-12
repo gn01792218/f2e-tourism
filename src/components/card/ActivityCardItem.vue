@@ -1,12 +1,17 @@
 <template>
-    <div class="foodCard row" draggable="true">
-        <div class="foodCard-img d-flex">
-            <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.ID,foodData)"></span>
-            <img :src="foodData.Picture.PictureUrl1" :alt="foodData.Picture.PictureDescription1">
+    <div class="activityCard row">
+        <div class="activityCard-img">
+            <img :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
         </div>
-        <div class="foodCard-content">
-            <p>{{foodData.Name}}</p>
-            <p>{{foodData.City}}</p>
+        <div class="activityCard-content">
+            <header class="activityCard-header">
+                <p>{{activityData.Name}}</p>
+                <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('activity',activityData.ID,activityData)"></span>
+            </header>
+            
+            <p>{{activityData.Organizer}}</p>
+            <p>{{activityData.Location}}</p>
+            <p>舉辦時間{{activityData.StartTime}}</p>
         </div>
     </div>
  
@@ -17,15 +22,15 @@ import {defineComponent,onMounted,ref} from 'vue'
 
 export default defineComponent({
     props:{
-        foodData:{
+        activityData:{
             type: Object,
             default: {}
         }
     },
-    setup({foodData}){
-       onMounted(()=>{
+    setup({activityData}){
+     onMounted(()=>{
         //判斷local中的收藏id是否符合本卡id，若是，就顯示true
-        if(localStorage.getItem(foodData.ID)){
+        if(localStorage.getItem(activityData.ID)){
             collected.value = true
         }else{
             collected.value = false

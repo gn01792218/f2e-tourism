@@ -1,24 +1,14 @@
 <template>
-    <div class="hotelCard mb-3" draggable="true">
-        <div class="hotelCard-img col-12 col-lg-7">
-            <img class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
+    <div class="foodCard row">
+        <div class="foodCard-img d-flex">
+            <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.ID,foodData)"></span>
+            <img :src="foodData.Picture.PictureUrl1" :alt="foodData.Picture.PictureDescription1">
         </div>
-        <div class="hotelCard-content col-12 col-lg-4">
-            <header class="hotelCard-header">
-                <div>
-                    <p>{{hotelData.Class}}</p>
-                    <p class="hotelName">{{hotelData.Name}}</p>
-                </div>
-                  <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('hotel',hotelData.ID,hotelData)"></span>
-            </header>
-          
-            
-            <p>{{hotelData.Address}}</p>
-            <div class="phone"><i class="bi bi-telephone-forward-fill"></i><i>{{hotelData.Phone}}</i></div>
-            
+        <div class="foodCard-content">
+            <p>{{foodData.Name}}</p>
+            <p>{{foodData.City}}</p>
         </div>
-</div>
-    
+    </div>
  
 </template>
 
@@ -27,15 +17,15 @@ import {defineComponent,onMounted,ref} from 'vue'
 
 export default defineComponent({
     props:{
-        hotelData:{
+        foodData:{
             type: Object,
             default: {}
         }
     },
-    setup({hotelData}){
-        onMounted(()=>{
+    setup({foodData}){
+       onMounted(()=>{
         //判斷local中的收藏id是否符合本卡id，若是，就顯示true
-        if(localStorage.getItem(hotelData.ID)){
+        if(localStorage.getItem(foodData.ID)){
             collected.value = true
         }else{
             collected.value = false

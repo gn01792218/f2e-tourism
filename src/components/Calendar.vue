@@ -3,7 +3,7 @@
     <p>開始日期{{dateRange.start.toLocaleDateString()}}</p>
     <p>結束日期{{dateRange.end.toLocaleDateString()}}</p>
     <p>一共規劃:{{selectedDays}}天</p>
-    <button data-bs-toggle="modal" data-bs-target="#editScheduleModal" @click="checkSelectDays">儲存</button>
+    <button data-bs-toggle="modal" data-bs-target="#editScheduleModal" @click="checkSelectDays">建立行程表</button>
     <!-- Modal -->
     <div class="modal fade" id="editScheduleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -127,6 +127,9 @@ export default defineComponent({
                 let selectDayList = getDateBetween(dateRange.value?.start.toLocaleDateString(),dateRange.value?.end.toLocaleDateString())
                 let weekList = getDayListWeek(selectDayList)
                 let scheduleListID = getRandomScheduleListID()
+                let dateMap = selectDayList.map((i,index)=>{
+                    return `${i}/${weekList[index]}`
+                })
                 if(!localstorage.getItem('scheduleListIDMap')){ //沒有建立過清單時，先建立
                     localstorage.setItem('scheduleListIDMap',scheduleListID+"#")
                 }else{
@@ -134,10 +137,10 @@ export default defineComponent({
                     localstorage.setItem('scheduleListIDMap',`${ControlArray}${scheduleListID}#`)
                 }
                 localstorage.setItem(scheduleListID,JSON.stringify({
+                    "ID":scheduleListID,
                     "scheduleTitle":scheduleTitle.value,
                     "scheduleDscription":scheduleDscription.value,
-                    "selectDate":selectDayList,
-                    "selectWeek":weekList,
+                    "Date":dateMap,
                 }))
                 store.commit('MyCollection/getSchdulelist')
                 emit('goToSchedule')

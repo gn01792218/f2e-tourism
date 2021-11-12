@@ -1,6 +1,6 @@
 <template>
 <!-- 沒有填縣市的將會被自動排除!!!!! v-if="city"-->
-  <div class="sceneCard row mb-3" draggable="true">
+  <div class="sceneCard row mb-3">
     <div class="sceneCard-img col-8">
       <img class="w-100" :src=sceneData.Picture.PictureUrl1 :alt=sceneData.Picture.PictureDescription1>
     </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted, ref , computed , watch} from 'vue';
 export default defineComponent({
   props:{
     sceneData: {
@@ -40,6 +40,7 @@ export default defineComponent({
         collected.value = false
       }
     })
+
     const localStorage = window.localStorage
     const collected =ref(false)
     function selected(category:string,id:string,data:any) {
