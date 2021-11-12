@@ -37,66 +37,31 @@ import SceneCardItem from '@/components/SceneCardItem.vue'
 import HotelCardItem from '@/components/HotelCardItem.vue'
 import FoodCardItem from '@/components/FoodCardItem.vue'
 import ActivityCardItem from '@/components/ActivityCardItem.vue'
+import store from '@/store'
 export default defineComponent({
     components:{
         SceneCardItem,HotelCardItem,FoodCardItem,ActivityCardItem,
     },
     setup(){
-        const localStorage = window.localStorage
         const currentTag = ref("餐飲")
-        const sceneList = computed(()=>{ //清單陣列
-            return localStorage.getItem('sceneCollectList')?.split('#')
+        const SceneDataList = computed(()=>{
+            return store.state.MyCollection.sceneList
         })
-        const hotelList = computed(()=>{ //清單陣列
-            return localStorage.getItem('hotelCollectList')?.split('#')
+        const HotelDataList = computed(()=>{
+            return store.state.MyCollection.hotelList
         })
-        const foodList = computed(()=>{ //清單陣列
-            return localStorage.getItem('foodCollectList')?.split('#')
+        const FoodDataList = computed(()=>{
+            return store.state.MyCollection.foodList
         })
-        const activityList = computed(()=>{ //清單陣列
-            return localStorage.getItem('activityCollectList')?.split('#')
+        const ActivityDataList = computed(()=>{
+            return store.state.MyCollection.activityList
         })
-        const SceneDataList = reactive<Array<Object>>([])
-        const HotelDataList = reactive<Array<Object>>([])
-        const FoodDataList = reactive<Array<Object>>([])
-        const ActivityDataList = reactive<Array<Object>>([])
-        async function getSceneData () {
-            //根據收藏清單，得到對應的物件
-            await sceneList.value?.map(async(i)=>{
-                if(i!==""){
-                    await SceneDataList.push(JSON.parse(localStorage.getItem(i) as string)) 
-                }
-            })
-        }
-        async function getHotelData () {
-            //根據收藏清單，得到對應的物件
-            await hotelList.value?.map(async(i)=>{
-                if(i!==""){
-                    await HotelDataList.push(JSON.parse(localStorage.getItem(i) as string)) 
-                }
-            })
-        }
-        async function getFoodData () {
-            //根據收藏清單，得到對應的物件
-            await foodList.value?.map(async(i)=>{
-                if(i!==""){
-                    await FoodDataList.push(JSON.parse(localStorage.getItem(i) as string)) 
-                }
-            })
-        }
-        async function getActivityData () {
-            //根據收藏清單，得到對應的物件
-            await activityList.value?.map(async(i)=>{
-                if(i!==""){
-                    await ActivityDataList.push(JSON.parse(localStorage.getItem(i) as string)) 
-                }
-            })
-        }
         onMounted(()=>{
-             getSceneData()
-             getHotelData()
-             getFoodData()
-             getActivityData()
+            store.commit('MyCollection/getSceneList')
+            //  getSceneData()
+             store.commit('MyCollection/getHotelList')
+             store.commit('MyCollection/getFoodList')
+             store.commit('MyCollection/getActivityList')
         })
         return{
             //data

@@ -2,8 +2,10 @@
    <transition name="fade-left">
        <div class="selectDate">
         <p class="subTitle2-font">step1:挑選日期</p>
-        <Calendar />
-        <button @click="next">下一步</button>
+        <Calendar 
+            @goToSchedule='next'
+        />
+        <!-- <button @click="next">下一步</button> -->
     </div>
    </transition>
     

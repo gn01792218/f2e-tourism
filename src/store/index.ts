@@ -3,6 +3,7 @@ import Scene from './Scene'
 import Hotel from './Hotel'
 import Food from './Food'
 import Activity from './Activity'
+import MyCollection from './MyCollection'
 import { CardCategory, City } from '@/types/enum'
 export default createStore({
   state: {
@@ -32,6 +33,6 @@ export default createStore({
   actions: {
   },
   modules: {
-    Scene,Hotel,Food,Activity,
+    Scene,Hotel,Food,Activity,MyCollection,
   }
 })

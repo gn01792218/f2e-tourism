@@ -5,10 +5,12 @@
             v-show="scheduleStep==1"
             @nextStep="scheduleStep=2"
         />
+        <button v-show="scheduleStep==1" @click="scheduleStep=2">看行程表</button>
         <ScheduleDragContainer
             v-show="scheduleStep==2"
             @preStep="scheduleStep=1"
         />
+        <button v-show="scheduleStep==2" @click="scheduleStep=1">挑選好日期</button>
    </div>
 </template>
 

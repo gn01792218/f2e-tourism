@@ -1,8 +1,9 @@
 <template>
+    <CollectionContainer />
     <h1 class="title-font">我的收藏</h1>
     <Schedule/>
     <div id="test"  draggable="true">拖曳區</div>
-    <CollectionContainer />
+   
 </template>
 
 <script lang="ts">

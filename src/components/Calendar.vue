@@ -3,22 +3,51 @@
     <p>開始日期{{dateRange.start.toLocaleDateString()}}</p>
     <p>結束日期{{dateRange.end.toLocaleDateString()}}</p>
     <p>一共規劃:{{selectedDays}}天</p>
-    <button @click="storageDate">儲存</button>
+    <button data-bs-toggle="modal" data-bs-target="#editScheduleModal" @click="checkSelectDays">儲存</button>
+    <!-- Modal -->
+    <div class="modal fade" id="editScheduleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">建立行程規劃</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">行程名稱</span>
+                        <input type="text" class="form-control" placeholder="ex:我的小資台北二日遊" aria-label="Username" aria-describedby="basic-addon1" v-model="scheduleTitle">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">行程簡述</span>
+                        <textarea class="form-control" aria-label="With textarea" placeholder="ex:享受一個人的時光~" v-model="scheduleDscription"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" @click="storageDate" data-bs-dismiss="modal">去排行程</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
 import {computed, defineComponent, ref,watch} from 'vue'
 import { Calendar, DatePicker } from 'v-calendar';
-import {Week,DateRange} from '../types/gloable'
+import {Week,DateRange} from '../types/gloable';
+import { useStore } from 'vuex';
 export default defineComponent({
     components:{
         Calendar,
         DatePicker,
     },
+    emits:[
+        'goToSchedule'
+    ],
       //toLocaleDateString() -->2021/12/12
       //getDay()-->返回數字，0代表星期天
       // console.log(Week[dateRange.value?.start.getDay()])
-    setup(){
+    setup(props,{emit}){
+        const store = useStore()
         //選擇的日期，儲存於localStorage中
         const dateRange = ref<DateRange>({
             start:new Date,
@@ -28,6 +57,9 @@ export default defineComponent({
             return caculateDay(dateRange.value?.end.toLocaleDateString(),dateRange.value?.start.toLocaleDateString())
         })
         const localstorage = window.localStorage
+        const scheduleTitle = ref("旅遊清單")
+        const scheduleDscription = ref("尚無描述")
+        const myModal = document.getElementById('#editScheduleModal')
         watch(dateRange,()=>{
             // console.log("選擇的起始日星期",Week[dateRange.value?.start.getDay()])
             // console.log("選擇的結束日期",Week[dateRange.value?.end.getDay()])
@@ -81,9 +113,16 @@ export default defineComponent({
             let num2 = randomNum(0,100)
             return "s-"+(num1+num2)
         }
+        function checkSelectDays () {
+            if(selectedDays.value>5){
+                 alert("大冒險最多只能玩5天唷~")
+            }
+        }
         function storageDate() {
             if(selectedDays.value>5){
                 alert("大冒險最多只能玩5天唷~")
+            }else if(selectedDays.value<=0){
+                alert("得先安排遊玩日期唷~")
             }else{
                 let selectDayList = getDateBetween(dateRange.value?.start.toLocaleDateString(),dateRange.value?.end.toLocaleDateString())
                 let weekList = getDayListWeek(selectDayList)
@@ -95,14 +134,20 @@ export default defineComponent({
                     localstorage.setItem('scheduleListIDMap',`${ControlArray}${scheduleListID}#`)
                 }
                 localstorage.setItem(scheduleListID,JSON.stringify({
+                    "scheduleTitle":scheduleTitle.value,
+                    "scheduleDscription":scheduleDscription.value,
                     "selectDate":selectDayList,
                     "selectWeek":weekList,
                 }))
+                store.commit('MyCollection/getSchdulelist')
+                emit('goToSchedule')
             }
         }
         return{
             //data
-            dateRange,storageDate,selectedDays,
+            dateRange,selectedDays,scheduleTitle,scheduleDscription,
+            //methods
+            checkSelectDays,storageDate,
         }
     }
 })
