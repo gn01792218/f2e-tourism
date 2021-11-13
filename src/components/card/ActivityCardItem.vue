@@ -1,5 +1,5 @@
 <template>
-    <div class="activityCard row">
+    <div class="activityCard row" @click="gotItemPage(activityData)">
         <div class="activityCard-img">
             <img :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
         </div>
@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import {defineComponent,onMounted,ref} from 'vue'
-
+import { useRouter } from 'vue-router';
 export default defineComponent({
     props:{
         activityData:{
@@ -36,6 +36,7 @@ export default defineComponent({
             collected.value = false
         }
         })
+        const router = useRouter()
         const localStorage = window.localStorage
         const collected =ref(false)
     function selected(category:string,id:string,data:any) {
@@ -76,11 +77,20 @@ export default defineComponent({
         }
       }
     }
+     function gotItemPage (data:any) {
+      let temp = JSON.stringify(data)
+      router.push({
+        path:`/ItemDisplay`,
+        query:{
+          data:temp
+        }
+      })
+    }
         return{
             //data
             collected,
             //mathods
-            selected,
+            selected,gotItemPage,
         }
     }
 })

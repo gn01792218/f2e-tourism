@@ -1,5 +1,5 @@
 <template>
-    <div class="hotelCard mb-3">
+    <div class="hotelCard mb-3" @click="gotItemPage(hotelData)">
         <div class="hotelCard-img col-12 col-lg-7">
             <img class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
         </div>
@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import {defineComponent,onMounted,ref} from 'vue'
-
+import { useRouter } from 'vue-router';
 export default defineComponent({
     props:{
         hotelData:{
@@ -41,6 +41,7 @@ export default defineComponent({
             collected.value = false
         }
         })
+        const router = useRouter()
         const localStorage = window.localStorage
         const collected =ref(false)
     function selected(category:string,id:string,data:any) {
@@ -81,11 +82,20 @@ export default defineComponent({
         }
       }
     }
+    function gotItemPage (data:any) {
+      let temp = JSON.stringify(data)
+      router.push({
+        path:`/ItemDisplay`,
+        query:{
+          data:temp
+        }
+      })
+    }
         return{
             //data
             collected,
             //mathods
-            selected,
+            selected,gotItemPage,
         }
     }
 })

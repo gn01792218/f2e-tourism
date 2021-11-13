@@ -1,6 +1,6 @@
 <template>
 <!-- 沒有填縣市的將會被自動排除!!!!! v-if="city"-->
-  <div class="sceneCard row mb-3">
+  <div class="sceneCard row mb-3" @click="gotItemPage(sceneData)">
     <div class="sceneCard-img col-8">
       <img class="w-100" :src=sceneData.Picture.PictureUrl1 :alt=sceneData.Picture.PictureDescription1>
     </div>
@@ -24,6 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref , computed , watch} from 'vue';
+import { useRouter } from 'vue-router';
 export default defineComponent({
   props:{
     sceneData: {
@@ -40,10 +41,10 @@ export default defineComponent({
         collected.value = false
       }
     })
-
+    const router = useRouter()
     const localStorage = window.localStorage
     const collected =ref(false)
-    function selected(category:string,id:string,data:any) {
+    function selected(category:string,id:string,data:any) {  //收藏
       collected.value = !collected.value
       if(collected.value == true){
         localStorage.setItem(id,JSON.stringify(data))
@@ -81,11 +82,20 @@ export default defineComponent({
         }
       }
     }
+    function gotItemPage (data:any) {
+      let temp = JSON.stringify(data)
+      router.push({
+        path:`/ItemDisplay`,
+        query:{
+          data:temp
+        }
+      })
+    }
     return{
       //data
       collected,
       //mathods
-      selected,
+      selected,gotItemPage,
     }
   }
 });

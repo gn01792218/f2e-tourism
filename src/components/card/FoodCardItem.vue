@@ -1,5 +1,5 @@
 <template>
-    <div class="foodCard row">
+    <div class="foodCard row" @click="gotItemPage(foodData)">
         <div class="foodCard-img d-flex">
             <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.ID,foodData)"></span>
             <img :src="foodData.Picture.PictureUrl1" :alt="foodData.Picture.PictureDescription1">
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import {defineComponent,onMounted,ref} from 'vue'
-
+import { useRouter } from 'vue-router';
 export default defineComponent({
     props:{
         foodData:{
@@ -31,6 +31,7 @@ export default defineComponent({
             collected.value = false
         }
         })
+        const router = useRouter()
         const localStorage = window.localStorage
         const collected =ref(false)
     function selected(category:string,id:string,data:any) {
@@ -71,11 +72,20 @@ export default defineComponent({
         }
       }
     }
+     function gotItemPage (data:any) {
+      let temp = JSON.stringify(data)
+      router.push({
+        path:`/ItemDisplay`,
+        query:{
+          data:temp
+        }
+      })
+    }
         return{
             //data
             collected,
             //mathods
-            selected,
+            selected,gotItemPage,
         }
     }
 })

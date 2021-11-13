@@ -55,15 +55,12 @@
 <script lang="ts">
 import {computed, defineComponent, onMounted, reactive, ref, watch} from 'vue'
 import DrageItem from '@/components/DrageItem.vue'
-import SceneCardItem from '@/components/card/SceneCardItem.vue'
-import HotelCardItem from '@/components/card/HotelCardItem.vue'
-import FoodCardItem from '@/components/card/FoodCardItem.vue'
-import ActivityCardItem from '@/components/card/ActivityCardItem.vue'
+
 import store from '@/store'
 import { useStore } from 'vuex'
 export default defineComponent({
     components:{
-        SceneCardItem,HotelCardItem,FoodCardItem,ActivityCardItem,DrageItem,
+        DrageItem,
     },
     setup(){
         const store = useStore()

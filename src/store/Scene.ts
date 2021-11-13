@@ -14,7 +14,6 @@ export const state = {
         store.commit('isloading')
         getAllTourismData()?.then(res=>{
         context.commit('loadAllScene',res.data)
-        console.log("1.請求資料",res.data,JSON.stringify(state.allScene))
         store.commit('loaded')
       })
       }

@@ -35,7 +35,11 @@
     display: flex;
     justify-content: $justifyMethods;
 }
-
+@mixin flex-just-aligh-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 //RWD
 @mixin desktop-below {

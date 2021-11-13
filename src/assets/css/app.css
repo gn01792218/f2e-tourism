@@ -751,4 +751,54 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.itemDisplay-header {
+  color: white;
+  background-color: #5A6F49;
+  height: 250px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.itemDisplay-contain {
+  margin-top: -50px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.itemDisplay-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.itemDisplay-img {
+  width: 40%;
+  border-radius: 10px;
+  overflow: hidden;
+  img-width: 100%;
+  img-height: auto;
+}
+
+.nearByBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  overflow-x: scroll;
+}
 /*# sourceMappingURL=app.css.map */

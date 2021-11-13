@@ -1,0 +1,36 @@
+.itemDisplay{
+
+}
+.itemDisplay-header{
+   color:white;
+   background-color: $decoration_color2;
+   height:250px;
+   border-radius: 20px;
+   @include flex-just-aligh-center;
+}
+.itemDisplay-contain{
+    margin-top: -50px;
+    width:95%;
+    @include left-right-center;
+    background-color: white;
+}
+.itemDisplay-info{
+    @include flex-justifyContent(space-between);
+}
+.itemDisplay-img{
+    width:40%;
+    border-radius: 10px;
+    overflow: hidden;
+    img:{
+        width:100%;
+        height:auto;
+    }
+}
+.itemDisplay-footer{
+
+}
+.nearByBox{
+    @include flex-justifyContent(space-around);
+    overflow-x: scroll;
+    // overflow:scroll;
+}

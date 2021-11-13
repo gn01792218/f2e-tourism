@@ -145,7 +145,8 @@ export default defineComponent({
             getCurrentCityDefaultData()
         })
         watch(category,()=>{ //每次進入時，都會先取得靜態所有景點資料
-            console.log("切換標籤",category.value)
+           //
+           console.log("切換標籤")
             getdefaultData()
             if(city.value){
                 getCurrentCityDefaultData()

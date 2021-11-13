@@ -23,6 +23,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/CityRecommend.vue')
   },
   {
+    path:"/ItemDisplay",
+    name:'ItemDisplay',
+    component: () => import('@/views/ItemDisplay.vue')
+  },
+  {
     path:"/MyCollection",
     name:"MyCollection",
     component: () => import('@/views/MyCollection.vue')
