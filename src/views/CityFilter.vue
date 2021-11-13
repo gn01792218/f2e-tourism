@@ -23,7 +23,6 @@ export default defineComponent({
     },
     setup(){
         const store = useStore()
-        const router = useRouter()
         const route = useRoute()
         const cityChinesName =computed(()=>{
             return store.state.currentCityChinessName
@@ -31,7 +30,6 @@ export default defineComponent({
         watch(cityChinesName,()=>{
             console.log(cityChinesName.value)
         })
-        const city = ref("")
         const cardCategory = computed(()=>{
             return route.params.category
         })
@@ -56,25 +54,10 @@ export default defineComponent({
         }
         return{
             //data
-            cardCategory,showRecommend,cityChinesName,city,
+            cardCategory,showRecommend,cityChinesName,
             //methods
             toCity,
         }
     }
 })
 </script>
-<style lang="scss">
-//     .sv{
-//         height:350px;  
-//         background-color: yellow;
-//         fill:yellowgreen;
-//         stroke: white;
-//     }
-//     .active{
-//       fill: red;
-//     }
-//     .hover{
-//         fill: burlywood;
-//         cursor: pointer;
-//     }
-// </style>

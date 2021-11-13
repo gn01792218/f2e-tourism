@@ -28,11 +28,11 @@
         /> -->
     </div>
     <div class="d-flex flex-wrap" v-if="currentTag=='餐飲'">
-        <!-- <DrageItem
+        <DrageItem
             v-for="(food,index) in FoodDataList" :key="index"
             :foodData="food"
             category="餐飲"
-        /> -->
+        />
 
         <!-- <FoodCardItem 
             v-for="(food,index) in FoodDataList" :key="index"
@@ -40,11 +40,11 @@
         /> -->
     </div>
     <div class="d-flex flex-wrap" v-if="currentTag=='活動'">
-        <!-- <DrageItem
+        <DrageItem
             v-for="(active,index) in ActivityDataList" :key="index"
             :activityData="active"
             category="活動"
-        /> -->
+        />
         <!-- <ActivityCardItem 
             v-for="(active,index) in ActivityDataList" :key="index"
             :activityData="active"
@@ -60,16 +60,19 @@ import HotelCardItem from '@/components/card/HotelCardItem.vue'
 import FoodCardItem from '@/components/card/FoodCardItem.vue'
 import ActivityCardItem from '@/components/card/ActivityCardItem.vue'
 import store from '@/store'
+import { useStore } from 'vuex'
 export default defineComponent({
     components:{
         SceneCardItem,HotelCardItem,FoodCardItem,ActivityCardItem,DrageItem,
     },
     setup(){
+        const store = useStore()
+        store.commit('MyCollection/getFoodList')
+        store.commit('MyCollection/getActivityList')
+        store.commit('MyCollection/getSceneList')
+        store.commit('MyCollection/getHotelList')
         onMounted(()=>{
-            store.commit('MyCollection/getFoodList')
-            store.commit('MyCollection/getActivityList')
-            store.commit('MyCollection/getSceneList')
-            store.commit('MyCollection/getHotelList')
+            
         })
         
         const currentTag = ref("景點")

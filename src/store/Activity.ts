@@ -1,10 +1,11 @@
-import {getAllActivity,getActivityByCity} from '../api'
-import  {City} from '@/types/enum';
+import {getAllActivity,getActivityByCity,getAllActivityFilteData,getActivityFilteDataByCity} from '../api'
+import {City} from '@/types/enum';
 import store from '../store'
 export const state = {
   hotActivity:{},
   allActivity:{},
   activityByCity:{},
+  filteData:{},
 };
   export const actions = {
     getAllActivity(context:any){
@@ -30,18 +31,11 @@ export const state = {
         })
      }
     },
-    // loadAllActivity(state:any) {
-    //   if(JSON.stringify(state.allActivity)== '{}'){
-    //      store.commit('isloading')
-    //      getAllActivity()?.then(res=>{
-    //          state.allActivity = res.data
-    //          store.commit('loaded')
-    //      })
-    //   }
-    //  },
      loadAllActivity(state:any,payload:any) {
-       console.log("2.裝資料")
-      state.allActivity = payload
+      if(JSON.stringify(state.allActivity)== '{}'){
+        console.log("2.裝資料")
+        state.allActivity = payload
+      }
      },
      loadActivityByCity(state:any,cityName:City) {
       if(!state.activityByCity[cityName]){
@@ -51,6 +45,24 @@ export const state = {
           state.activityByCity[cityName] = res.data
           store.commit('loaded')
           console.log(state.activityByCity)
+        })
+      }
+    },
+    filteData(state:any,filteData:any){
+      store.commit('isloading')
+      if(filteData[2]==='Taiwan'){ //從全臺篩選
+        getAllActivityFilteData(filteData[0],filteData[1])?.then(res=>{
+          state.filteData = res.data
+          console.log("篩選全台旅宿",filteData[0],filteData[1],filteData[2])
+          console.log('獲得資廖',res.data)
+          store.commit('loaded')
+        })
+      }else{ //從各縣市篩選
+        getActivityFilteDataByCity(filteData[2],filteData[0],filteData[1])?.then(res=>{
+          state.filteData = res.data
+          console.log(`篩選${filteData[2]}旅宿`,filteData[0],filteData[1],filteData[2])
+          console.log('獲得資廖',res.data)
+          store.commit('loaded')
         })
       }
     }

@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <Carousel/>
+        <!-- <Carousel/> -->
         <router-link to="/MyCollection">行程規劃</router-link>
     </header>
 </template>

@@ -1,10 +1,11 @@
-import {getAllRestaurant,getFoodByCity} from '../api'
+import {getAllRestaurant,getFoodByCity,getAllFoodFilteData,getFoodFilteDataByCity} from '../api'
 import  {City} from '@/types/enum';
 import store from '../store'
 export const state = {
     hotFood:{},
     allFood:{},
     foodByCity:{},
+    filteData:{},
   };
   export const actions = {
     getAllFood(context:any){
@@ -30,18 +31,11 @@ export const state = {
         })
      }
     },
-    // loadAllFood(state:any) { 
-    //   if(JSON.stringify(state.allFood)== '{}'){
-    //     store.commit('isloading')
-    //     getAllRestaurant()?.then(res=>{
-    //         state.allFood = res.data
-    //         store.commit('loaded')
-    //     })
-    //  }
-    // },
     loadAllFood(state:any,payload:any) { 
-      console.log("2.裝資料")
-      state.allFood = payload
+      if(JSON.stringify(state.allFood)== '{}'){
+        console.log("2.裝資料")
+        state.allFood = payload
+      }
     },
     loadFoodByCity(state:any,cityName:City) {
       if(!state.foodByCity[cityName]){
@@ -51,6 +45,24 @@ export const state = {
           state.foodByCity[cityName] = res.data
           store.commit('loaded')
           console.log(state.foodByCity)
+        })
+      }
+    },
+    filteData(state:any,filteData:any){
+      store.commit('isloading')
+      if(filteData[2]==='Taiwan'){ //從全臺篩選
+        getAllFoodFilteData(filteData[0],filteData[1])?.then(res=>{
+          state.filteData = res.data
+          console.log("篩選全台旅宿",filteData[0],filteData[1],filteData[2])
+          console.log('獲得資廖',res.data)
+          store.commit('loaded')
+        })
+      }else{ //從各縣市篩選
+        getFoodFilteDataByCity(filteData[2],filteData[0],filteData[1])?.then(res=>{
+          state.filteData = res.data
+          console.log(`篩選${filteData[2]}旅宿`,filteData[0],filteData[1],filteData[2])
+          console.log('獲得資廖',res.data)
+          store.commit('loaded')
         })
       }
     }

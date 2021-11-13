@@ -1,9 +1,8 @@
 <template>
-    <div id="drageItem" class="drageItem m-2" draggable="true">
+    <div :id="data.ID" class="drageItem m-2" draggable="true" @dragstart="drag">
         <p>{{category}}</p>
         <p>{{data.Name}}</p>
     </div>
- 
 </template>
 
 <script lang="ts">
@@ -14,21 +13,27 @@ export default defineComponent({
     },
     props:{
         //只需要Name 和 ID 
-        data:{},
-        category:{
-            type:String
+        data:{
+            type:Object,
+            default:{}
         },
-        
+        category:{
+            type:String,
+            default:{},
+        },
     },
     setup({category,data}){
-        console.log(data)
         switch(category){
             case "景點" :
                 
                 break
         }
+        function drag (e:any) {
+            e.dataTransfer.setData('text/plain',data.ID ) //設置拖曳對象的id
+        }
         return{
-
+            //methods
+            drag,
         }
     }
 })

@@ -1,10 +1,11 @@
-import {getAllTourismData,getSceneByCity} from '../api'
+import {getAllTourismData,getSceneByCity,getAllSceneFilteData,getSceneFilteDataByCity} from '../api'
 import  {City} from '@/types/enum';
 import store from '../store'
 export const state = {
     hotScene:{}, //給首頁使用
     allScene:{}, 
     sceneByCity:{},  //給預設的靜態頁面使用
+    filteData:{},
   };
   export const actions = {
     getAllScene(context:any){
@@ -12,8 +13,8 @@ export const state = {
       if(JSON.stringify(state.allScene)== '{}'){
         store.commit('isloading')
         getAllTourismData()?.then(res=>{
-        console.log("1.請求資料")
         context.commit('loadAllScene',res.data)
+        console.log("1.請求資料",res.data,JSON.stringify(state.allScene))
         store.commit('loaded')
       })
       }
@@ -31,19 +32,11 @@ export const state = {
      }
     },
     loadAllScene(state:any,payload:any) { 
-      console.log("2.裝資料")
-      state.allScene = payload
+      if(JSON.stringify(state.allScene)=='{}'){
+        console.log("2.裝資料")
+        state.allScene = payload
+      }
     },
-    // loadAllScene(state:any) { 
-    //  if(JSON.stringify(state.allScene)== '{}'){
-    //     store.commit('isloading')
-    //     getAllTourismData()?.then(res=>{
-    //         state.allScene = res.data
-    //         store.commit('loaded')
-    //         console.log('all',state.allScene)
-    //     })
-    //  }
-    // },
     loadSceneByCity(state:any,cityName:City) {
       //sceneByCity中沒有要篩選的cityName的話，才進行請求
       if(!state.sceneByCity[cityName]){
@@ -52,6 +45,24 @@ export const state = {
           state.sceneByCity[cityName] = res.data
           store.commit('loaded')
           console.log('city',state.sceneByCity)
+        })
+      }
+    },
+    filteData(state:any,filteData:any){
+      store.commit('isloading')
+      if(filteData[2]==='Taiwan'){ //從全臺篩選
+        getAllSceneFilteData(filteData[0],filteData[1])?.then(res=>{
+          state.filteData = res.data
+          console.log("篩選全台景點",filteData[0],filteData[1],filteData[2])
+          console.log('獲得資廖',res.data)
+          store.commit('loaded')
+        })
+      }else{ //從各縣市篩選
+        getSceneFilteDataByCity(filteData[2],filteData[0],filteData[1])?.then(res=>{
+          state.filteData = res.data
+          console.log(`篩選${filteData[2]}景點`,filteData[0],filteData[1],filteData[2])
+          console.log('獲得資廖',res.data)
+          store.commit('loaded')
         })
       }
     }

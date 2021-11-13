@@ -4,10 +4,13 @@
         {{scheduleData.scheduleDscription}}
         <div class="row mb-5" v-for="(i,index) in scheduleData.Date" :key="index">
             <header class="col-2">
-                <!-- {{i}} -->
                 {{i.split('/')[0]}}{{i.split('/')[1]}}
             </header>
-            <div class="dragContainer"></div>
+            <div class="dragContainer" @drop="drop(e,index)" @dragenter="cancelDefault" @dragover="cancelDefault">
+                <transition-group name="fade-left">
+
+                </transition-group>
+            </div>
         </div>
     </div>
 </template>
@@ -20,39 +23,44 @@ export default defineComponent({
 
     },
     props:{
-        scheduleData:{},
+        scheduleData:{
+            type:Object,
+            default:{}
+        },
         show:{
             type:Boolean,
             default:false,
         }
     },
-    setup(){
-        const drageTarget = document.querySelectorAll('#drageItem') as NodeListOf<HTMLElement>  //獲取拖曳對象列表
-        const drageContainer = document.querySelectorAll('.dragContainer') as NodeListOf<HTMLElement>
-        drageTarget?.forEach((i:HTMLElement)=>{
-            i.addEventListener('dragstart',(e:any)=>{
-                console.log(i)
-                i.style.boxShadow="5px 5px black"
-                e.dataTransfer.setData('text/plain', e.target.id)
-            })
-        })
-        drageContainer.forEach((i:HTMLElement)=>{
-            i.addEventListener('drop',dropped)
-            i.addEventListener('dragenter',()=>{})
-            i.addEventListener('dragover',()=>{})
-        })
-        function dropped(e:any) {
-            cancelDefault(e)   //使容器可以被放置元素
-            let id = e.dataTransfer.getData('text/plain');   //獲取id
-            e.target.appendChild(document.querySelector(`.${id}`));  //抓取該id元素，放到目標容器中
-        };
+    setup({scheduleData}){
+        const localStorage = window.localStorage
         function cancelDefault(e:any) {
             e.preventDefault();
             e.stopPropagation();
             return false
+        };
+        function drop (e:any,index:number) {   //index表示放在第幾格容器裡面
+            cancelDefault(e)
+            let dragTargetID = e.dataTransfer.getData('text/plain')
+            let dragTarget = document.querySelector(`#${dragTargetID}`)
+            e.target.appendChild(dragTarget);
+            console.log(dragTarget)
+            //設置localStorage的紀錄
+            console.log(scheduleData.ID)
+            console.log(index)
+            //直接找此清單
+            let schedule = JSON.parse(localStorage.getItem(scheduleData.ID) as string)
+            //建立旅遊清單
+            schedule.schedule = [{index:[dragTarget]}]
+            localStorage.setItem(scheduleData.ID,JSON.stringify(schedule))
+            console.log(schedule?.ID)
+
+            //往裡面添加新的欄位!schedule:{0:[拖曳元素]}
+                // localStorage.setItem(`${scheduleData.ID}-${index}`,JSON.stringify(dragTarget))
         }
         return{
-
+            //methods
+            drop,cancelDefault,
         }
     }
 })

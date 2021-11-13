@@ -1,10 +1,11 @@
-import {getAllHotel,getHotelByCity} from '../api'
+import {getAllHotel,getHotelByCity,getAllHotelFilteData,getHotelFilteDataByCity} from '../api'
 import  {City} from '@/types/enum';
 import store from '../store'
 export const state = {
     hotHotel:{},
     allHotel:{},
     hotelByCity:{},
+    filteData:{},
   };
   export const actions = {
     getAllHotel(context:any) {
@@ -18,7 +19,6 @@ export const state = {
       }
     }
   }
-  
   export const mutations = {
     loadHotHotel(state:any){
       if(JSON.stringify(state.hotHotel)== '{}'){
@@ -30,20 +30,12 @@ export const state = {
      }
     },
     loadAllHotel(state:any,paload:any) { 
-      console.log("2.裝資料")
-      state.allHotel = paload
+      if(JSON.stringify(state.allHotel)== '{}'){
+        console.log("2.裝資料")
+        state.allHotel = paload
+      }
      },
-    //  loadAllHotel(state:any) { 
-    //   if(JSON.stringify(state.allHotel)== '{}'){
-    //      store.commit('isloading')
-    //      getAllHotel()?.then(res=>{
-    //          state.allHotel = res.data
-    //          store.commit('loaded')
-    //          console.log(state.allHotel)
-    //      })
-    //   }
-    //  },
-     loadHotelByCity(state:any,cityName:City) {
+    loadHotelByCity(state:any,cityName:City) {
       if(!state.hotelByCity[cityName]){
         store.commit('isloading')
         console.log("尋找城市旅宿",cityName)
@@ -53,10 +45,28 @@ export const state = {
           console.log(state.hotelByCity)
         })
       }
+    },
+    filteData(state:any,filteData:any){
+      store.commit('isloading')
+      if(filteData[2]==='Taiwan'){ //從全臺篩選
+        getAllHotelFilteData(filteData[0],filteData[1])?.then(res=>{
+          state.filteData = res.data
+          console.log("篩選全台旅宿",filteData[0],filteData[1],filteData[2])
+          console.log('獲得資廖',res.data)
+          store.commit('loaded')
+        })
+      }else{ //從各縣市篩選
+        getHotelFilteDataByCity(filteData[2],filteData[0],filteData[1])?.then(res=>{
+          state.filteData = res.data
+          console.log(`篩選${filteData[2]}旅宿`,filteData[0],filteData[1],filteData[2])
+          console.log('獲得資廖',res.data)
+          store.commit('loaded')
+        })
+      }
     }
   };
   export const getters = {
-   
+    
   }
   
   export default {

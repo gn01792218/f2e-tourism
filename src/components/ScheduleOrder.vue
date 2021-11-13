@@ -28,11 +28,9 @@ export default defineComponent({
         'preStep'
     ],
     setup(props,{emit}){
-        //先撈取本地的行程清單列表
-        onMounted(()=>{
-            store.commit('MyCollection/getSchdulelist')
-        })
         const store = useStore()
+        //先撈取本地的行程清單列表
+        store.commit('MyCollection/getSchdulelist')
         const scheduleList = computed(()=>{  //用來裝行程清單資料的
            return store.state.MyCollection.schedulelist
         })

@@ -26,6 +26,7 @@
 
 //ScheduleItem
 .dragContainer{
+    @include flex-justifyContent(flex-start);
     height:100px;
     background-color: white;
 }
