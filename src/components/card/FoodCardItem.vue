@@ -1,13 +1,14 @@
 <template>
-    <div class="foodCard row" @click="gotItemPage(foodData)">
+    <div class="foodCard row" >
         <div class="foodCard-img d-flex">
             <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.ID,foodData)"></span>
-            <img :src="foodData.Picture.PictureUrl1" :alt="foodData.Picture.PictureDescription1">
+            <img @click="gotItemPage(foodData)" :src="foodData.Picture.PictureUrl1" :alt="foodData.Picture.PictureDescription1">
         </div>
         <div class="foodCard-content">
             <p>{{foodData.Name}}</p>
             <p>{{foodData.City}}</p>
         </div>
+        <button type="button" class="btn btn-outline-success" @click="gotItemPage(foodData)">more</button>
     </div>
  
 </template>

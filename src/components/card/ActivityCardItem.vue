@@ -1,18 +1,18 @@
 <template>
-    <div class="activityCard row" @click="gotItemPage(activityData)">
+    <div class="activityCard row" >
         <div class="activityCard-img">
-            <img :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
+            <img @click="gotItemPage(activityData)" :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
         </div>
         <div class="activityCard-content">
             <header class="activityCard-header">
                 <p>{{activityData.Name}}</p>
                 <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('activity',activityData.ID,activityData)"></span>
             </header>
-            
             <p>{{activityData.Organizer}}</p>
             <p>{{activityData.Location}}</p>
             <p>舉辦時間{{activityData.StartTime}}</p>
         </div>
+        <button type="button" class="btn btn-outline-success" @click="gotItemPage(activityData)">more</button>
     </div>
  
 </template>

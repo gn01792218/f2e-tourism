@@ -7,7 +7,9 @@
         <a @click="switchCategory(3)">餐飲搜尋</a>
         <router-link to="/about">關於我</router-link>
         <button data-bs-toggle="modal" data-bs-target="#whereAreYouGoModal">大冒險:請問，你要去哪裡?</button>
+        <a href="#top" class="back-to-top"> Back to top </a>
     </nav>
+    
     <WhereAreYouGoing/>
 </template>
 

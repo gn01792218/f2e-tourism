@@ -413,6 +413,10 @@ a {
   text-decoration: underline;
 }
 
+.container {
+  margin-bottom: 200px;
+}
+
 .header {
   font-size: 2rem;
 }
@@ -427,6 +431,11 @@ a {
   .header {
     font-size: 0.8rem;
   }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 10%;
 }
 
 .LoadingPage {

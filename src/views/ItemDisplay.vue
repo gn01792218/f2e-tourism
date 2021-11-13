@@ -94,18 +94,17 @@ export default defineComponent({
             }
         })
         function showNearby (searchDistance:number) {
-                console.log(itemData.value.Position.PositionLat)
-                getSceneNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
-                then(res=>{nearbyScene.value = res.data})
+            getSceneNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
+            then(res=>{nearbyScene.value = res.data})
 
-                getActivityNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
-                then(res=>{nearbyActivity.value = res.data})
+            getActivityNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
+            then(res=>{nearbyActivity.value = res.data})
    
-                getFoodNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
-                then(res=>{nearbyFood.value = res.data})
+            getFoodNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
+            then(res=>{nearbyFood.value = res.data})
       
-                getHotelNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
-                then(res=>{nearbyHotel.value = res.data})
+            getHotelNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
+            then(res=>{nearbyHotel.value = res.data})
         }
         function reSearchNearby(){
             showNearby(nearbyDistance.value) //請求周邊資料

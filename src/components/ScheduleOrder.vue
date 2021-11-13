@@ -9,6 +9,7 @@
                         :scheduleData="i"
                         v-show="currentSchedule.ID===i.ID"
                     />
+                    
             </main>
         </div>
         
@@ -17,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent,computed, onMounted, ref} from 'vue'
+import {defineComponent,computed, ref, watch} from 'vue'
 import { useStore } from 'vuex'
 import ScheduleItem from '@/components/ScheduleItem.vue'
 export default defineComponent({
@@ -34,7 +35,11 @@ export default defineComponent({
         const scheduleList = computed(()=>{  //用來裝行程清單資料的
            return store.state.MyCollection.schedulelist
         })
+        watch(scheduleList,()=>{
+            currentSchedule.value = scheduleList.value[0]
+        })
         const currentSchedule = ref(scheduleList.value[0])
+        console.log(scheduleList.value)
         function pre () {
             emit('preStep')
         } 

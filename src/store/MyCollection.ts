@@ -15,6 +15,7 @@ export const state = {
         if(map){
             map.splice(map.length-1,1)
             state.schedulelist = map.map((i)=>{
+                console.log(JSON.parse(localStorage.getItem(i) as any))
                 return JSON.parse(localStorage.getItem(i) as any)
             })
         }

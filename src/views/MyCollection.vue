@@ -15,7 +15,6 @@ export default defineComponent({
         CollectionContainer,ScheduleHome,
     },
     setup(){
-        console.log("換我")
         return{
 
         }

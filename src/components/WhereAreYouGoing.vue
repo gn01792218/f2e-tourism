@@ -91,21 +91,18 @@ export default defineComponent({
                     })
                     break
                 case 1: //activity
-                 console.log("進01")
                     getRandomActivityByCity(City[cityNum.value])?.then(res=>{
                     recommendData.value = res.data[randomNum(0,res.data.length)]
                     loading.value = false
                     })
                     break
                 case 2: //Scene
-                console.log("進02")
                     getRandomSceneByCity(City[cityNum.value])?.then(res=>{
                     recommendData.value = res.data[randomNum(0,res.data.length)]
                     loading.value = false
                     })
                     break
                 case 3: //Food
-                console.log("進03")
                     getRandomFoodByCity(City[cityNum.value])?.then(res=>{
                     recommendData.value = res.data[randomNum(0,res.data.length)]
                     loading.value = false

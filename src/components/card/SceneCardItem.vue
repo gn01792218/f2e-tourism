@@ -1,8 +1,8 @@
 <template>
 <!-- 沒有填縣市的將會被自動排除!!!!! v-if="city"-->
-  <div class="sceneCard row mb-3" @click="gotItemPage(sceneData)">
+  <div class="sceneCard row mb-3">
     <div class="sceneCard-img col-8">
-      <img class="w-100" :src=sceneData.Picture.PictureUrl1 :alt=sceneData.Picture.PictureDescription1>
+      <img @click="gotItemPage(sceneData)" class="w-100" :src=sceneData.Picture.PictureUrl1 :alt=sceneData.Picture.PictureDescription1>
     </div>
     <div class="sceneCard-content col-6 p-4">
       <header class="sceneCard-header">
@@ -16,7 +16,7 @@
         <i class="bi bi-geo-alt-fill"></i>
         <i v-if="sceneData.City">{{sceneData.City}}</i>
         <i v-else>猜猜我在臺灣某處</i>
-        <button type="button" class="btn btn-outline-success">more</button>
+        <button type="button" class="btn btn-outline-success" @click="gotItemPage(sceneData)">more</button>
       </div>
     </div>
   </div>

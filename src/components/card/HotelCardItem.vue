@@ -1,7 +1,7 @@
 <template>
-    <div class="hotelCard mb-3" @click="gotItemPage(hotelData)">
+    <div class="hotelCard mb-3">
         <div class="hotelCard-img col-12 col-lg-7">
-            <img class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
+            <img @click="gotItemPage(hotelData)" class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
         </div>
         <div class="hotelCard-content col-12 col-lg-4">
             <header class="hotelCard-header">
@@ -15,7 +15,7 @@
             
             <p>{{hotelData.Address}}</p>
             <div class="phone"><i class="bi bi-telephone-forward-fill"></i><i>{{hotelData.Phone}}</i></div>
-            
+            <button type="button" class="btn btn-outline-success" @click="gotItemPage(hotelData)">more</button>
         </div>
 </div>
     
