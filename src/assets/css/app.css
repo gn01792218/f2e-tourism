@@ -801,4 +801,8 @@ a {
       justify-content: space-around;
   overflow-x: scroll;
 }
+
+.search-nearby {
+  cursor: pointer;
+}
 /*# sourceMappingURL=app.css.map */

@@ -23,6 +23,10 @@
         
     </div>
     <footer class="itemDisplay-footer">
+        <div class="input-group input-group-sm mb-3">
+            <span class="search-nearby input-group-text" id="inputGroup-sizing-sm" @click="reSearchNearby">改變搜尋範圍</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="請以公尺為單位輸入搜尋的範圍" v-model="nearbyDistance">
+        </div>
         <p>周邊美食</p>
         <div class="nearByBox">
             <FoodCardItem
@@ -51,8 +55,6 @@
                 :hotelData="i"
             />
         </div>
-        
-        
     </footer>
 </template>
 
@@ -70,35 +72,41 @@ export default defineComponent({
     },
     setup(){
         onMounted(()=>{
-            showNearby() //請求周邊資料
+            showNearby(nearbyDistance.value) //請求周邊資料
         })
         const route = useRoute()
         const itemData = computed(()=>{
             return JSON.parse(route.query.data as string)
         })
+        const nearbyDistance = ref(1000)
         const nearbyScene = ref()
         const nearbyFood = ref()
         const nearbyActivity = ref()
         const nearbyHotel = ref()
         watch(itemData,()=>{
-            showNearby() //請求周邊資料
+            showNearby(nearbyDistance.value) //請求周邊資料
         })
-        function showNearby () {
-                getSceneNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,1000)?.
+        function showNearby (searchDistance:number) {
+                getSceneNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
                 then(res=>{nearbyScene.value = res.data})
 
-                getActivityNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,1000)?.
+                getActivityNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
                 then(res=>{nearbyActivity.value = res.data})
    
-                getFoodNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,1000)?.
+                getFoodNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
                 then(res=>{nearbyFood.value = res.data})
       
-                getHotelNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,1000)?.
+                getHotelNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
                 then(res=>{nearbyHotel.value = res.data})
+        }
+        function reSearchNearby(){
+            showNearby(nearbyDistance.value) //請求周邊資料
         }
         return{ 
             //data
-           itemData,nearbyScene,nearbyFood,nearbyActivity,nearbyHotel,
+           itemData,nearbyScene,nearbyFood,nearbyActivity,nearbyHotel,nearbyDistance,
+           //methods
+           reSearchNearby,
         }
     }
 })
