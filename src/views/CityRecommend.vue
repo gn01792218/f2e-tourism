@@ -7,10 +7,6 @@
             <option value="Address">地址篩選</option>
             <option v-if="category=='Activity'" value="Organizer">主辦單位篩選</option>
         </select>
-        <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-        <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" @click="filteProperty='Name'">名稱篩選</a></li>
-        </ul> -->
     </div>
     <div class="quickFilte">
         <button v-if="category=='Hotel'" @click="filte('Grade','五星')">篩選五星級飯店</button>
@@ -146,10 +142,14 @@ export default defineComponent({
         })
         watch(category,()=>{ //每次進入時，都會先取得靜態所有景點資料
            //
-           console.log("切換標籤")
-            getdefaultData()
-            if(city.value){
+           console.log("切換標籤",city.value)
+           isFilter.value = false
+            if(city.value!==City[0]){
                 getCurrentCityDefaultData()
+                console.log("縣市拿到的資料",filterData.value)
+            }else{
+                 getdefaultData()
+                 console.log("全台拿到的資料",filterData.value)
             }
         })
         onMounted(()=>{

@@ -793,6 +793,10 @@ a {
   img-height: auto;
 }
 
+.itemDisplay-Discription img {
+  display: block;
+}
+
 .nearByBox {
   display: -webkit-box;
   display: -ms-flexbox;

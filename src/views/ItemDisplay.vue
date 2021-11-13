@@ -4,7 +4,7 @@
             <h1 class="title-font">{{itemData.Name}}</h1>
         </header>
         <div class="itemDisplay-contain p-4">
-            <div class="itemDisplay-info">
+            <div class="itemDisplay-info  mb-3">
                 <div class="itemDisplay-img">
                     <img :src="itemData.Picture.PictureUrl1" :alt="itemData.Picture.PictureDescription1">
                 </div>
@@ -15,8 +15,11 @@
                     <div class="itemInfo-web"><a :href="itemData.WebsiteUrl">相關網站</a></div>
                 </div>
             </div>
+            <div class="decorateLine"></div>
             <div class="itemDisplay-Discription">
+                <img class="itemDisplay-img" v-if="itemData.Picture.PictureUrl2" :src="itemData.Picture.PictureUrl2" :alt="itemData.Picture.PictureDescription2">
                 {{itemData.DescriptionDetail}}
+                <img class="itemDisplay-img" v-if="itemData.Picture.PictureUrl3" :src="itemData.Picture.PictureUrl3" :alt="itemData.Picture.PictureDescription3">
                 {{itemData.Description}}
             </div>
         </div>
@@ -25,7 +28,7 @@
     <footer class="itemDisplay-footer">
         <div class="input-group input-group-sm mb-3">
             <span class="search-nearby input-group-text" id="inputGroup-sizing-sm" @click="reSearchNearby">改變搜尋範圍</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="請以公尺為單位輸入搜尋的範圍" v-model="nearbyDistance">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="請以公尺為單位輸入搜尋的範圍" @keypress="reSearchNearby" v-model="nearbyDistance">
         </div>
         <p>周邊美食</p>
         <div class="nearByBox">
@@ -76,7 +79,9 @@ export default defineComponent({
         })
         const route = useRoute()
         const itemData = computed(()=>{
-            return JSON.parse(route.query.data as string)
+            if(route.query.data){
+                return JSON.parse(route.query.data as string)
+            }
         })
         const nearbyDistance = ref(1000)
         const nearbyScene = ref()
@@ -84,9 +89,12 @@ export default defineComponent({
         const nearbyActivity = ref()
         const nearbyHotel = ref()
         watch(itemData,()=>{
-            showNearby(nearbyDistance.value) //請求周邊資料
+            if(itemData.value){
+                 showNearby(nearbyDistance.value) //請求周邊資料
+            }
         })
         function showNearby (searchDistance:number) {
+                console.log(itemData.value.Position.PositionLat)
                 getSceneNearby(itemData.value.Position.PositionLat,itemData.value.Position.PositionLon,searchDistance)?.
                 then(res=>{nearbyScene.value = res.data})
 

@@ -12,6 +12,7 @@ export const state = {
       console.log("判斷是否請求")
       if(JSON.stringify(state.allScene)== '{}'){
         store.commit('isloading')
+        console.log("1.取得資料")
         getAllTourismData()?.then(res=>{
         context.commit('loadAllScene',res.data)
         store.commit('loaded')
