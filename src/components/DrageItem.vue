@@ -1,5 +1,5 @@
 <template>
-    <div :id="data.ID" class="drageItem m-2" draggable="true" @dragstart="drag">
+    <div :id="data.ID" class="drageItem m-2" @click="gotItemPage(data)" draggable="true" @dragstart="drag">
         <p>{{category}}</p>
         <p>{{data.Name}}</p>
     </div>
@@ -7,6 +7,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+import { useRouter } from 'vue-router';
 export default defineComponent({
     components:{
 
@@ -23,6 +24,7 @@ export default defineComponent({
         },
     },
     setup({category,data}){
+        const router = useRouter()
         switch(category){
             case "景點" :
                 
@@ -31,9 +33,18 @@ export default defineComponent({
         function drag (e:any) {
             e.dataTransfer.setData('text/plain',data.ID ) //設置拖曳對象的id
         }
+        function gotItemPage (data:any) {
+            let temp = JSON.stringify(data)
+            router.push({
+                path:`/ItemDisplay`,
+                query:{
+                    data:temp
+                }
+            })
+        }
         return{
             //methods
-            drag,
+            drag,gotItemPage,
         }
     }
 })
