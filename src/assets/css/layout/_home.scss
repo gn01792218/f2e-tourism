@@ -1,9 +1,23 @@
 .hotScene,.hotActivity,.hotFood,.hotHtel{
-    @include flex-justifyContent(space-between);
+    @include flex-justifyContent(space-around);
     flex-wrap: wrap;
     margin-bottom: 10px;
     p{
         color:$decoration_color2;
         margin: 0;
     }
+}
+.home-header{
+    color:white;
+    background-color: $decoration_color;
+    height:250px;
+    border-radius: 20px;
+    @include flex-just-aligh-center;
+ }
+.header-containter{
+    margin-top: -50px;
+    width:95%;
+    min-height: 800px;
+    @include left-right-center;
+    background-color: white;
 }

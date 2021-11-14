@@ -4,6 +4,7 @@ import Hotel from './Hotel'
 import Food from './Food'
 import Activity from './Activity'
 import MyCollection from './MyCollection'
+import RandomItem from './RandomItem'
 import { CardCategory, City } from '@/types/enum'
 export default createStore({
   state: {
@@ -33,6 +34,6 @@ export default createStore({
   actions: {
   },
   modules: {
-    Scene,Hotel,Food,Activity,MyCollection,
+    Scene,Hotel,Food,Activity,MyCollection,RandomItem,
   }
 })

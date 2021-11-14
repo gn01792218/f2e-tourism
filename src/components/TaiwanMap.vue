@@ -1,5 +1,12 @@
 <template>
- <div id="map" class="mapContainer">
+ <div id="map" class="mapContainer position-relative mb-3">
+     <div class="island position-absolute">
+        <button  @click="toCity(0)">全台</button>
+        <div class="langjon text-center" @click="toCity(22)">連江</div>
+        <div class="kin text-center" @click="toCity(20)">金門</div>
+        
+        <div class="ponho text-center" @click="toCity(21)">澎湖</div>
+     </div>
     <svg id="svg" class="sv" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
 </div>
 </template>
@@ -8,6 +15,7 @@
 import {defineComponent,onMounted} from 'vue'
 import d3 from '@/types/d3.min'
 import {useStore} from 'vuex'
+import {City} from '../types/enum'
 export default defineComponent({
     components:{
 
@@ -57,11 +65,29 @@ export default defineComponent({
                 }
             })
         })
+
         return svg
         }
-        
+        function toCity (cityNum:number) {
+            store.commit('switchCity',City[cityNum])
+            switch(cityNum){
+                case 0 :
+                    store.commit('switchCityChinese',"臺灣") 
+                    break
+                case 20:
+                     store.commit('switchCityChinese',"金門縣") 
+                    break
+                case 21:
+                     store.commit('switchCityChinese',"澎湖縣") 
+                    break
+                case 22:
+                     store.commit('switchCityChinese',"連江縣") 
+                    break
+            }
+        }
         return{
-
+            //methods
+            toCity,
         }
     }
 })

@@ -1,10 +1,11 @@
 <template>
 <!-- 沒有填縣市的將會被自動排除!!!!! v-if="city"-->
-  <div class="sceneCard row mb-3">
-    <div class="sceneCard-img col-8">
-      <img @click="gotItemPage(sceneData)" class="w-100" :src=sceneData.Picture.PictureUrl1 :alt=sceneData.Picture.PictureDescription1>
+   <div class="sceneCard row mb-3">
+    <div class="sceneCard-img col-12 col-md-8">
+      <img @click="gotItemPage(sceneData)" v-if="sceneData.Picture" class="w-100" :src='sceneData.Picture.PictureUrl1' :alt='sceneData.Picture?.PictureDescription1'>
+      <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
     </div>
-    <div class="sceneCard-content col-6 p-4">
+    <div class="sceneCard-content col-12 col-md-6 p-4">
       <header class="sceneCard-header">
         <h3>{{sceneData.Name}}</h3>
         <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('scene',sceneData.ID,sceneData)"></span>
@@ -14,12 +15,13 @@
       <i class="bi bi-door-open-fill">{{sceneData.OpenTime}}</i>
       <div class="d-flex">
         <i class="bi bi-geo-alt-fill"></i>
-        <i v-if="sceneData.City">{{sceneData.City}}</i>
-        <i v-else>猜猜我在臺灣某處</i>
-        <button type="button" class="btn btn-outline-success" @click="gotItemPage(sceneData)">more</button>
+        <i class="scene-city" v-if="sceneData.City">{{sceneData.City}}</i>
+        <i class="scene-city" v-else>猜猜我在哪</i>
+        <button type="button" class="cusButton btn" @click="gotItemPage(sceneData)">more</button>
       </div>
     </div>
   </div>
+ 
 </template>
 
 <script lang="ts">
@@ -44,6 +46,7 @@ export default defineComponent({
     const router = useRouter()
     const localStorage = window.localStorage
     const collected =ref(false)
+    const defaultPicture = require('../../assets/images/icon.png')
     function selected(category:string,id:string,data:any) {  //收藏
       collected.value = !collected.value
       if(collected.value == true){
@@ -93,7 +96,7 @@ export default defineComponent({
     }
     return{
       //data
-      collected,
+      collected,defaultPicture,
       //mathods
       selected,gotItemPage,
     }

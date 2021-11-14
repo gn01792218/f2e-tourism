@@ -2,3 +2,9 @@
     @include flex-wramp;
     justify-content: center;
 }
+.quickFilte{
+    @include flex-justifyContent(flex-start);
+    button{
+        width:100px;
+    }
+}

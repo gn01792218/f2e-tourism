@@ -1,0 +1,83 @@
+@media screen and (max-width: 1280px) {
+    .hotelCard{
+        height:auto;
+    }
+    .phone{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .tripNav{
+        width:100%;
+        position: sticky;
+        z-index:99;
+        top:0;
+        height:10vh;
+        background-color: rgba(254, 224, 177, 0.918);
+    }
+    .navItem{
+        width:100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .tripBG{
+        display: none;
+    }
+    .back-to-top{
+        bottom: -200%;
+        right:0;
+    }
+}
+@media screen and (max-width: 1140px) {
+}
+
+@media screen and (max-width: 1024px) {
+    .hotelCard{
+        height:100%;
+    }
+    .hotelCard-img{
+        border-radius: 10px;
+        height:250px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .hotelCard-content{
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+    }
+    .phone{
+        flex-direction: row;
+        align-items: center;
+    }
+    .hotel-more{
+        width:25%;
+    }
+    .footertext{
+        font-size: $font-midium-2;
+    }
+}
+@media screen and (max-width: 768px) {
+    .sceneCard{
+        height:100%;
+    }
+    .sceneCard-content{
+        height:100%;
+    }
+    .sceneCard-content{
+        margin-left: 0 !important;
+    }
+    .sceneCard-img {
+        height:200px;
+    }
+    .sceneCard-content h3{
+        font-size:$font-midium;
+    }
+    .hotelCard{
+        height:auto;
+    }
+    .hotelCard-content{
+        height: auto;
+    }
+    .footertext{
+        font-size: $font-small;
+    }
+}

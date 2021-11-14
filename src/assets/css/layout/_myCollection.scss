@@ -1,0 +1,14 @@
+.collection-header{
+    color:white;
+    background-color: $decoration_color2;
+    height:250px;
+    border-radius: 20px;
+    @include flex-just-aligh-center;
+ }
+ .collection-body{
+    margin-top: -50px;
+    width:95%;
+    min-height: 800px;
+    @include left-right-center;
+    background-color: white;
+}

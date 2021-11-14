@@ -6,57 +6,137 @@
         <div class="itemDisplay-contain p-4">
             <div class="itemDisplay-info  mb-3">
                 <div class="itemDisplay-img">
-                    <img :src="itemData.Picture.PictureUrl1" :alt="itemData.Picture.PictureDescription1">
+                    <img v-if="itemData.Picture" :src="itemData.Picture.PictureUrl1" :alt="itemData.Picture.PictureDescription1">
+                    <img v-else src='../assets/images/icon.png' alt="作者無提供照片">
                 </div>
                 <div class="itemInfo">
-                    <div class="itemInfo-adress">{{itemData.Address}}</div>
-                    <div v-if="itemData.Organizer" class="itemInfo-organizer">{{itemData.Organizer}}</div>
-                    <div v-if="itemData.StartTime" class="itemInfo-seTime">{{itemData.StartTime}}/{{itemData.EndTime}}</div>
-                    <div class="itemInfo-web"><a :href="itemData.WebsiteUrl">相關網站</a></div>
+                    <div v-if="itemData.Grade" class="d-flex">
+                        <div class="hotelGradeIcon me-2"></div>
+                        <p class="itemInfo-Grade">{{itemData.Grade}}</p>
+                    </div>
+                    <div v-if="itemData.Spec" class="d-flex">
+                        <div class="priceIcon me-2"></div>
+                        <p class="itemInfo-Spec">{{itemData.Spec}}</p>
+                    </div>
+                    <div v-if="itemData.TicketInfo" class="d-flex">
+                        <div class="priceIcon me-2"></div>
+                        <p class="itemInfo-TicketInfo">{{itemData.TicketInfo}}</p>
+                    </div>
+                    <div v-if="itemData.Phone" class="d-flex">
+                        <div class="phoneIcon me-2"></div>
+                        <p class="itemInfo-Phone">{{itemData.Phone}}</p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="webSiteIcon"></div>
+                        <div class="itemInfo-web"><a :href="itemData.WebsiteUrl">相關網站</a></div>
+                    </div>
+                    <div v-if="itemData.OpenTime" class="d-flex">
+                        <div class="seeScheduleIcon"></div>
+                        <div class="itemInfo-OpenTime">{{itemData.OpenTime}}</div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="locationIcon"></div>
+                        <div class="itemInfo-adress">{{itemData.Address}}</div>
+                    </div>
+                    <div v-if="itemData.Organizer" class="d-flex">
+                        <div class="organizerIcon"></div>
+                        <div  class="itemInfo-organizer">{{itemData.Organizer}}</div>
+                    </div>
+                    <div v-if="itemData.StartTime" class="d-flex">
+                        <div class="seeScheduleIcon"></div>
+                        <div  class="itemInfo-seTime">{{itemData.StartTime}}/{{itemData.EndTime}}</div>
+                    </div>
                 </div>
             </div>
             <div class="decorateLine"></div>
             <div class="itemDisplay-Discription">
+                <h3 class="subTitle2-font travelInfo">相關資訊</h3>
                 <img class="itemDisplay-img" v-if="itemData.Picture.PictureUrl2" :src="itemData.Picture.PictureUrl2" :alt="itemData.Picture.PictureDescription2">
-                {{itemData.DescriptionDetail}}
+                <div class="discrption lineHeight">
+                    <p class="subTitle2-font">{{itemData.DescriptionDetail}}</p>
+                    <p class="subTitle2-font">{{itemData.Description}}</p>
+                </div>
                 <img class="itemDisplay-img" v-if="itemData.Picture.PictureUrl3" :src="itemData.Picture.PictureUrl3" :alt="itemData.Picture.PictureDescription3">
-                {{itemData.Description}}
+                <div class="mt-5" v-if="itemData.TravelInfo">
+                    <h3 class="subTitle2-font travelInfo">旅遊資訊:</h3>
+                    {{itemData.TravelInfo}}
+                </div>
+                <div class="mt-5" v-if="itemData.ParkingPosition">
+                    <h3 class="subTitle2-font travelInfo">停車資訊:</h3>
+                    {{itemData.ParkingPosition}}
+                </div>
+                <div class="mt-5" v-if="itemData.Remarks">
+                    <h3 class="subTitle2-font travelInfo">注意事項:</h3>
+                    {{itemData.Remarks}}
+                </div>
+                
             </div>
         </div>
         
     </div>
     <footer class="itemDisplay-footer">
-        <div class="input-group input-group-sm mb-3">
-            <span class="search-nearby input-group-text" id="inputGroup-sizing-sm" @click="reSearchNearby">改變搜尋範圍</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="請以公尺為單位輸入搜尋的範圍" @keypress="reSearchNearby" v-model="nearbyDistance">
+        <div class="search-container mb-3">
+            <div class="searchNearby input-group input-group-sm m-3">
+            <div class="searchIcon me-3" @click="reSearchNearby"></div>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="以公尺為單位輸入搜尋的範圍,ex:1000" @keypress="reSearchNearby" v-model="nearbyDistance">
         </div>
-        <p>周邊美食</p>
-        <div class="nearByBox">
-            <FoodCardItem
-                v-for="(i,index) in nearbyFood" :key="index"
-                :foodData="i"
-            />
         </div>
-        <p>周邊活動</p>
-        <div class="nearByBox">
-            <ActivityCardItem
-                v-for="(i,index) in nearbyActivity" :key="index"
-                :activityData="i"
-            />
+        <div class="nearbyContainer">
+            <ul class="diplayTab nav nav-tabs">
+                <li class="nav-item">
+                    <a :class="['nav-link',{'active':currentNearByTag=='美食'}]" @click="currentNearByTag='美食'"><div class="foodIcon"></div>周邊美食</a>
+                </li>
+                <li class="nav-item">
+                    <a :class="['nav-link',{'active':currentNearByTag=='活動'}]" @click="currentNearByTag='活動'"><div class="activityIcon"></div>周邊活動</a>
+                </li>
+                <li class="nav-item">
+                    <a :class="['nav-link',{'active':currentNearByTag=='景點'}]" @click="currentNearByTag='景點'"><div class="sceneIcon"></div>周邊景點</a>
+                </li>
+                <li class="nav-item">
+                    
+                    <a :class="['nav-link',{'active':currentNearByTag=='旅宿'}]" @click="currentNearByTag='旅宿'"><div class="hotelIcon"></div>周邊旅宿</a>
+                </li>
+            </ul>
+        <div v-if="currentNearByTag=='美食'" class="nearbyContainer mb-3 d-flex p-3">
+            <h3 class="nearbyType title-font">周邊美食</h3>
+            <div class="nearByBox">
+                <DrageItem
+                    v-for="(i,index) in nearbyFood" :key="index"
+                    :data="i"
+                    category="美食"
+                />
+            </div>
         </div>
-        <p>周邊景點</p>
-        <div class="nearByBox">
-            <SceneCardItem
-                v-for="(i,index) in nearbyScene" :key="index"
-                :sceneData="i"
-            />
+        <div v-if="currentNearByTag=='活動'" class="nearbyContainer mb-3 d-flex p-3">
+            <h3 class="nearbyType title-font">周邊活動</h3>
+            <div class="nearByBox">
+                <DrageItem
+                    v-for="(i,index) in nearbyActivity" :key="index"
+                    :data="i"
+                    category="活動"
+                />
+            </div>
         </div>
-        <p>周邊旅宿</p>
-        <div class="nearByBox">
-            <HotelCardItem
-                v-for="(i,index) in nearbyHotel" :key="index"
-                :hotelData="i"
-            />
+        <div v-if="currentNearByTag=='景點'" class="nearbyContainer mb-3 d-flex p-3">
+            <h3 class="nearbyType title-font">周邊景點</h3>
+            <div class="nearByBox">
+                <DrageItem
+                    v-for="(i,index) in nearbyScene" :key="index"
+                    :data="i"
+                    category="景點"
+                />
+            </div>
+        </div>
+        <div v-if="currentNearByTag=='旅宿'" class="nearbyContainer mb-3 d-flex p-3">
+            <h3 class="nearbyType title-font">周邊旅宿</h3>
+            <div class="nearByBox">
+                 <DrageItem
+                    v-for="(i,index) in nearbyHotel" :key="index"
+                    :data="i"
+                    category="旅宿"
+                />
+            </div>
+        </div>
         </div>
     </footer>
 </template>
@@ -64,20 +144,18 @@
 <script lang="ts">
 import {computed, defineComponent, onMounted, ref, watch} from 'vue'
 import { useRoute } from 'vue-router'
-import SceneCardItem from '@/components/card/SceneCardItem.vue'
-import HotelCardItem from '@/components/card/HotelCardItem.vue'
-import FoodCardItem from '@/components/card/FoodCardItem.vue'
-import ActivityCardItem from '@/components/card/ActivityCardItem.vue'
+import DrageItem from '@/components/card/DrageItem.vue'
 import {getSceneNearby,getFoodNearby,getHotelNearby,getActivityNearby} from '../api'
 export default defineComponent({
     components:{
-        SceneCardItem,HotelCardItem,FoodCardItem,ActivityCardItem,
+        DrageItem,
     },
     setup(){
         onMounted(()=>{
             showNearby(nearbyDistance.value) //請求周邊資料
         })
         const route = useRoute()
+        const currentNearByTag = ref("景點")
         const itemData = computed(()=>{
             if(route.query.data){
                 return JSON.parse(route.query.data as string)
@@ -111,7 +189,7 @@ export default defineComponent({
         }
         return{ 
             //data
-           itemData,nearbyScene,nearbyFood,nearbyActivity,nearbyHotel,nearbyDistance,
+           itemData,nearbyScene,nearbyFood,nearbyActivity,nearbyHotel,nearbyDistance,currentNearByTag,
            //methods
            reSearchNearby,
         }

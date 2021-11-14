@@ -1,11 +1,11 @@
 <template>
   <Header/>
-  <Nav/>
-  <div class="container">
+  <div class="container position-relative">
+    <Loading v-if="loadingStatus"/>
+    <Nav/>
     <router-view />
   </div>
   <Fotter />
-  <Loading v-if="loadingStatus"/>
 </template>
 
 <script lang="ts">

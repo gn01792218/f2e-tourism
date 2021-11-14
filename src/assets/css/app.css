@@ -1,13 +1,17 @@
-.flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.decorateLine {
+  width: 80%;
+  border-bottom: #5A6F49 solid 5px;
+  margin-bottom: 20px;
 }
 
-.decorateLine {
-  width: 100%;
-  border: #5A6F49 solid 5px;
-  margin-bottom: 20px;
+.cusButton {
+  background-color: #892621;
+  color: white;
+}
+
+.cusButton:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .title-font {
@@ -24,6 +28,10 @@
 
 .text-font {
   font-size: 0.8rem;
+}
+
+.lineHeight {
+  line-height: 1.5rem;
 }
 
 .fade-left-enter-active, .fade-left-leave-active, .fade-right-enter, .fade-right-leave-to {
@@ -43,6 +51,578 @@
 .fade-right-leave-to {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
+}
+
+.working {
+  background-repeat: no-repeat;
+  background-image: url("../images/working.jpg");
+  width: 600px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sceneHeaderBg {
+  width: 100%;
+  height: 80vh;
+  background-image: url("../images/sceneBg.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.fiveStarHotel {
+  background-image: url("../images/fiveHotel.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(90%);
+          filter: brightness(90%);
+  color: white;
+}
+
+.fiveStarHotel:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.babyHotel {
+  background-image: url("../images/babyHotel.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.babyHotel:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.spa {
+  background-image: url("../images/spa.jpeg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(90%);
+          filter: brightness(90%);
+  color: white;
+}
+
+.spa:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.sea {
+  background-image: url("../images/ocenHotel.png");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.sea:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.trail {
+  background-image: url("../images/trail.png");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.trail:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.babyScene {
+  background-image: url("../images/babyScene.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.babyScene:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.diy {
+  background-image: url("../images/diy.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.diy:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.chineseFood {
+  background-image: url("../images/chineseFood.png");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.chineseFood:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.exotic {
+  background-image: url("../images/exotic.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.exotic:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.coffe {
+  background-image: url("../images/coffe.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.coffe:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.brunch {
+  background-image: url("../images/brunch.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.brunch:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.hipster {
+  background-image: url("../images/hipster.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.hipster:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.festival {
+  background-image: url("../images/festival.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.festival:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.music {
+  background-image: url("../images/music.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  color: white;
+}
+
+.music:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.squid {
+  background-image: url("../images/squid.jpg");
+  background-size: cover;
+  width: 100;
+  height: 100;
+  -webkit-filter: brightness(90%);
+          filter: brightness(90%);
+  color: white;
+}
+
+.squid:hover {
+  color: black;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.collect {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: 0px 0px;
+  background-size: 1287px auto;
+}
+
+.collectforNav {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: 0px 0px;
+  background-size: 1930.5px auto;
+}
+
+.disCollect {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -39px 0px;
+  background-size: 1287px auto;
+}
+
+.bootstrapIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -78px 0px;
+  background-size: 1287px auto;
+}
+
+.figamaIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -117px 0px;
+  background-size: 1287px auto;
+}
+
+.typscriptIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -1248px 0px;
+  background-size: 1287px auto;
+}
+
+.vueIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -1053px 0px;
+  background-size: 1287px auto;
+}
+
+.icons8Icon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -624px 0px;
+  background-size: 1287px auto;
+}
+
+.randomIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: -234px 0px;
+  background-size: 1930.5px auto;
+}
+
+.tszIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -195px 0px;
+  background-size: 1287px auto;
+}
+
+.scheduleIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: -351px 0px;
+  background-size: 1930.5px auto;
+}
+
+.addScheduleIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: -1287px 0px;
+  background-size: 1930.5px auto;
+}
+
+.seeScheduleIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -975px 0px;
+  background-size: 1287px auto;
+}
+
+.clanderIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -351px 0px;
+  background-size: 1287px auto;
+}
+
+.deleteIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -390px 0px;
+  background-size: 1287px auto;
+}
+
+.filterIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 65px;
+  height: 65px;
+  background-position: -1690px 0px;
+  background-size: 2145px auto;
+}
+
+.sceneIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: -468px 0px;
+  background-size: 1930.5px auto;
+}
+
+.activityIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: -994.5px 0px;
+  background-size: 1930.5px auto;
+}
+
+.foodIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: -1404px 0px;
+  background-size: 1930.5px auto;
+}
+
+.hotelIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: -877.5px 0px;
+  background-size: 1930.5px auto;
+}
+
+.priceIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -507px 0px;
+  background-size: 1287px auto;
+}
+
+.hotelGradeIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -897px 0px;
+  background-size: 1287px auto;
+}
+
+.searchIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -702px 0px;
+  background-size: 1287px auto;
+}
+
+.organizerIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -780px 0px;
+  background-size: 1287px auto;
+}
+
+.webSiteIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -1092px 0px;
+  background-size: 1287px auto;
+}
+
+.locationIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -1131px 0px;
+  background-size: 1287px auto;
+}
+
+.locationIcon2 {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 26px;
+  height: 26px;
+  background-position: -754px 0px;
+  background-size: 858px auto;
+}
+
+.phoneIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 39px;
+  height: 39px;
+  background-position: -819px 0px;
+  background-size: 1287px auto;
+}
+
+.bigAdventureIcon {
+  cursor: pointer;
+  background-image: url("../images/icon.png");
+  width: 58.5px;
+  height: 58.5px;
+  background-position: -1813.5px 0px;
+  background-size: 1930.5px auto;
+}
+
+.kin:hover {
+  cursor: pointer;
+  background-image: url("../images/island.png");
+  width: 159.5px;
+  height: 94.5px;
+  background-position: 0px 0px;
+  background-size: 957px auto;
+}
+
+.kin {
+  cursor: pointer;
+  background-image: url("../images/island.png");
+  width: 159.5px;
+  height: 94.5px;
+  background-position: -797.5px 0px;
+  background-size: 957px auto;
+}
+
+.ponho:hover {
+  cursor: pointer;
+  background-image: url("../images/island.png");
+  width: 159.5px;
+  height: 94.5px;
+  background-position: -159.5px 0px;
+  background-size: 957px auto;
+}
+
+.ponho {
+  cursor: pointer;
+  background-image: url("../images/island.png");
+  width: 159.5px;
+  height: 94.5px;
+  background-position: -478.5px 0px;
+  background-size: 957px auto;
+}
+
+.langjon {
+  cursor: pointer;
+  background-image: url("../images/island.png");
+  width: 159.5px;
+  height: 94.5px;
+  background-position: -638px 0px;
+  background-size: 957px auto;
+}
+
+.langjon:hover {
+  cursor: pointer;
+  background-image: url("../images/island.png");
+  width: 159.5px;
+  height: 94.5px;
+  background-position: -319px 0px;
+  background-size: 957px auto;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -409,28 +989,23 @@ img {
 }
 
 a {
-  color: blue;
-  text-decoration: underline;
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  text-align: center;
 }
 
 .container {
-  margin-bottom: 200px;
+  margin-top: 35%;
+  margin-bottom: 10%;
 }
 
 .header {
-  font-size: 2rem;
-}
-
-@media (max-width: 1023px) {
-  .header {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    font-size: 0.8rem;
-  }
+  width: 100%;
+  height: 80vh;
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
 .back-to-top {
@@ -446,22 +1021,6 @@ a {
   font-size: 1.6rem;
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-.collect {
-  cursor: pointer;
-  background-image: url("../images/icon.png");
-  width: 65px;
-  height: 65px;
-  background-position: 0px 0px;
-}
-
-.disCollect {
-  cursor: pointer;
-  background-image: url("../images/icon.png");
-  width: 65px;
-  height: 65px;
-  background-position: -65px 0px;
 }
 
 .sceneCard {
@@ -482,11 +1041,9 @@ a {
   height: 100%;
 }
 
-.sceneCard-img img:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: all 0.5 ease-in;
-  transition: all 0.5 ease-in;
+.sceneCard-content:hover {
+  -webkit-transform: translateX(-20px);
+          transform: translateX(-20px);
 }
 
 .sceneCard-content {
@@ -526,14 +1083,17 @@ a {
 }
 
 .sceneCard-content .btn {
-  color: #926E56;
-  background-color: #7FB1BA;
+  background-color: #892621;
   margin-left: auto;
   line-height: 1;
 }
 
 .sceneCard-content .btn:hover {
   color: white;
+}
+
+.scene-city {
+  padding-right: 10px;
 }
 
 .sceneCard-header {
@@ -551,10 +1111,13 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .hotelCard-img {
@@ -567,6 +1130,13 @@ a {
 }
 
 .hotelCard-img img {
+  height: 100%;
+}
+
+.hotelCard-content {
+  background-color: white;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
   height: 100%;
 }
 
@@ -586,6 +1156,23 @@ a {
 
 .hotelName {
   border-bottom: 1px solid black;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.hotel-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hotel-more {
+  width: 35%;
+  margin-left: auto;
 }
 
 .phone {
@@ -603,7 +1190,7 @@ a {
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   width: 80%;
-  height: 20%;
+  height: 40px;
   font-size: 0.8rem;
   font-weight: bolder;
 }
@@ -611,6 +1198,11 @@ a {
 .phone:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.activityCard {
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .activityCard-header {
@@ -622,11 +1214,100 @@ a {
           justify-content: space-between;
 }
 
+.activitiName {
+  font-size: 1.3rem;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+}
+
+.activityCard-content {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.activityCard-footer {
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.activityCard-img {
+  width: 100%;
+  height: 300px;
+}
+
+.foodCard-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.foodCard-title p {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.foodCard-img {
+  height: 250px;
+}
+
+.foodCard {
+  border-radius: 0;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.foodCard-content {
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.foodCard-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.drageItem {
+  cursor: pointer;
+  background-color: #5A6F49;
+}
+
+.drageItem-img {
+  width: 100%;
+  height: 100px;
+}
+
+.drageItem-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.dragItem-content {
+  width: 150px;
+  height: 120px;
+  background-color: white;
+}
+
+.dragItem-content p {
+  margin: 0;
+}
+
 .sv {
   height: 350px;
-  background-color: yellow;
-  fill: yellowgreen;
+  fill: #A8CDD7;
   stroke: white;
+}
+
+.island {
+  top: -5%;
+  left: 20%;
 }
 
 .active {
@@ -634,8 +1315,16 @@ a {
 }
 
 .hover {
-  fill: burlywood;
+  fill: #C57B7A;
   cursor: pointer;
+}
+
+.ponho {
+  margin-left: 20%;
+}
+
+.kin {
+  margin-left: -20%;
 }
 
 .bi-arrow-bar-right {
@@ -696,43 +1385,52 @@ a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  height: 100px;
+  height: 500px;
   background-color: white;
 }
 
-.drageItem {
-  cursor: pointer;
-  width: 100px;
-  background-color: yellowgreen;
-}
-
-.nav {
-  width: 5%;
-  position: -webkit-sticky;
-  position: sticky;
+.tripNav {
+  width: 10%;
+  position: fixed;
   top: 10%;
+  left: 3%;
   background-color: rgba(254, 224, 177, 0.5);
   -webkit-box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
           box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tripNav a {
+  cursor: pointer;
+}
+
+.tripBG {
+  top: 0;
+  right: 0;
+}
+
+.back-to-top {
+  bottom: -8%;
 }
 
 .hotScene, .hotActivity, .hotFood, .hotHtel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-bottom: 10px;
@@ -743,11 +1441,37 @@ a {
   margin: 0;
 }
 
+.home-header {
+  color: white;
+  background-color: #892621;
+  height: 250px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-containter {
+  margin-top: -50px;
+  width: 95%;
+  min-height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
 .footer {
-  position: fixed;
-  bottom: 0;
   background-color: #926E56;
   text-align: center;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cardList {
@@ -759,6 +1483,100 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.quickFilte {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.quickFilte button {
+  width: 100px;
+}
+
+.collection-header {
+  color: white;
+  background-color: #5A6F49;
+  height: 250px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.collection-body {
+  margin-top: -50px;
+  width: 95%;
+  min-height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.itemInfo {
+  max-width: 650px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.itemInfo div {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.discrption {
+  text-indent: 32px;
+}
+
+.discrption p {
+  line-height: 2rem;
+}
+
+.nearbyContainer {
+  background-color: brown;
+}
+
+.diplayTab {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-item a {
+  cursor: pointer;
+}
+
+.itemInfo-Spec {
+  max-width: 450px;
+}
+
+.travelInfo {
+  font-weight: bolder;
 }
 
 .itemDisplay-header {
@@ -780,6 +1598,7 @@ a {
 .itemDisplay-contain {
   margin-top: -50px;
   width: 95%;
+  min-height: 800px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
@@ -798,24 +1617,172 @@ a {
   width: 40%;
   border-radius: 10px;
   overflow: hidden;
-  img-width: 100%;
-  img-height: auto;
+}
+
+.itemDisplay-img img {
+  width: 100%;
+  height: auto;
 }
 
 .itemDisplay-Discription img {
   display: block;
 }
 
+.nearbyType {
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+
+.nearbyContainer {
+  min-height: 250px;
+  height: 100%;
+}
+
+.searchNearby {
+  width: 100%;
+}
+
+.search-container {
+  width: 30%;
+  background-color: aquamarine;
+  height: 50px;
+}
+
 .nearByBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   overflow-x: scroll;
 }
 
 .search-nearby {
   cursor: pointer;
+}
+
+.cityFilter-header {
+  color: white;
+  background-color: #5A6F49;
+  height: 250px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cityFilter-content {
+  margin-top: -50px;
+  width: 95%;
+  min-height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+@media screen and (max-width: 1280px) {
+  .hotelCard {
+    height: auto;
+  }
+  .phone {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .tripNav {
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 99;
+    top: 0;
+    height: 10vh;
+    background-color: rgba(254, 224, 177, 0.918);
+  }
+  .navItem {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .tripBG {
+    display: none;
+  }
+  .back-to-top {
+    bottom: -200%;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .hotelCard {
+    height: 100%;
+  }
+  .hotelCard-img {
+    border-radius: 10px;
+    height: 250px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .hotelCard-content {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
+  }
+  .phone {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .hotel-more {
+    width: 25%;
+  }
+  .footertext {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sceneCard {
+    height: 100%;
+  }
+  .sceneCard-content {
+    height: 100%;
+  }
+  .sceneCard-content {
+    margin-left: 0 !important;
+  }
+  .sceneCard-img {
+    height: 200px;
+  }
+  .sceneCard-content h3 {
+    font-size: 1.6rem;
+  }
+  .hotelCard {
+    height: auto;
+  }
+  .hotelCard-content {
+    height: auto;
+  }
+  .footertext {
+    font-size: 0.8rem;
+  }
 }
 /*# sourceMappingURL=app.css.map */

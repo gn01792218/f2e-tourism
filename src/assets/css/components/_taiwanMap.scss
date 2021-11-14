@@ -1,13 +1,23 @@
     .sv{
         height:350px;  
-        background-color: yellow;
-        fill:yellowgreen;
+        // background-color: yellow;
+        fill:#A8CDD7;
         stroke: white;
+    }
+    .island{
+        top:-5%;
+        left:20%;
     }
     .active{
       fill: red;
     }
     .hover{
-        fill: burlywood;
+        fill: #C57B7A;
         cursor: pointer;
     }
+   .ponho{
+       margin-left:20%;
+   }
+   .kin{
+       margin-left: -20%;
+   }

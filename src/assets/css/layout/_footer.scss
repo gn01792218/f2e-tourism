@@ -1,6 +1,6 @@
 .footer{
-    position: fixed;
-    bottom: 0;
     background-color: $secondary_color;
     text-align: center;
+    color: white;
+    @include left-right-center;
 }

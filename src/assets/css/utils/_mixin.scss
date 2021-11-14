@@ -8,12 +8,44 @@
     background-image: $bgUrl;
     background-repeat: $repeatMethod;
 }
+@mixin square($wh){
+    width:$wh;
+    height:$wh;
+}
+//樣式
+@mixin box-shadow {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
 //icon
 @mixin icon {
     cursor: pointer;
     background-image:$icon-sprite;
-    width:65px;
-    height:65px;
+}
+@mixin island {
+    cursor: pointer;
+    background-image: $island-sprite;
+}
+@mixin iconScale($x,$y,$scale){
+    $WIDTH:(65*$scale);
+    $HEIGHT:(65*$scale);
+    $POSITIONX:($x*$scale);
+    $POSITIONY:($y*$scale);
+    $BGSIZEX:(2145*$WIDTH/65);
+    width:$WIDTH+px;
+    height:$HEIGHT+px;
+	background-position: $POSITIONX+px $POSITIONY+px;
+    background-size: $BGSIZEX+px auto;
+}
+@mixin islandScale($x,$y,$scale){
+    $WIDTH:(319*$scale);
+    $HEIGHT:(189*$scale);
+    $POSITIONX:($x*$scale);
+    $POSITIONY:($y*$scale);
+    $BGSIZEX:(1914*$WIDTH/319);
+    width:$WIDTH+px;
+    height:$HEIGHT+px;
+	background-position: $POSITIONX+px $POSITIONY+px;
+    background-size: $BGSIZEX+px auto;
 }
 //flex相關
 @mixin flex-wramp {

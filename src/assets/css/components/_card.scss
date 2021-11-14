@@ -1,13 +1,4 @@
 
-//收藏icon
-.collect{
-   @include icon;
-   background-position: 0px 0px;
-}
-.disCollect{
-    @include icon;
-    background-position: -65px 0px;
- }
 //景點卡
 .sceneCard{
     width:45%;
@@ -21,16 +12,15 @@
     img{
         height:100%;
     }
-    img:hover{
-        transform: scale(1.2);
-        transition: all 0.5 ease-in;
-    }
+}
+.sceneCard-content:hover{
+    transform: translateX(-20px);
 }
 .sceneCard-content{
     margin-left: -25%;
     height:95%;
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    @include box-shadow;
     h3{
         font-size: $font-midium-2;
         font-weight: bolder;
@@ -48,7 +38,6 @@
         color:$decoration_color_alert;
     }
     .btn{
-        color: #926E56;
         background-color: $decoration_color;
         margin-left: auto;
         line-height: 1;
@@ -57,6 +46,9 @@
         color:white;
     }
   }
+  .scene-city{
+    padding-right: 10px;
+}
   .sceneCard-header{
       @include flex-justifyContent(space-between);
   }
@@ -64,8 +56,9 @@
 .hotelCard{
     width:45%;
     height:250px;
-    @include flex-justifyContent(space-around);
+    @include flex-justifyContent(space-between);
     flex-wrap: wrap;
+    @include box-shadow;
 }
 .hotelCard-img{
     border: 1px blanchedalmond solid;
@@ -79,6 +72,10 @@
     }
 }
 .hotelCard-content{
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 100%;
     .bi-telephone-forward-fill{
         color:$decoration_color_phone;
         margin-right: 5px;
@@ -89,15 +86,25 @@
 }
 .hotelName{
     border-bottom: 1px solid black;
+    font-size: $font-midium-2;
+    font-weight: bold;
+}
+.hotel-footer{
+    display: flex;
+    flex-direction: column;
+}
+.hotel-more{
+    width:35%;
+    margin-left: auto;
 }
 .phone{
     @include flex-justifyContent;
     align-items: center;
     background-color: #FBE9CF;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    @include box-shadow;
     border-radius: 5px;
     width:80%;
-    height:20%;
+    height:40px;
     font-size: $font-small;
     font-weight:bolder;
 }
@@ -105,6 +112,69 @@
     transform: scale(1.1);
 }
 //activity
+.activityCard{
+    @include box-shadow;
+}
 .activityCard-header{
     @include flex-justifyContent(space-between);
+}
+.activitiName{
+    font-size: $font-midium-2;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+.activityCard-content{
+    background: rgba(255, 255, 255, 0.5);
+}
+.activityCard-footer{
+    background: rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.activityCard-img{
+    width:100%;
+    height:300px;
+}
+//food
+.foodCard-title{
+    @include flex-justifyContent(space-between);
+    p{
+        font-size: $font-midium-2;
+        font-weight: bold;
+    }
+}
+.foodCard-img{
+    height:250px;
+}
+.foodCard{
+    border-radius: 0;
+    @include box-shadow;
+}
+.foodCard-content{
+    background: rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.foodCard-footer{
+    @include flex-justifyContent(space-between);
+}
+//拖拉卡
+//拖曳物
+.drageItem{
+    cursor: pointer;
+    background-color: $decoration_color2;
+}
+.drageItem-img{
+    width:100%;
+    height:100px;
+    img{
+        width:100%;
+        height:100%;
+    }
+}
+.dragItem-content{
+    width:150px;
+    height:120px;
+    background-color: white;
+    p{
+        margin: 0;
+    }
 }

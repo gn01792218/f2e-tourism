@@ -1,38 +1,55 @@
 <template>
   <div class="home">
-   <div class="hotScene">
-     <p>熱門景點</p>
-     <span class="decorateLine"></span>
-      <SceneCardItem 
-        v-for="(scene,index) in hotScene" :key="index"
-        :sceneData="scene"
-      />
+    <header class="home-header">
+      <h1 class="title-font">大冒險:請問，你要去哪裡?</h1>
+    </header>
+    <div class="header-containter">
+      <div class="hotScene">
+        <h3 class="title-font m-3">熱門景點</h3>
+        <span class="decorateLine"></span>
+          <SceneCardItem 
+            v-for="(scene,index) in hotScene" :key="index"
+            :sceneData="scene"
+          />
    </div>
    <div class="hotActivity">
-     <p>熱門活動</p>
-     <span class="decorateLine"></span>
-     {{hotActivity}}
+      <h3 class="title-font m-3">熱門活動</h3>
+      <span class="decorateLine"></span>
+        <ActivityCardItem
+          v-for="(activity,index) in hotActivity" :key="index"
+          :activityData="activity"
+        />
    </div>
    <div  class="hotFood">
-     <p>熱門食物</p>
+     <h3 class="title-font m-3">熱門食物</h3>
      <span class="decorateLine"></span>
-     {{hotFood}}
+     <FoodCardItem
+      v-for="(food,index) in hotFood" :key="index"
+      :foodData="food"
+     />
    </div>
-   <div class="hotHtel">
-     <p>熱門旅宿</p>
+   <div class="hotHtel m-3">
+     <h3 class="title-font">熱門旅宿</h3>
      <span class="decorateLine"></span>
-     {{hotHotel}}
+     <HotelCardItem
+      v-for="(hotel,index) in hotHotel" :key="index"
+      :hotelData="hotel"
+     />
    </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, onMounted} from 'vue';
 import { useStore } from 'vuex';
-import SceneCardItem from '../components/card/SceneCardItem.vue'
+import SceneCardItem from '@/components/card/SceneCardItem.vue'
+import ActivityCardItem from '@/components/card/ActivityCardItem.vue'
+import FoodCardItem from '@/components/card/FoodCardItem.vue'
+import HotelCardItem from '@/components/card/HotelCardItem.vue'
 export default defineComponent({
   components: {
-    SceneCardItem,
+    SceneCardItem,ActivityCardItem,FoodCardItem,HotelCardItem,
   },
   setup(){
     onMounted(()=>{  

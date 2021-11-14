@@ -1,16 +1,31 @@
 <template>
-    <div class="foodCard row" >
-        <div class="foodCard-img d-flex">
-            <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.ID,foodData)"></span>
-            <img @click="gotItemPage(foodData)" :src="foodData.Picture.PictureUrl1" :alt="foodData.Picture.PictureDescription1">
+  <div class="col-12 col-md-3 mb-3 p-1">
+    <div class="foodCard card h-100 pe-2 ps-2">
+      <div class="foodCard-img">
+        <img class="w-100 h-100" @click="gotItemPage(foodData)" v-if="foodData.Picture" :src="foodData.Picture.PictureUrl1" :alt="foodData.Picture.PictureDescription1">
+        <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
+      </div>
+    <div class="card-body">
+    <div class="foodCard-content">
+      <div class="foodCard-title">
+        <p>{{foodData.Name}}</p>
+         <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.ID,foodData)"></span>
+      </div>    
+      <footer class="foodCard-footer">
+        <div class="d-flex">
+          <i class="bi bi-geo-alt-fill"></i>
+          <p v-if="foodData.City">{{foodData.City}}</p>
+          <p class="scene-city" v-else>猜猜我在哪</p>
         </div>
-        <div class="foodCard-content">
-            <p>{{foodData.Name}}</p>
-            <p>{{foodData.City}}</p>
-        </div>
-        <button type="button" class="btn btn-outline-success" @click="gotItemPage(foodData)">more</button>
-    </div>
- 
+        <button type="button" class="cusButton btn" @click="gotItemPage(foodData)">more</button>
+      </footer>
+        
+        
+      </div>
+      
+  </div>
+  </div>
+  </div>
 </template>
 
 <script lang="ts">

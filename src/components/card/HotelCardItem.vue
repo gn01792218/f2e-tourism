@@ -1,21 +1,21 @@
 <template>
-    <div class="hotelCard mb-3">
+    <div class="hotelCard mb-3 me-3 me-lg-3">
         <div class="hotelCard-img col-12 col-lg-7">
-            <img @click="gotItemPage(hotelData)" class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
+            <img @click="gotItemPage(hotelData)" v-if="hotelData.Picture" class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
+            <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
         </div>
-        <div class="hotelCard-content col-12 col-lg-4">
+        <div class="hotelCard-content col-12 col-lg-5 p-3">
             <header class="hotelCard-header">
-                <div>
-                    <p>{{hotelData.Class}}</p>
                     <p class="hotelName">{{hotelData.Name}}</p>
-                </div>
-                  <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('hotel',hotelData.ID,hotelData)"></span>
+                  <span :class="[{'collect':collected},{'disCollect':!collected},]" @click="selected('hotel',hotelData.ID,hotelData)"></span>
             </header>
-          
-            
             <p>{{hotelData.Address}}</p>
-            <div class="phone"><i class="bi bi-telephone-forward-fill"></i><i>{{hotelData.Phone}}</i></div>
-            <button type="button" class="btn btn-outline-success" @click="gotItemPage(hotelData)">more</button>
+            <footer class="hotel-footer w-100">
+              <div class="phone ps-2 ps-lg-0"><i class="bi bi-telephone-forward-fill"></i><i>{{hotelData.Phone}}</i></div>
+              <div class="hotel-more mt-2">
+                <button type="button" class="cusButton btn " @click="gotItemPage(hotelData)">more</button>
+              </div>
+            </footer>
         </div>
 </div>
     
