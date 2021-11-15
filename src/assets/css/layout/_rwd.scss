@@ -81,3 +81,16 @@
         font-size: $font-small;
     }
 }
+@media screen and (max-width: 414px) {
+    .navLi{
+        a{
+            font-size: small;
+        }
+    }
+    .home-header{
+        h1{
+            font-size: $font-midium;
+        }
+    }
+
+}

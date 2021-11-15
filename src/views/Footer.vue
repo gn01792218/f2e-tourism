@@ -8,7 +8,7 @@
             <div class="figamaIcon m-3"></div>
             <div class="icons8Icon m-3"></div>
         </div>
-        <div class="d-flex">
+        <div class="devAuth d-flex">
             <h3 class="footertext subTitle-font m-3">開發人員:</h3>
             <h3 class="footertext subTitle-font m-3">前端工程師:Mong Tse Hong</h3>
             <h3 class="footertext subTitle-font m-3">視覺設計:Annie guo</h3>

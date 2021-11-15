@@ -1474,6 +1474,12 @@ a {
   margin-right: auto;
 }
 
+.devTool, .devAuth {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .cardList {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1783,6 +1789,15 @@ a {
   }
   .footertext {
     font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .navLi a {
+    font-size: small;
+  }
+  .home-header h1 {
+    font-size: 1.6rem;
   }
 }
 /*# sourceMappingURL=app.css.map */

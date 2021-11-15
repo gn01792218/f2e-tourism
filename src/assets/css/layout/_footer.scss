@@ -3,4 +3,8 @@
     text-align: center;
     color: white;
     @include left-right-center;
+    
+}
+.devTool,.devAuth{
+    justify-content: center;
 }
