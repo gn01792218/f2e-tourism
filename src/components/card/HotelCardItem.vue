@@ -1,7 +1,7 @@
 <template>
     <div class="hotelCard mb-3 me-3 me-lg-3">
         <div class="hotelCard-img col-12 col-lg-7">
-            <img @click="gotItemPage(hotelData)" v-if="hotelData.Picture" class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
+            <img @click="gotItemPage(hotelData)" v-if="hotelData.Picture.PictureUrl1" class="w-100" :src="hotelData.Picture.PictureUrl1" :alt="hotelData.Picture.PictureDescription1">
             <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
         </div>
         <div class="hotelCard-content col-12 col-lg-5 p-3">

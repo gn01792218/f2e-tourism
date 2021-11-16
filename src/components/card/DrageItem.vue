@@ -1,7 +1,7 @@
 <template>
     <div :id="data.ID" class="drageItem m-2" @click="gotItemPage(data)" draggable="true" @dragstart="drag">
         <div class="drageItem-img">
-            <img v-if="data.Picture" :src="data.Picture.PictureUrl1" :alt="data.Picture.PictureDescription1">
+            <img v-if="data.Picture.PictureUrl1" :src="data.Picture.PictureUrl1" :alt="data.Picture.PictureDescription1">
             <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
         </div>
         <div class="dragItem-content p-1">
@@ -38,7 +38,6 @@ export default defineComponent({
         const router = useRouter()
         switch(category){
             case "景點" :
-                
                 break
         }
         function drag (e:any) {

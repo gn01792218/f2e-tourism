@@ -2,7 +2,7 @@
 <!-- 沒有填縣市的將會被自動排除!!!!! v-if="city"-->
    <div class="sceneCard row mb-3">
     <div class="sceneCard-img col-12 col-md-8">
-      <img @click="gotItemPage(sceneData)" v-if="sceneData.Picture" class="w-100" :src='sceneData.Picture.PictureUrl1' :alt='sceneData.Picture?.PictureDescription1'>
+      <img @click="gotItemPage(sceneData)" v-if="sceneData.Picture.PictureUrl1" class="w-100" :src='sceneData.Picture.PictureUrl1' :alt='sceneData.Picture?.PictureDescription1'>
       <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
     </div>
     <div class="sceneCard-content col-12 col-md-6 p-4">

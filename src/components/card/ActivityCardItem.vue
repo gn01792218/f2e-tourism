@@ -1,7 +1,7 @@
 <template>
   <div class="activityCard card mb-3 me-3" style="width: 18rem;">
     <div class="activityCard-img">
-      <img class="w-100 h-100" @click="gotItemPage(activityData)" v-if="activityData.Picture" :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
+      <img class="w-100 h-100" @click="gotItemPage(activityData)" v-if="activityData.Picture.PictureUrl1" :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
       <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
     </div>
     <div class="activityCard-content card-body">
