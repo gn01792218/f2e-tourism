@@ -17,9 +17,9 @@ npm run serve
 npm run build
 ```
 ## 使用技術
-vue3 + typscript 
-bootstrap
-gsap.js
-d3.js
+vue3 + typscript <br>
+bootstrap <br>
+gsap.js <br>
+d3.js <br>
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
