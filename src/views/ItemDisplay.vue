@@ -6,8 +6,8 @@
         <div class="itemDisplay-contain p-4">
             <div class="itemDisplay-info  mb-3">
                 <div class="itemDisplay-img">
-                    <img v-if="itemData.Picture" :src="itemData.Picture.PictureUrl1" :alt="itemData.Picture.PictureDescription1">
-                    <img v-else src='../assets/images/icon.png' alt="作者無提供照片">
+                    <img v-if="itemData.Picture.PictureUrl1" :src="itemData.Picture.PictureUrl1" :alt="itemData.Picture.PictureDescription1">
+                    <img v-else src='../assets/images/defaultImg.png' alt="作者無提供照片">
                 </div>
                 <div class="itemInfo">
                     <div v-if="itemData.Grade" class="d-flex">
