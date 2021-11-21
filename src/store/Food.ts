@@ -16,6 +16,8 @@ export const state = {
         console.log("1.請求資料")
         context.commit('loadAllFood',res.data)
         store.commit('loaded')
+      }).catch((e:any)=>{
+        console.log(e)
       })
       }
     }
@@ -28,6 +30,8 @@ export const state = {
         getAllRestaurant(4)?.then(res=>{
             state.hotFood = res.data
             // console.log('hotFood',state.hotFood)
+        }).catch((e:any)=>{
+          console.log(e)
         })
      }
     },
@@ -45,6 +49,8 @@ export const state = {
           state.foodByCity[cityName] = res.data
           store.commit('loaded')
           console.log(state.foodByCity)
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }
     },
@@ -56,6 +62,8 @@ export const state = {
           console.log("篩選全台旅宿",filteData[0],filteData[1],filteData[2])
           console.log('獲得資廖',res.data)
           store.commit('loaded')
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }else{ //從各縣市篩選
         getFoodFilteDataByCity(filteData[2],filteData[0],filteData[1])?.then(res=>{
@@ -63,6 +71,8 @@ export const state = {
           console.log(`篩選${filteData[2]}旅宿`,filteData[0],filteData[1],filteData[2])
           console.log('獲得資廖',res.data)
           store.commit('loaded')
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }
     }

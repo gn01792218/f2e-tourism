@@ -16,6 +16,8 @@ export const state = {
         getAllTourismData()?.then(res=>{
         context.commit('loadAllScene',res.data)
         store.commit('loaded')
+      }).catch((e:any)=>{
+        console.log(e)
       })
       }
     }
@@ -28,6 +30,8 @@ export const state = {
         getAllTourismData(4)?.then(res=>{
             state.hotScene = res.data
             // console.log('hotScene',state.hotScene)
+        }).catch((e:any)=>{
+          console.log(e)
         })
      }
     },
@@ -45,6 +49,8 @@ export const state = {
           state.sceneByCity[cityName] = res.data
           store.commit('loaded')
           console.log('city',state.sceneByCity)
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }
     },
@@ -56,6 +62,8 @@ export const state = {
           console.log("篩選全台景點",filteData[0],filteData[1],filteData[2])
           console.log('獲得資廖',res.data)
           store.commit('loaded')
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }else{ //從各縣市篩選
         getSceneFilteDataByCity(filteData[2],filteData[0],filteData[1])?.then(res=>{
@@ -63,6 +71,8 @@ export const state = {
           console.log(`篩選${filteData[2]}景點`,filteData[0],filteData[1],filteData[2])
           console.log('獲得資廖',res.data)
           store.commit('loaded')
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }
     }

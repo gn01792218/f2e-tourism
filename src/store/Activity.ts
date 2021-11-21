@@ -28,6 +28,8 @@ export const state = {
         getAllActivity(4)?.then(res=>{
             state.hotActivity = res.data
             // console.log('hotActivity',state.hotActivity)
+        }).catch((e:any)=>{
+          console.log(e)
         })
      }
     },
@@ -45,6 +47,8 @@ export const state = {
           state.activityByCity[cityName] = res.data
           store.commit('loaded')
           console.log(state.activityByCity)
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }
     },
@@ -56,6 +60,8 @@ export const state = {
           console.log("篩選全台旅宿",filteData[0],filteData[1],filteData[2])
           console.log('獲得資廖',res.data)
           store.commit('loaded')
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }else{ //從各縣市篩選
         getActivityFilteDataByCity(filteData[2],filteData[0],filteData[1])?.then(res=>{
@@ -63,6 +69,8 @@ export const state = {
           console.log(`篩選${filteData[2]}旅宿`,filteData[0],filteData[1],filteData[2])
           console.log('獲得資廖',res.data)
           store.commit('loaded')
+        }).catch((e:any)=>{
+          console.log(e)
         })
       }
     }

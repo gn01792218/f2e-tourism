@@ -15,20 +15,26 @@ export const state = {
                  context.commit('loadRandomItem',res.data[Math.round(((Math.random()*res.data.length)))]) 
                  console.log(res.data[Math.round(((Math.random()*res.data.length)))])
                  console.log("旅館骰了一次")
-                 })
+                 }).catch((e:any)=>{
+                  console.log(e)
+                })
                  break
              case 1: //activity
                  getRandomActivityByCity(City[cityNum])?.then((res:any)=>{
                  context.commit('loadRandomItem',res.data[Math.round(((Math.random()*res.data.length)))])
                  console.log("活動撈到資料",res.data[Math.round(((Math.random()*res.data.length)))])
                  console.log("活動骰了一次")
-                 })
+                 }).catch((e:any)=>{
+                  console.log(e)
+                })
                  break
              case 2: //Scene
                 getRandomSceneByCity(City[cityNum])?.then((res:any)=>{
                 context.commit('loadRandomItem',res.data[Math.round(((Math.random()*res.data.length)))])
                 console.log("場景撈到資料",res.data[Math.round(((Math.random()*res.data.length)))])
-                 })
+                 }).catch((e:any)=>{
+                  console.log(e)
+                })
                  console.log("場警骰了一次")
                  break
              case 3: //Food
@@ -36,7 +42,9 @@ export const state = {
                 context.commit('loadRandomItem',res.data[Math.round(((Math.random()*res.data.length)))])
                 console.log("餐飲撈到資料",res.data[Math.round(((Math.random()*res.data.length)))])
                  console.log("餐飲骰了一次")
-                 })
+                 }).catch((e:any)=>{
+                  console.log(e)
+                })
                  break
         }
     }
