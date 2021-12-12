@@ -1,10 +1,9 @@
 <template>
- <div id="map" class="mapContainer position-relative mb-3">
+ <div id="map" class="mapContainer position-relative mb-3 d-none d-xl-block">
      <div class="island position-absolute">
         <button  @click="toCity(0)">全台</button>
         <div class="langjon text-center" @click="toCity(22)">連江</div>
         <div class="kin text-center" @click="toCity(20)">金門</div>
-        
         <div class="ponho text-center" @click="toCity(21)">澎湖</div>
      </div>
     <svg id="svg" class="sv" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>

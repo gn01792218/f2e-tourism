@@ -5,6 +5,7 @@
         </header>  
         <div class="cityFilter-content">
             <TaiwanMap/>
+            <CitySelecterBar/>
             <CityRecommend 
             v-if="showRecommend" 
             />
@@ -20,10 +21,12 @@ import {useRoute} from 'vue-router'
 import {useStore} from 'vuex'
 import CityRecommend from './CityRecommend.vue'
 import TaiwanMap from '@/components/TaiwanMap.vue'
-// import d3 from '@/types/d3.min'
+import CitySelecterBar from '@/components/CitySelecterBar.vue'
 export default defineComponent({
     components:{
-        CityRecommend,TaiwanMap,
+        CityRecommend,
+        TaiwanMap,
+        CitySelecterBar,
     },
     setup(){
         const store = useStore()
