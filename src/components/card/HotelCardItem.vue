@@ -6,8 +6,8 @@
         </div>
         <div class="hotelCard-content col-12 col-lg-5 p-3">
             <header class="hotelCard-header">
-                    <p class="hotelName">{{hotelData.Name}}</p>
-                  <span :class="[{'collect':collected},{'disCollect':!collected},]" @click="selected('hotel',hotelData.ID,hotelData)"></span>
+                    <p class="hotelName">{{hotelData.HotelName}}</p>
+                  <span :class="[{'collect':collected},{'disCollect':!collected},]" @click="selected('hotel',hotelData.HotelID,hotelData)"></span>
             </header>
             <p>{{hotelData.Address}}</p>
             <footer class="hotel-footer w-100">

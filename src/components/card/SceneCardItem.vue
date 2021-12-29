@@ -7,8 +7,8 @@
     </div>
     <div class="sceneCard-content col-12 col-md-6 p-4">
       <header class="sceneCard-header">
-        <h3>{{sceneData.Name}}</h3>
-        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('scene',sceneData.ID,sceneData)"></span>
+        <h3>{{sceneData.ScenicSpotName}}</h3>
+        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('scene',sceneData.ScenicSpotID,sceneData)"></span>
       </header>
       
       <p>{{sceneData.DescriptionDetail}}</p>

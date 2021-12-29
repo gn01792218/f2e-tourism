@@ -8,8 +8,8 @@
     <div class="card-body">
     <div class="foodCard-content">
       <div class="foodCard-title">
-        <p>{{foodData.Name}}</p>
-         <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.ID,foodData)"></span>
+        <p>{{foodData.RestaurantName}}</p>
+         <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.RestaurantID,foodData)"></span>
       </div>    
       <footer class="foodCard-footer">
         <div class="d-flex">

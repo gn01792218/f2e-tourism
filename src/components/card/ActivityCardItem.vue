@@ -6,8 +6,8 @@
     </div>
     <div class="activityCard-content card-body">
       <header class="activityCard-header">
-        <p class="activitiName">{{activityData.Name}}</p>
-        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('activity',activityData.ID,activityData)"></span>
+        <p class="activitiName">{{activityData.ActivityName}}</p>
+        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('activity',activityData.ActivityID,activityData)"></span>
       </header>
       <footer class="activityCard-footer">
         <div class="topInfo">
