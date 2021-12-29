@@ -28,7 +28,7 @@
                     </div>
                     <div class="d-flex">
                         <div class="webSiteIcon"></div>
-                        <div class="itemInfo-web"><a :href="itemData.WebsiteUrl">相關網站</a></div>
+                        <div class="itemInfo-web"><a :href="itemData.WebsiteUrl" target="_blank">相關網站</a></div>
                     </div>
                     <div v-if="itemData.OpenTime" class="d-flex">
                         <div class="seeScheduleIcon"></div>

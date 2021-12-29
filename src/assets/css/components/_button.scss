@@ -1,0 +1,19 @@
+.miniSelectBtn {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to bottom right, #d8e6f5, #edf3f8);
+    box-shadow: $outShadow;
+    border-radius: $borderRadius;
+    div {
+      filter: drop-shadow(1px 1px 1px rgba(5, 5, 5, 0.8))
+        drop-shadow(-1px -1px 1px rgba(255, 255, 255, 1));
+    }
+    p {
+      font-size: $font-midium-2;
+    }
+  }
+  .miniSelectBtn:hover {
+    background: $backdrop-color;
+    border-radius: $borderRadius;
+    box-shadow: $insideShadow;
+  }

@@ -13,7 +13,8 @@
                     <Loading class="position-absolute" v-if="loading"/>
                     <h1 v-if="recommendData.Name">{{recommendData.Name}}</h1>
                     <p>{{recommendData.DescriptionDetail}}</p>
-                    <p v-if="!recommendData.DescriptionDetail">作者很神秘，沒任何打字...</p>
+                    <p class="subTitle2-font">{{recommendData.Description}}</p>
+                    <p v-if="!recommendData.DescriptionDetail && !recommendData.Description">作者很神秘，沒任何打字...</p>
                     <div class="d-flex">
                         <div class="locationIcon"></div>
                         <p>{{recommendData.City}}</p>

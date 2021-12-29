@@ -68,22 +68,22 @@ export default defineComponent({
         if(localStorage.getItem(`${category}CollectList`)){ //把清單裡面的ID排除
           let temp = localStorage.getItem(`${category}CollectList`) as string
           let dataList = temp.split('#')
-          console.log("清單",dataList)
+          // console.log("清單",dataList)
           temp = "" //原本清單規0
           dataList.find((i,index)=>{ //找到該ID，刪除
           console.log(i)
             if(i ===id){
-              console.log("找到這個ID名稱")
+              // console.log("找到這個ID名稱")
               dataList[index] = ""
             }
           })
-          console.log("刪除後的清單清單",dataList)
+          // console.log("刪除後的清單清單",dataList)
           dataList.forEach((i:string)=>{ //再加回去清單中
             if(i!==""){
               temp+=`${i}#`
             }
           }) 
-          console.log("新的清單",temp)
+          // console.log("新的清單",temp)
           localStorage.setItem(`${category}CollectList`,temp)
         }
       }
