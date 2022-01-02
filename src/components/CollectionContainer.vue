@@ -2,17 +2,17 @@
     <div class="collectionTag d-flex">
          <ul class="diplayTab nav nav-tabs">
                 <li class="nav-item">
-                    <a :class="['nav-link',{'active':currentNearByTag=='美食'}]" @click="currentTag='餐飲'"><div class="foodIcon"></div>收藏美食</a>
+                    <a :class="['nav-link',{'active':currentTag=='美食'}]" @click="currentTag='餐飲'"><div class="foodIcon"></div>收藏美食</a>
                 </li>
                 <li class="nav-item">
-                    <a :class="['nav-link',{'active':currentNearByTag=='活動'}]" @click="currentTag='活動'"><div class="activityIcon"></div>收藏活動</a>
+                    <a :class="['nav-link',{'active':currentTag=='活動'}]" @click="currentTag='活動'"><div class="activityIcon"></div>收藏活動</a>
                 </li>
                 <li class="nav-item">
-                    <a :class="['nav-link',{'active':currentNearByTag=='景點'}]" @click="currentTag='景點'"><div class="sceneIcon"></div>收藏景點</a>
+                    <a :class="['nav-link',{'active':currentTag=='景點'}]" @click="currentTag='景點'"><div class="sceneIcon"></div>收藏景點</a>
                 </li>
                 <li class="nav-item">
                     
-                    <a :class="['nav-link',{'active':currentNearByTag=='旅宿'}]" @click="currentTag='旅宿'"><div class="hotelIcon"></div>收藏旅宿</a>
+                    <a :class="['nav-link',{'active':currentTag=='旅宿'}]" @click="currentTag='旅宿'"><div class="hotelIcon"></div>收藏旅宿</a>
                 </li>
         </ul>
     </div>

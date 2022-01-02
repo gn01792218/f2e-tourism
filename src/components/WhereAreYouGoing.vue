@@ -11,7 +11,12 @@
                     </div>
                 <div class="modal-body ">
                     <Loading class="position-absolute" v-if="loading"/>
-                    <h1 v-if="recommendData.Name">{{recommendData.Name}}</h1>
+                    <header class='itemName'>
+                        <h1 v-show="recommendData.RestaurantName">{{recommendData.RestaurantName}}</h1>
+                        <h1 v-show="recommendData.ScenicSpotName">{{recommendData.ScenicSpotName}}</h1>
+                        <h1 v-show="recommendData.HotelName">{{recommendData.HotelName}}</h1>
+                        <h1 v-show="recommendData.ActivityName">{{recommendData.ActivityName}}</h1>
+                    </header>
                     <p>{{recommendData.DescriptionDetail}}</p>
                     <p class="subTitle2-font">{{recommendData.Description}}</p>
                     <p v-if="!recommendData.DescriptionDetail && !recommendData.Description">作者很神秘，沒任何打字...</p>
@@ -20,7 +25,7 @@
                         <p>{{recommendData.City}}</p>
                     </div>
                         <img v-if="recommendData.Picture" :src="recommendData.Picture.PictureUrl1" :alt="recommendData.Picture.PictureDescription1">
-                        <img v-else src='../assets/images/icon.png' alt="作者無提供照片">
+                        <img v-else :src='defaultPicture' alt="作者無提供照片">
                 </div>
                 <div class="modal-footer d-flex justify-content-around">
                     <div>
@@ -69,9 +74,9 @@ export default defineComponent({
         onMounted(()=>{
             randomRecommend ()
         })
-        function randomNum (min:number,max:number):number {
-            return Math.round(((Math.random()*(max-min)+min)))
-        }
+        // function randomNum (min:number,max:number):number {
+        //     return Math.round(((Math.random()*(max-min)+min)))
+        // }
         function randomRecommend () {
             loading.value = true
             store.dispatch('RandomItem/getRandomItem').then()

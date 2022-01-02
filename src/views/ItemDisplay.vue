@@ -1,7 +1,11 @@
 <template>
     <div class="itemDisplay">
         <header class="itemDisplay-header">
-            <h1 class="title-font">{{itemData.Name}}</h1>
+            <!-- <h1 class="title-font">{{itemData.Name}}</h1> -->
+            <h1 v-show="itemData.RestaurantName">{{itemData.RestaurantName}}</h1>
+            <h1 v-show="itemData.ScenicSpotName">{{itemData.ScenicSpotName}}</h1>
+            <h1 v-show="itemData.HotelName">{{itemData.HotelName}}</h1>
+            <h1 v-show="itemData.ActivityName">{{itemData.ActivityName}}</h1>
         </header>
         <div class="itemDisplay-contain p-4">
             <div class="itemDisplay-info  mb-3">

@@ -9,10 +9,8 @@
                         :scheduleData="i"
                         v-show="currentSchedule.ID===i.ID"
                     />
-                    
             </main>
         </div>
-        
     </transition>
          
 </template>

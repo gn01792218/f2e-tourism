@@ -11,7 +11,6 @@
                 <div class="locationIcon2"></div>
                 <p>{{data.City}}</p>
             </div>
-            
         </div>
     </div>
 </template>

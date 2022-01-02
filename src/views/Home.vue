@@ -52,9 +52,10 @@ export default defineComponent({
     SceneCardItem,ActivityCardItem,FoodCardItem,HotelCardItem,
   },
   setup(){
-    onMounted(()=>{  
-      // window.localStorage.clear()
-    })
+    //用來清理LocalStorage資料的
+    // onMounted(()=>{  
+    //   window.localStorage.clear()
+    // })
     //這裡就先發出請求ALL的資料
     const store = useStore()
     store.commit('Scene/loadHotScene')

@@ -11,9 +11,6 @@
             />
         </div> 
     </div>
-    
-    
-  
 </template>
 <script lang="ts">
 import {defineComponent,computed, ref,watch} from 'vue'

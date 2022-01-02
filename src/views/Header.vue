@@ -13,8 +13,8 @@
         <div v-if="category=='Hotel'" class="w-100 h-100">
             <img class="w-100 h-100" src="../assets/images/hotelBg.jpg" alt="特色旅宿">
         </div>
-        <div v-if="(category!=='Hotel' && category=='Activity' && category=='Food' && category=='Scene') | category==undefined" class="w-100 h-100">
-            <img class="w-100 h-100" src="../assets/images/itemBg.jpg" alt="宮眼科">
+        <div v-if="(category!=='Hotel' && category!=='Activity' && category!=='Food' && category!=='Scene') || category==undefined" class="w-100 h-100">
+            <img class="w-100 h-100" src="../assets/images/itemBg.jpg" alt="宮原眼科">
         </div>
         <!-- <Carousel/> -->
     </header>
@@ -32,9 +32,9 @@ export default defineComponent({
         const category = computed(()=>{
             return route.params.category
         })
-        watch(category,()=>{
-            console.log("更換header背景圖",category.value)
-        })
+        // watch(category,()=>{
+        //     console.log("更換header背景圖",category.value)
+        // })
         return{
             //
             category,
