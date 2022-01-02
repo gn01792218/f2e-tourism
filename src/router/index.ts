@@ -26,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path:"/MyCollection",
     name:"MyCollection",
     component: () => import('@/views/MyCollection.vue')
+  },
+  {
+    path:"/SearchMyNearby",
+    name:"SearchMyNearby",
+    component:() => import('@/views/SearchMyNearby.vue')
   }
 ]
 

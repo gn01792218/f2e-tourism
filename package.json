@@ -16,6 +16,7 @@
     "v-calendar": "^3.0.0-alpha.6",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
+    "vue3-openlayers": "^0.1.55",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

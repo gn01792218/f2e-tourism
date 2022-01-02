@@ -9,7 +9,7 @@
     <div class="foodCard-content">
       <div class="foodCard-title">
         <p>{{foodData.RestaurantName}}</p>
-         <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('food',foodData.RestaurantID,foodData)"></span>
+         <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('RestaurantID',foodData.RestaurantID,foodData)"></span>
       </div>    
       <footer class="foodCard-footer">
         <div class="d-flex">
@@ -41,7 +41,7 @@ export default defineComponent({
     setup({foodData}){
        onMounted(()=>{
         //判斷local中的收藏id是否符合本卡id，若是，就顯示true
-        if(localStorage.getItem(foodData.ID)){
+        if(localStorage.getItem(foodData.RestaurantID)){
             collected.value = true
         }else{
             collected.value = false

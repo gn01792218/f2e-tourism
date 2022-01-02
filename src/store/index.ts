@@ -5,14 +5,15 @@ import Food from './Food'
 import Activity from './Activity'
 import MyCollection from './MyCollection'
 import RandomItem from './RandomItem'
+import MyNearby from './MyNearby'
 import { CardCategory, City } from '@/types/enum'
 export default createStore({
   state: {
-    loading:false, //掌管資料loading
-    currentCategory:CardCategory, //掌管使用者切換到了哪個種類
-    currentCity:City[0],
-    currentCityChinessName:"臺灣",
-    cityList:[
+    loading: false, //掌管資料loading
+    currentCategory: CardCategory, //掌管使用者切換到了哪個種類
+    currentCity: City[0],
+    currentCityChinessName: "臺灣",
+    cityList: [
       {
         "CityID": "0",
         "CityName": "臺灣",
@@ -200,26 +201,26 @@ export default createStore({
     ],
   },
   mutations: {
-    isloading(state:any){  
+    isloading(state: any) {
       state.loading = true
     },
-    loaded(state:any){
+    loaded(state: any) {
       state.loading = false
     },
-    switchCategory(state:any,CardCategory:CardCategory){
+    switchCategory(state: any, CardCategory: CardCategory) {
       state.currentCategory = CardCategory
     },
-    switchCity(state:any,city=City.Taiwan){
+    switchCity(state: any, city = City.Taiwan) {
       state.currentCity = city
-      
+
     },
-    switchCityChinese(state:any,cityChinesName:string){
+    switchCityChinese(state: any, cityChinesName: string) {
       state.currentCityChinessName = cityChinesName
     }
   },
   actions: {
   },
   modules: {
-    Scene,Hotel,Food,Activity,MyCollection,RandomItem,
+    Scene, Hotel, Food, Activity, MyCollection, RandomItem, MyNearby,
   }
 })

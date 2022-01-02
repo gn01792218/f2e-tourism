@@ -5,6 +5,7 @@
         </div>
         <ul class="navItem mt-5 me-4">
             <router-link to="/">首頁</router-link> 
+            <router-link to="/SearchMyNearby">搜尋附近</router-link>
             <li class="navLi mb-3">
                 <a @click="switchCategory(0)"><div class="hotelIcon"></div>旅宿搜尋</a> 
             </li>

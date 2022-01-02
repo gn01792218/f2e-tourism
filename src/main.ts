@@ -7,4 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 import './assets/css/app.css'
 
-createApp(App).use(store).use(router).use(VCalendar,{}).mount('#app')
+import OpenLayersMap from 'vue3-openlayers'
+import 'vue3-openlayers/dist/vue3-openlayers.css'
+
+createApp(App).use(store).use(router).use(VCalendar,{}).use(OpenLayersMap).mount('#app')

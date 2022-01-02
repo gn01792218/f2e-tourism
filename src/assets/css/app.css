@@ -1725,6 +1725,14 @@ a {
   background-color: white;
 }
 
+.mynearbyItem-contain {
+  width: 95%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
+}
+
 @media screen and (max-width: 1280px) {
   .hotelCard {
     height: auto;

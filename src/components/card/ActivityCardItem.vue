@@ -7,7 +7,7 @@
     <div class="activityCard-content card-body">
       <header class="activityCard-header">
         <p class="activitiName">{{activityData.ActivityName}}</p>
-        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('activity',activityData.ActivityID,activityData)"></span>
+        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('ActivityID',activityData.ActivityID,activityData)"></span>
       </header>
       <footer class="activityCard-footer">
         <div class="topInfo">
@@ -39,7 +39,7 @@ export default defineComponent({
     setup({activityData}){
      onMounted(()=>{
         //判斷local中的收藏id是否符合本卡id，若是，就顯示true
-        if(localStorage.getItem(activityData.ID)){
+        if(localStorage.getItem(activityData.ActivityID)){
             collected.value = true
         }else{
             collected.value = false

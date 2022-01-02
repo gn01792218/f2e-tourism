@@ -7,7 +7,7 @@
         <div class="hotelCard-content col-12 col-lg-5 p-3">
             <header class="hotelCard-header">
                     <p class="hotelName">{{hotelData.HotelName}}</p>
-                  <span :class="[{'collect':collected},{'disCollect':!collected},]" @click="selected('hotel',hotelData.HotelID,hotelData)"></span>
+                  <span :class="[{'collect':collected},{'disCollect':!collected},]" @click="selected('HotelID',hotelData.HotelID,hotelData)"></span>
             </header>
             <p>{{hotelData.Address}}</p>
             <footer class="hotel-footer w-100">
@@ -35,7 +35,7 @@ export default defineComponent({
     setup({hotelData}){
         onMounted(()=>{
         //判斷local中的收藏id是否符合本卡id，若是，就顯示true
-        if(localStorage.getItem(hotelData.ID)){
+        if(localStorage.getItem(hotelData.HotelID)){
             collected.value = true
         }else{
             collected.value = false

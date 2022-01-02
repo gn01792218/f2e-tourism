@@ -14,19 +14,21 @@
 @import './components/loading';
 @import './components/card';
 @import './components/taiwanMap';
+@import './components/openStreeMap';
 @import './components/carousel';
 @import './components/scheduleHome';
 @import './components/collectionContainer';
 
-//layout
-@import './layout/header';
-@import './layout//home';
-@import './layout/footer';
-@import './layout/cityRecommend';
-@import './layout/myCollection';
-@import './layout/itemDisplay';
-@import './layout/cityFilter';
+//view
+@import './view/header';
+@import './view//home';
+@import './view/footer';
+@import './view/cityRecommend';
+@import './view/myCollection';
+@import './view/itemDisplay';
+@import './view/cityFilter';
+@import './view/SearchMyNearby';
 
 //rwd
-@import './layout/rwd'
+@import './view/rwd'
 

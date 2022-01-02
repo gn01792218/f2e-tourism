@@ -8,7 +8,7 @@
     <div class="sceneCard-content col-12 col-md-6 p-4">
       <header class="sceneCard-header">
         <h3>{{sceneData.ScenicSpotName}}</h3>
-        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('scene',sceneData.ScenicSpotID,sceneData)"></span>
+        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('ScenicSpotID',sceneData.ScenicSpotID,sceneData)"></span>
       </header>
       
       <p>{{sceneData.DescriptionDetail}}</p>
@@ -37,7 +37,7 @@ export default defineComponent({
   setup({sceneData}){
     onMounted(()=>{
       //判斷local中的收藏id是否符合本卡id，若是，就顯示true
-      if(localStorage.getItem(sceneData.ID)){
+      if(localStorage.getItem(sceneData.ScenicSpotID)){
         collected.value = true
       }else{
         collected.value = false
