@@ -11,7 +11,6 @@
                     <a :class="['nav-link',{'active':currentTag=='景點'}]" @click="currentTag='景點'"><div class="sceneIcon"></div>收藏景點</a>
                 </li>
                 <li class="nav-item">
-                    
                     <a :class="['nav-link',{'active':currentTag=='旅宿'}]" @click="currentTag='旅宿'"><div class="hotelIcon"></div>收藏旅宿</a>
                 </li>
         </ul>

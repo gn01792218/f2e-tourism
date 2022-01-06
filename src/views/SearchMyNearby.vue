@@ -2,10 +2,28 @@
     <div class="itemDisplay">
         <header class="itemDisplay-header">
             <h1>我附近有什麼?</h1>
+            <div class="selectBar">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked v-model="scene">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">顯示景點</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" v-model="hotel">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">顯示旅宿</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" v-model="food">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">顯示餐飲</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" v-model="activity">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">顯示活動</label>
+                </div>
+            </div>
         </header>
         <div class="mynearbyItem-contain p-4">
             <!-- 地圖 -->
-            <OpenStreeMap 
+            <MyNearbyMap
                 :center="myLocation"
             />
             <!-- 搜尋框 -->
@@ -18,27 +36,27 @@
             </div>
             <div class="decorateLine"></div>
             <!-- 資訊展示處 -->
-            <!-- <div class="itemDisplay-Discription" v-if="itemData">
+            <div class="itemDisplay-Discription" v-if="showItem">
                 <h3 class="subTitle2-font travelInfo">相關資訊</h3>
-                <img class="itemDisplay-img" v-if="itemData.Picture.PictureUrl2" :src="itemData.Picture.PictureUrl2" :alt="itemData.Picture.PictureDescription2">
+                <!-- <img class="itemDisplay-img" v-if="showItem.Picture" :src="showItem.Picture.PictureUrl2" :alt="showItem.Picture.PictureDescription2"> -->
                 <div class="discrption lineHeight">
-                    <p class="subTitle2-font">{{itemData.DescriptionDetail}}</p>
-                    <p class="subTitle2-font">{{itemData.Description}}</p>
+                    <p class="subTitle2-font">{{showItem.DescriptionDetail}}</p>
+                    <p class="subTitle2-font">{{showItem.Description}}</p>
                 </div>
-                <img class="itemDisplay-img" v-if="itemData.Picture.PictureUrl3" :src="itemData.Picture.PictureUrl3" :alt="itemData.Picture.PictureDescription3">
-                <div class="mt-5" v-if="itemData.TravelInfo">
+                <!-- <img class="itemDisplay-img" v-if="showItem.Picture" :src="showItem.Picture.PictureUrl3" :alt="showItem.Picture.PictureDescription3"> -->
+                <div class="mt-5" v-if="showItem.TravelInfo">
                     <h3 class="subTitle2-font travelInfo">旅遊資訊:</h3>
-                    {{itemData.TravelInfo}}
+                    {{showItem.TravelInfo}}
                 </div>
-                <div class="mt-5" v-if="itemData.ParkingPosition">
+                <div class="mt-5" v-if="showItem.ParkingPosition">
                     <h3 class="subTitle2-font travelInfo">停車資訊:</h3>
-                    {{itemData.ParkingPosition}}
+                    {{showItem.ParkingPosition}}
                 </div>
-                <div class="mt-5" v-if="itemData.Remarks">
+                <div class="mt-5" v-if="showItem.Remarks">
                     <h3 class="subTitle2-font travelInfo">注意事項:</h3>
-                    {{itemData.Remarks}}
+                    {{showItem.Remarks}}
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
     <footer class="itemDisplay-footer">
@@ -106,35 +124,62 @@
 <script lang="ts">
 import {computed, defineComponent, onMounted, reactive, ref , watch} from 'vue'
 import {getSceneNearby,getFoodNearby,getHotelNearby,getActivityNearby} from '../api'
-import OpenStreeMap from '@/components/OpenStreeMap.vue'
+import MyNearbyMap from '@/components/Map/MyNearbyMap.vue'
 import DrageItem from '@/components/card/DrageItem.vue'
 import { useStore } from 'vuex'
 export default defineComponent({
     components:{
-        OpenStreeMap,
+        MyNearbyMap,
         DrageItem,
     },
     setup(){
         onMounted(()=>{
             getUserLocation()
-            console.log('取得使用者位置')
         })
         const store = useStore()
         //使用者位置
         let myLocation = computed(()=>{
             return store.state.MyNearby.userLocation
         })
+        watch(myLocation,()=>{
+            showNearby(nearbyDistance.value) //取得使用者位置時，先取一次基本周邊資料
+        })
         //搜尋範圍
         const nearbyDistance = ref(1000)
+        //地圖篩選種類
+        const scene = ref(true)
+        const hotel = ref(false)
+        const food = ref(false)
+        const activity = ref(false)
+        watch(scene,()=>{
+            store.commit('MyNearby/setScene',scene.value)
+        })
+        watch(hotel,()=>{
+            store.commit('MyNearby/setHotel',hotel.value)
+        })
+         watch(food,()=>{
+            store.commit('MyNearby/setFood',food.value)
+        })
+         watch(activity,()=>{
+            store.commit('MyNearby/setActivity',activity.value)
+        })
+        //展示用的使用者點選的item資料
+        const showItem = computed(()=>{
+            return store.state.MyNearby.showItem
+        })
         //nearbyBar
         const currentNearByTag = ref("景點")
-        const nearbyScene = ref()
-        const nearbyFood = ref()
-        const nearbyActivity = ref()
-        const nearbyHotel = ref()
-        //選擇的item
-        const itemData = computed(()=>{
-            return 'A'
+        const nearbyScene = computed(()=>{
+            return store.state.MyNearby.sceneData
+        })
+        const nearbyFood = computed(()=>{
+            return store.state.MyNearby.foodData
+        })
+        const nearbyActivity = computed(()=>{
+            return store.state.MyNearby.activityData
+        })
+        const nearbyHotel = computed(()=>{
+            return store.state.MyNearby.hotelData
         })
         function getUserLocation(){
             if ("geolocation" in navigator) {
@@ -148,24 +193,37 @@ export default defineComponent({
             }
         }
         function showNearby (searchDistance:number) {
-            getSceneNearby(myLocation.value[0],myLocation.value[1],searchDistance)?.
-            then(res=>{nearbyScene.value = res.data})
+            console.log(searchDistance)
+            getSceneNearby(myLocation.value[1],myLocation.value[0],searchDistance)?.
+            then(res=>{
+                store.commit('MyNearby/setSceneData',res.data)
+                console.log(nearbyScene.value)
+            })
 
-            getActivityNearby(myLocation.value[0],myLocation.value[1],searchDistance)?.
-            then(res=>{nearbyActivity.value = res.data})
+            getActivityNearby(myLocation.value[1],myLocation.value[0],searchDistance)?.
+            then(res=>{
+                store.commit('MyNearby/setActivityData',res.data)
+                console.log(nearbyActivity.value)
+                })
    
-            getFoodNearby(myLocation.value[0],myLocation.value[1],searchDistance)?.
-            then(res=>{nearbyFood.value = res.data})
+            getFoodNearby(myLocation.value[1],myLocation.value[0],searchDistance)?.
+            then(res=>{
+                store.commit('MyNearby/setFoodData',res.data)
+                console.log(nearbyFood.value)
+                })
       
-            getHotelNearby(myLocation.value[0],myLocation.value[1],searchDistance)?.
-            then(res=>{nearbyHotel.value = res.data})
+            getHotelNearby(myLocation.value[1],myLocation.value[0],searchDistance)?.
+            then(res=>{
+                store.commit('MyNearby/setHotelData',res.data)
+                console.log(nearbyHotel.value)
+                })
         }
         function reSearchNearby(){
             showNearby(nearbyDistance.value) //請求周邊資料
         }
         return{
             //data
-            currentNearByTag,nearbyScene,nearbyFood,nearbyActivity,nearbyHotel,nearbyDistance,itemData,myLocation,
+            currentNearByTag,nearbyScene,nearbyFood,nearbyActivity,nearbyHotel,nearbyDistance,myLocation,scene,hotel,food,activity,showItem,
             //methods
             reSearchNearby,
         }

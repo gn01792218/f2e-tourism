@@ -257,7 +257,6 @@ export default defineComponent({
     const itemCategory = computed(()=>{ //取得資料的屬性key值
         return Object.keys(itemData.value)
     })
-    console.log(itemData.value[itemCategory.value[0]])
     watch(itemData, () => {
       if (itemData.value) {
         showNearby(nearbyDistance.value); //請求周邊資料

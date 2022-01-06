@@ -21,7 +21,7 @@ export const state = {
         }
     },
     getSceneList(state:any){
-        let map = localStorage.getItem('sceneCollectList')?.split('#')
+        let map = localStorage.getItem('ScenicSpotIDCollectList')?.split('#')
         if(map){
             map.splice(map.length-1,1)
             state.sceneList = map.map(i=>{
@@ -30,7 +30,7 @@ export const state = {
         }
     },
     getFoodList(state:any){
-        let map = localStorage.getItem('foodCollectList')?.split('#')
+        let map = localStorage.getItem('RestaurantIDCollectList')?.split('#')
         if(map){
             map.splice(map.length-1,1)
             state.foodList = map.map(i=>{
@@ -39,7 +39,7 @@ export const state = {
         }
     },
     getHotelList(state:any){
-        let map = localStorage.getItem('hotelCollectList')?.split('#')
+        let map = localStorage.getItem('HotelIDCollectList')?.split('#')
         if(map){
             map.splice(map.length-1,1)
             state.hotelList = map.map(i=>{
@@ -48,7 +48,7 @@ export const state = {
         }
     },
     getActivityList(state:any){
-        let map = localStorage.getItem('activityCollectList')?.split('#')
+        let map = localStorage.getItem('ActivityIDCollectList')?.split('#')
         if(map){
             map.splice(map.length-1,1)
             state.activityList = map.map(i=>{

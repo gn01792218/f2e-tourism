@@ -10,7 +10,6 @@
         <h3>{{sceneData.ScenicSpotName}}</h3>
         <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('ScenicSpotID',sceneData.ScenicSpotID,sceneData)"></span>
       </header>
-      
       <p>{{sceneData.DescriptionDetail}}</p>
       <i class="bi bi-door-open-fill">{{sceneData.OpenTime}}</i>
       <div class="d-flex">

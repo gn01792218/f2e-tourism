@@ -212,7 +212,6 @@ export default createStore({
     },
     switchCity(state: any, city = City.Taiwan) {
       state.currentCity = city
-
     },
     switchCityChinese(state: any, cityChinesName: string) {
       state.currentCityChinessName = cityChinesName
