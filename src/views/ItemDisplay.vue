@@ -65,11 +65,11 @@
           <!-- 重新撰寫收藏的機制 @click="selected('activity', activityData.ActivityID, activityData)" -->
           <div class="d-flex" v-if="collected">
               <div class="collect" @click="selected(itemCategory[0], itemData[itemCategory[0]], itemData)"></div>
-              <div>收藏</div>
+              <div>取消收藏</div>
           </div>
           <div class="d-flex" v-if="!collected">
               <div class="disCollect" @click="selected(itemCategory[0], itemData[itemCategory[0]], itemData)"></div>
-              <div>取消收藏</div>
+              <div>收藏</div>
           </div>
         </div>
       </div>
