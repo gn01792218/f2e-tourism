@@ -1357,6 +1357,10 @@ a {
   margin-left: -20%;
 }
 
+.L-map {
+  height: 400px;
+}
+
 .bi-arrow-bar-right {
   color: red;
   -webkit-transform: scale(2);

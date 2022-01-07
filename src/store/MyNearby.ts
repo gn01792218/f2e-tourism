@@ -17,7 +17,6 @@ export const actions = {
 export const mutations = {
   setUserLocation(state: any, payload: number[]) {
     state.userLocation = payload
-    console.log(state.userLocation)
   },
   setScene(state:any,selected:boolean){
     state.scene = selected

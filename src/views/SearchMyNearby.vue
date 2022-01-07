@@ -23,9 +23,8 @@
         </header>
         <div class="mynearbyItem-contain p-4">
             <!-- 地圖 -->
-            <MyNearbyMap
-                :center="myLocation"
-            />
+            <Leaflet />
+            <MyNearbyMap/>
             <!-- 搜尋框 -->
             <span>變更搜尋半徑</span>
             <div class="search-container mb-3">
@@ -126,11 +125,13 @@ import {computed, defineComponent, onMounted, reactive, ref , watch} from 'vue'
 import {getSceneNearby,getFoodNearby,getHotelNearby,getActivityNearby} from '../api'
 import MyNearbyMap from '@/components/Map/MyNearbyMap.vue'
 import DrageItem from '@/components/card/DrageItem.vue'
+import Leaflet from '@/components/Map/Leaflet.vue'
 import { useStore } from 'vuex'
 export default defineComponent({
     components:{
         MyNearbyMap,
         DrageItem,
+        Leaflet,
     },
     setup(){
         onMounted(()=>{

@@ -96,6 +96,7 @@
 <script lang="ts">
 import {defineComponent , ref ,computed} from 'vue'
 import { useStore } from 'vuex'
+
 export default defineComponent({
     components:{
 
@@ -150,17 +151,7 @@ export default defineComponent({
         const fullscreencontrol= ref(true)
         //methods
         function showItem(itemData:any){
-            // showItemData.value = itemData
             store.commit('MyNearby/setShowItem',itemData)
-            // if(itemData.ScenicSpotName){
-
-            // }else if(itemData.ActivityName){
-
-            // }else if(itemData.HotelName){
-
-            // }else if(itemData.RestaurantName){
-
-            // }
         }
         const selectInteactionFilter = (feature:any) => {
             return feature.values_.name != undefined;
