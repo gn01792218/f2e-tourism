@@ -41,7 +41,7 @@ export default defineComponent({
     watch(myLocation, () => {
       //取得使用者座標時才產生地圖，否則沒有中心點，會報錯
       creatMap(myLocation.value);
-      addMarkerAndPopInfor(myLocation.value); //把我的座標貼上去
+      addMarker(myLocation.value); //把我的座標貼上去
     });
     let openStreetMap = {} as any;
     function creatMap(centerPosition = [25.042474, 121.513729]) {
@@ -59,13 +59,18 @@ export default defineComponent({
         maxZoom: 20,
       }).addTo(openStreetMap);
     }
+    function addMarker(position: number[]){
+      L.marker([position[1], position[0]]).addTo(openStreetMap)
+    }
     function addMarkerAndPopInfor(position: number[], itemData?: any) {
       //傳入該項目座標，或data
       L.marker([position[1], position[0]]).addTo(openStreetMap).bindPopup(`
+          <div v-if="itemData">
             <p v-if="itemData.ScenicSpotName">${itemData.ScenicSpotName}</p>
             <p v-if="itemData.ActivityName">${itemData.ActivityName}</p>
             <p v-if="itemData.HotelName">${itemData.HotelName}</p>
             <p v-if="itemData.RestaurantName">${itemData.RestaurantName}</p>
+          </div>
         `);
     }
     function removeMarker() {

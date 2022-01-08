@@ -1361,6 +1361,11 @@ a {
   height: 400px;
 }
 
+.overlay-content {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .bi-arrow-bar-right {
   color: red;
   -webkit-transform: scale(2);

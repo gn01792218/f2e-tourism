@@ -23,71 +23,51 @@
             </ol-vector-layer>
             <!-- 附近餐飲位置 -->
             <div v-if="food">
-                <ol-vector-layer v-for="(i,index) in foodData" :key="index">
-                    <ol-source-vector>
-                        <ol-feature>
-                            <ol-geom-point :coordinates="[i.Position.PositionLon,i.Position.PositionLat]"></ol-geom-point>
-                            <ol-style radius='20'>
-                                <ol-style-text :text='i.RestaurantName' :scale="1.5"></ol-style-text>
-                                <ol-style-icon :src="foodIcon" :scale="0.2"></ol-style-icon>
-                            </ol-style>
-                        </ol-feature>
-                    </ol-source-vector>
-                </ol-vector-layer>
+                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i,index) in foodData" :key="index">
+                    <template v-slot="slotProps">
+                        <div class="overlay-content d-flex flex-column align-items-center" @click="showItem(i)">
+                            <div class="foodIcon"></div>
+                            {{i.RestaurantName}}
+                            <span style="display:none">{{slotProps}}</span>
+                        </div>
+                    </template>
+                </ol-overlay>
             </div>
             <!-- 附近景點位置 -->
             <div v-if="scene">
-                <ol-vector-layer v-for="(i,index) in sceneData" :key="index">
-                    <!-- 唯一的互動方式，可是無法觸發事件 -->
-                    <ol-interaction-select @select="showItem(i)">
-                    </ol-interaction-select>
-                    <ol-source-vector>
-                    <ol-feature>
-                        <ol-geom-point :coordinates="[i.Position.PositionLon,i.Position.PositionLat]"></ol-geom-point>
-                        <ol-style>
-                        <ol-style-circle radius='20'>
-                            <ol-style-fill :color="fillColor"></ol-style-fill>
-                            <ol-style-stroke :color="strokeColor" :width='strokeWidth'></ol-style-stroke>
-                            <ol-style-text :text='i.ScenicSpotName' :scale="1.5"></ol-style-text>
-                        </ol-style-circle>
-                        </ol-style>
-                    </ol-feature>
-                    </ol-source-vector>
-                </ol-vector-layer>
+                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i,index) in sceneData" :key="index">
+                    <template v-slot="slotProps">
+                        <div class="overlay-content d-flex flex-column align-items-center" @click="showItem(i)">
+                            <div class="sceneIcon"></div>
+                            {{i.ScenicSpotName}}
+                            <span style="display:none">{{slotProps}}</span>
+                        </div>
+                    </template>
+                </ol-overlay>
             </div>
             <!-- 附近旅宿位置 -->
             <div v-if="hotel">
-                <ol-vector-layer v-for="(i,index) in hotelData" :key="index">
-                    <ol-source-vector>
-                    <ol-feature>
-                        <ol-geom-point :coordinates="[i.Position.PositionLon,i.Position.PositionLat]"></ol-geom-point>
-                        <ol-style>
-                        <ol-style-circle radius='20'>
-                            <ol-style-fill :color="fillColor"></ol-style-fill>
-                            <ol-style-stroke :color="strokeColor" :width='strokeWidth'></ol-style-stroke>
-                            <ol-style-text :text='i.HotelName' :scale="1.5"></ol-style-text>
-                        </ol-style-circle>
-                        </ol-style>
-                    </ol-feature>
-                    </ol-source-vector>
-                </ol-vector-layer>
+                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i,index) in hotelData" :key="index">
+                    <template v-slot="slotProps">
+                        <div class="overlay-content d-flex flex-column align-items-center" @click="showItem(i)">
+                            <div class="hotelIcon"></div>
+                            {{i.HotelName}}
+                            <span style="display:none">{{slotProps}}</span>
+                        </div>
+                    </template>
+                </ol-overlay>
             </div>
             <!-- 附近活動位置 -->
             <div v-if="activity">
-                <ol-vector-layer v-for="(i,index) in activityData" :key="index">
-                    <ol-source-vector>
-                    <ol-feature>
-                        <ol-geom-point :coordinates="[i.Position.PositionLon,i.Position.PositionLat]"></ol-geom-point>
-                        <ol-style>
-                        <ol-style-circle radius='20'>
-                            <ol-style-fill :color="fillColor"></ol-style-fill>
-                            <ol-style-stroke :color="strokeColor" :width='strokeWidth'></ol-style-stroke>
-                            <ol-style-text :text='i.ActivityName' :scale="1.5"></ol-style-text>
-                        </ol-style-circle>
-                        </ol-style>
-                    </ol-feature>
-                    </ol-source-vector>
-                </ol-vector-layer>
+                 <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i,index) in activityData" :key="index">
+                    <template v-slot="slotProps">
+                        <div class="overlay-content d-flex flex-column align-items-center" @click="showItem(i)">
+                            <div class="activityIcon"></div>
+                            {{i.ActivityName}}
+                            <span style="display:none">{{slotProps}}</span>
+                        </div>
+                    </template>
+                </ol-overlay>
             </div>
         </ol-map>
     </div>
