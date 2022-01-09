@@ -36,12 +36,12 @@
             <!-- 資訊展示處 -->
             <div class="itemDisplay-Discription" v-if="showItem">
                 <h3 class="subTitle2-font travelInfo">相關資訊</h3>
-                <!-- <img class="itemDisplay-img" v-if="showItem.Picture" :src="showItem.Picture.PictureUrl2" :alt="showItem.Picture.PictureDescription2"> -->
+                <img class="itemDisplay-img" v-if="showItem.Picture" :src="showItem.Picture.PictureUrl2" :alt="showItem.Picture.PictureDescription2">
                 <div class="discrption lineHeight">
                     <p class="subTitle2-font">{{showItem.DescriptionDetail}}</p>
                     <p class="subTitle2-font">{{showItem.Description}}</p>
                 </div>
-                <!-- <img class="itemDisplay-img" v-if="showItem.Picture" :src="showItem.Picture.PictureUrl3" :alt="showItem.Picture.PictureDescription3"> -->
+                <img class="itemDisplay-img" v-if="showItem.Picture" :src="showItem.Picture.PictureUrl3" :alt="showItem.Picture.PictureDescription3">
                 <div class="mt-5" v-if="showItem.TravelInfo">
                     <h3 class="subTitle2-font travelInfo">旅遊資訊:</h3>
                     {{showItem.TravelInfo}}

@@ -1,8 +1,11 @@
 <template>
     <div class="openStreeMap">
-        <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:300px">
+        <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px">
             <ol-view ref="view" :center="myLocation" :rotation="rotation" :zoom="zoom" :projection="projection"/>
             <ol-fullscreen-control v-if="fullscreencontrol" />
+            <ol-scaleline-control/>
+            <ol-zoom-control />
+             <ol-zoomslider-control />
             <ol-tile-layer ref="osmLayer" title="OSM">
                 <ol-source-osm />
             </ol-tile-layer>
