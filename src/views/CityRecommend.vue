@@ -34,32 +34,32 @@
     <h2 class="title-font">{{city}}{{category}}推薦</h2>
     <div class="cardList row" v-if="category=='Scene'">
             <SceneCardItem 
-                v-for="(scene,index) in filterData" :key="index"
+                v-for="(scene,index) in showData" :key="index"
                 :sceneData="scene"
             />
     </div>
     <div class="cardList" v-if="category=='Hotel'">
             <HotelCardItem
-                v-for="(hotel,index) in filterData" :key="index"
+                v-for="(hotel,index) in showData" :key="index"
                 :hotelData="hotel"
             />
     </div>
     <div class="cardList" v-if="category=='Activity'">
             <ActivityCardItem
-                v-for="(active,index) in filterData" :key="index"
+                v-for="(active,index) in showData" :key="index"
                 :activityData="active"
             />
     </div>
     <div class="cardList" v-if="category=='Food'">
             <FoodCardItem
-                v-for="(food,index) in filterData" :key="index"
+                v-for="(food,index) in showData" :key="index"
                 :foodData="food"
             />
     </div>
 </template>
 
 <script lang="ts">
-import {computed, defineComponent,onMounted,ref,watch} from 'vue'
+import {computed, defineComponent,onMounted,reactive,ref,watch} from 'vue'
 import SceneCardItem from '@/components/card/SceneCardItem.vue'
 import HotelCardItem from '@/components/card/HotelCardItem.vue'
 import ActivityCardItem from '@/components/card/ActivityCardItem.vue'
@@ -72,7 +72,19 @@ export default defineComponent({
         SceneCardItem,HotelCardItem,ActivityCardItem,FoodCardItem,
     },
     setup(){
+        onMounted(()=>{
+            console.log("初始化請求資料")
+            getdefaultData() //先求一次資料
+            let body = document.body
+            body.addEventListener('onscroll',()=>{
+                console.log('觸發滾動')
+                loadData(filterData.value)
+            })
+        })
         const route = useRoute()
+        const category = computed(()=>{
+            return route.params.category
+        })
         const store = useStore()
         const city = computed(()=>{  //vuex中的當前縣市
             return store.state.currentCity
@@ -80,9 +92,6 @@ export default defineComponent({
         const isFilter = ref(false)
         const keyWord = ref("")
         const filteProperty = ref("Name")
-        const category = computed(()=>{
-            return route.params.category
-        })
         const filterData = computed(()=>{
             switch(category.value){
                 case CardCategory[0]:
@@ -150,6 +159,11 @@ export default defineComponent({
                      }
             }
         })
+        let showData = reactive([]) //瀑布式載入所顯示的內容
+        const preLoadDone = ref(false)
+        const preLoadNum = reactive([4,8])  //預載入的筆數，第一個給場景和旅宿 //第二個給活動和餐飲
+        const loadDataCount = ref(0)
+        const windowHeight = document.body.offsetHeight //body的高度
         watch(city,()=>{
             //請求縣市資料
             isFilter.value = false
@@ -159,6 +173,9 @@ export default defineComponent({
            //
            console.log("切換標籤",city.value)
            isFilter.value = false
+           preLoadDone.value = false
+           showData = []
+           loadDataCount.value = 0
             if(city.value!==City[0]){
                 getCurrentCityDefaultData()
                 console.log("縣市拿到的資料",filterData.value)
@@ -167,9 +184,11 @@ export default defineComponent({
                  console.log("全台拿到的資料",filterData.value)
             }
         })
-        onMounted(()=>{
-            console.log("初始化請求資料")
-            getdefaultData() //先求一次資料
+        watch(filterData,()=>{
+            console.log('來原料變動')
+            if(!preLoadDone.value){
+                preLoadShowData(filterData.value)
+            }
         })
         function getCurrentCityDefaultData () {
             if(city.value==City[0]){
@@ -208,9 +227,65 @@ export default defineComponent({
                      break
             }
         }
+        function preLoadShowData(DataArr:[]){
+            console.log('預先莊的資料來源',DataArr)
+            switch(category.value){
+                case 'Scene':
+                case 'Hotel':
+                        //場景和旅宿要推兩個
+                    if(filterData.value.length<preLoadNum[0]){
+                        for(let i = 0 ; i <filterData.value.length ; i ++){
+                            showData.push(DataArr[loadDataCount.value++])
+                        }
+                    }else{
+                        for(let i = 0 ; i <preLoadNum[0] ; i ++){
+                            showData.push(DataArr[loadDataCount.value++])
+                        }
+                    }
+                    break
+                case 'Activity':
+                case 'Food':
+                        //餐飲和活動要推四個
+                    if(filterData.value.length<preLoadNum[1]){
+                        for(let i = 0 ; i <filterData.value.length ; i ++){
+                            showData.push(DataArr[loadDataCount.value++])
+                        }
+                    }else{
+                        for(let i = 0 ; i <preLoadNum[1] ; i ++){
+                            showData.push(DataArr[loadDataCount.value++])
+                        }
+                    }
+                    break
+                }
+                preLoadDone.value = true
+        }
+        function loadData(DataArr:[]){
+            //景點和旅宿都只有兩個
+            //餐飲或活動會有四個
+            let scrollTranslate = window.scrollY //滾條的位移量
+            let scrollHeight = document.body.scrollHeight //滾條的總長度
+            if(scrollTranslate+windowHeight>scrollHeight){
+                switch(category.value){
+                    case 'Scene':
+                    case 'Hotel':
+                        //場景和旅宿要推兩個
+                        for(let i = 0 ; i <2 ; i ++){
+                            showData.push(DataArr[loadDataCount.value++])
+                        }
+                        break
+                    case 'Activity':
+                    case 'Food':
+                        //餐飲和活動要推四個
+                        for(let i = 0 ; i <4 ; i ++){
+                            showData.push(DataArr[loadDataCount.value++])
+                        }
+                        break
+                }
+            }
+        }
         return{
             //data
-            city,category,filterData,keyWord,filteProperty,
+            city,category,filterData,keyWord,filteProperty,showData,
             //methods
             filte,
         }

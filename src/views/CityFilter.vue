@@ -26,19 +26,19 @@ export default defineComponent({
         CitySelecterBar,
     },
     setup(){
-        const store = useStore()
+        
         const route = useRoute()
-        const cityChinesName =computed(()=>{
-            return store.state.currentCityChinessName
-        })
-        watch(cityChinesName,()=>{
-            console.log(cityChinesName.value)
-        })
         const cardCategory = computed(()=>{
             return route.params.category
         })
+        const store = useStore()
+        const cityChinesName =computed(()=>{
+            return store.state.currentCityChinessName
+        })
         const showRecommend = ref(true)   //點選城市的時候出現，預設推薦的所有景點、餐飲、旅宿、活動；只有點選篩選按鈕時才消失?(或不要消失)
-
+        watch(cityChinesName,()=>{
+            console.log(cityChinesName.value)
+        })
         return{
             //data
             cardCategory,showRecommend,cityChinesName,
