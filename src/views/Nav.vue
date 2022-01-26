@@ -25,7 +25,6 @@
                 <a data-bs-toggle="modal" data-bs-target="#whereAreYouGoModal"><div class="bigAdventureIcon"></div>大冒險</a>
             </li>
         </ul>
-            
         <a class="back-to-top position-absolute" href="#top" > <div class="tszIcon"></div>Top </a>
     </nav>
     <WhereAreYouGoing/>

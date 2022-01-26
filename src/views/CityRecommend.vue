@@ -33,28 +33,36 @@
     <p v-if="filterData.length<=0">無搜尋資料...</p>
     <h2 class="title-font">{{city}}{{category}}推薦</h2>
     <div class="cardList row" v-if="category=='Scene'">
+        <transition-group @enter="cardFadIn">
             <SceneCardItem 
                 v-for="(scene,index) in showData" :key="index"
                 :sceneData="scene"
             />
+        </transition-group>
     </div>
     <div class="cardList" v-if="category=='Hotel'">
+        <transition-group @enter="cardFadIn">
             <HotelCardItem
                 v-for="(hotel,index) in showData" :key="index"
                 :hotelData="hotel"
             />
+        </transition-group>
     </div>
     <div class="cardList" v-if="category=='Activity'">
+        <transition-group @enter="cardFadIn">
             <ActivityCardItem
                 v-for="(active,index) in showData" :key="index"
                 :activityData="active"
             />
+        </transition-group>
     </div>
     <div class="cardList" v-if="category=='Food'">
+        <transition-group @enter="cardFadIn">
             <FoodCardItem
                 v-for="(food,index) in showData" :key="index"
                 :foodData="food"
             />
+        </transition-group>
     </div>
 </template>
 
@@ -67,18 +75,18 @@ import FoodCardItem from '@/components/card/FoodCardItem.vue'
 import {useRoute} from 'vue-router'
 import {useStore} from 'vuex'
 import {CardCategory,City} from '../types/enum'
+import gsap from 'gsap'
 export default defineComponent({
     components:{
         SceneCardItem,HotelCardItem,ActivityCardItem,FoodCardItem,
     },
     setup(){
         onMounted(()=>{
-            console.log("初始化請求資料")
             getdefaultData() //先求一次資料
-            let body = document.body
-            body.addEventListener('onscroll',()=>{
-                console.log('觸發滾動')
-                loadData(filterData.value)
+            window.addEventListener('scroll',()=>{
+                if(filterData.value.length>0){
+                    loadData(filterData.value)
+                }
             })
         })
         const route = useRoute()
@@ -159,22 +167,21 @@ export default defineComponent({
                      }
             }
         })
-        let showData = reactive([]) //瀑布式載入所顯示的內容
+        let showData = ref([]) //瀑布式載入所顯示的內容
         const preLoadDone = ref(false)
         const preLoadNum = reactive([4,8])  //預載入的筆數，第一個給場景和旅宿 //第二個給活動和餐飲
         const loadDataCount = ref(0)
-        const windowHeight = document.body.offsetHeight //body的高度
+        const windowHeight = window.screen.height //螢幕
         watch(city,()=>{
             //請求縣市資料
             isFilter.value = false
             getCurrentCityDefaultData()
         })
         watch(category,()=>{ //每次進入時，都會先取得靜態所有景點資料
-           //
            console.log("切換標籤",city.value)
            isFilter.value = false
+           showData.value = []
            preLoadDone.value = false
-           showData = []
            loadDataCount.value = 0
             if(city.value!==City[0]){
                 getCurrentCityDefaultData()
@@ -183,10 +190,13 @@ export default defineComponent({
                  getdefaultData()
                  console.log("全台拿到的資料",filterData.value)
             }
+            // if(!preLoadDone.value){
+            //     preLoadShowData(filterData.value)
+            // }
         })
         watch(filterData,()=>{
-            console.log('來原料變動')
-            if(!preLoadDone.value){
+            if(!preLoadDone.value && filterData.value.length>0){
+                console.log('需要裝資料',filterData.value)
                 preLoadShowData(filterData.value)
             }
         })
@@ -228,18 +238,17 @@ export default defineComponent({
             }
         }
         function preLoadShowData(DataArr:[]){
-            console.log('預先莊的資料來源',DataArr)
             switch(category.value){
                 case 'Scene':
                 case 'Hotel':
                         //場景和旅宿要推兩個
                     if(filterData.value.length<preLoadNum[0]){
                         for(let i = 0 ; i <filterData.value.length ; i ++){
-                            showData.push(DataArr[loadDataCount.value++])
+                            showData.value.push(DataArr[loadDataCount.value++])
                         }
                     }else{
                         for(let i = 0 ; i <preLoadNum[0] ; i ++){
-                            showData.push(DataArr[loadDataCount.value++])
+                            showData.value.push(DataArr[loadDataCount.value++])
                         }
                     }
                     break
@@ -248,11 +257,11 @@ export default defineComponent({
                         //餐飲和活動要推四個
                     if(filterData.value.length<preLoadNum[1]){
                         for(let i = 0 ; i <filterData.value.length ; i ++){
-                            showData.push(DataArr[loadDataCount.value++])
+                            showData.value.push(DataArr[loadDataCount.value++])
                         }
                     }else{
                         for(let i = 0 ; i <preLoadNum[1] ; i ++){
-                            showData.push(DataArr[loadDataCount.value++])
+                            showData.value.push(DataArr[loadDataCount.value++])
                         }
                     }
                     break
@@ -270,24 +279,27 @@ export default defineComponent({
                     case 'Hotel':
                         //場景和旅宿要推兩個
                         for(let i = 0 ; i <2 ; i ++){
-                            showData.push(DataArr[loadDataCount.value++])
+                            showData.value.push(DataArr[loadDataCount.value++])
                         }
                         break
                     case 'Activity':
                     case 'Food':
                         //餐飲和活動要推四個
                         for(let i = 0 ; i <4 ; i ++){
-                            showData.push(DataArr[loadDataCount.value++])
+                            showData.value.push(DataArr[loadDataCount.value++])
                         }
                         break
                 }
             }
         }
+        function cardFadIn(e:any){
+            gsap.fromTo(e,{opacity:0,scale:0.8},{duration:1,scale:1,opacity:1})
+        }
         return{
             //data
             city,category,filterData,keyWord,filteProperty,showData,
             //methods
-            filte,
+            filte,cardFadIn,
         }
     }
 })

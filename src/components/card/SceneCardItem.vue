@@ -1,5 +1,4 @@
 <template>
-<!-- 沒有填縣市的將會被自動排除!!!!! v-if="city"-->
    <div class="sceneCard row mb-3">
     <div class="sceneCard-img col-12 col-md-8">
       <img @click="gotItemPage(sceneData)" v-if="sceneData.Picture.PictureUrl1" class="w-100" :src='sceneData.Picture.PictureUrl1' :alt='sceneData.Picture?.PictureDescription1'>
@@ -20,7 +19,6 @@
       </div>
     </div>
   </div>
- 
 </template>
 
 <script lang="ts">
