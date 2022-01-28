@@ -8,7 +8,6 @@
             <option v-if="category=='Activity'" value="Organizer">主辦單位篩選</option>
         </select>
     </div>
- 
     <div class="quickFilte">
         <div class="me-5">
             <div class="filterIcon"></div>
@@ -18,7 +17,7 @@
         <button class="sea me-3" v-if="category=='Hotel'" @click="filte('Description','海景')">海景</button>
         <button class="babyHotel me-3" v-if="category=='Hotel'" @click="filte('Description','親子')">適合親子</button>
         <button class="spa me-3" v-if="category=='Hotel'" @click="filte('Description','溫泉')">溫泉</button>
-        <button class="trail me-3" v-if="category=='Scene'" @click="filte('Name','步道')">登山步道</button>
+        <button class="trail me-3" v-if="category=='Scene'" @click="filte('ScenicSpotName','步道')">登山步道</button>
         <button class="diy me-3" v-if="category=='Scene'" @click="filte('DescriptionDetail','DIY')">手作DIY</button>
         <button class="babyScene me-3" v-if="category=='Scene'" @click="filte('DescriptionDetail','親子')">適合親子</button>
         <button class="hipster me-3" v-if="category=='Activity'" @click="filte('Class1','藝文')">文青路線</button>
@@ -84,10 +83,11 @@ export default defineComponent({
         onMounted(()=>{
             getdefaultData() //先求一次資料
             window.addEventListener('scroll',()=>{
-                if(filterData.value.length>0){
+                if(filterData.value.length>0 && showData.value.length<filterData.value.length){
                     loadData(filterData.value)
                 }
             })
+            setDefaultFilterProperty(category.value as string)
         })
         const route = useRoute()
         const category = computed(()=>{
@@ -99,7 +99,7 @@ export default defineComponent({
         })
         const isFilter = ref(false)
         const keyWord = ref("")
-        const filteProperty = ref("Name")
+        const filteProperty = ref("ScenicSpotName")
         const filterData = computed(()=>{
             switch(category.value){
                 case CardCategory[0]:
@@ -173,16 +173,19 @@ export default defineComponent({
         const loadDataCount = ref(0)
         const windowHeight = window.screen.height //螢幕
         watch(city,()=>{
+            console.log('縣市查詢變動')
             //請求縣市資料
             isFilter.value = false
+            preLoadDone.value = false
+            loadDataCount.value = 0
             getCurrentCityDefaultData()
         })
         watch(category,()=>{ //每次進入時，都會先取得靜態所有景點資料
-           console.log("切換標籤",city.value)
            isFilter.value = false
-           showData.value = []
            preLoadDone.value = false
            loadDataCount.value = 0
+           console.log(category.value)
+           setDefaultFilterProperty(category.value as string)
             if(city.value!==City[0]){
                 getCurrentCityDefaultData()
                 console.log("縣市拿到的資料",filterData.value)
@@ -190,16 +193,31 @@ export default defineComponent({
                  getdefaultData()
                  console.log("全台拿到的資料",filterData.value)
             }
-            // if(!preLoadDone.value){
-            //     preLoadShowData(filterData.value)
-            // }
         })
         watch(filterData,()=>{
-            if(!preLoadDone.value && filterData.value.length>0){
+            if(filterData.value){
+                if(!preLoadDone.value && filterData.value.length>0){
                 console.log('需要裝資料',filterData.value)
                 preLoadShowData(filterData.value)
+                }
             }
         })
+        function setDefaultFilterProperty(category:string){
+            switch(category){
+               case 'Scene':
+                   filteProperty.value = "ScenicSpotName"
+                   break
+                case 'Hotel':
+                    filteProperty.value = "HotelName"
+                    break
+                case 'Activity':
+                    filteProperty.value = "ActivityName"
+                    break
+                case 'Food':
+                    filteProperty.value = "RestaurantName"
+                    break
+           }
+        }
         function getCurrentCityDefaultData () {
             if(city.value==City[0]){
                 store.commit(`${category.value}/loadAll${category.value}`)
@@ -222,6 +240,8 @@ export default defineComponent({
         }
         function filte(filteData:string,keyWord:string) {
             isFilter.value = true
+            preLoadDone.value = false
+            loadDataCount.value = 0
             switch(category.value){
                 case CardCategory[0]:
                      store.commit('Hotel/filteData',[filteData,keyWord,city.value])
@@ -238,6 +258,7 @@ export default defineComponent({
             }
         }
         function preLoadShowData(DataArr:[]){
+            showData.value = []
             switch(category.value){
                 case 'Scene':
                 case 'Hotel':
@@ -266,7 +287,7 @@ export default defineComponent({
                     }
                     break
                 }
-                preLoadDone.value = true
+            preLoadDone.value = true
         }
         function loadData(DataArr:[]){
             //景點和旅宿都只有兩個

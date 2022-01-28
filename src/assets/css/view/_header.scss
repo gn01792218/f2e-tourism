@@ -1,5 +1,9 @@
 .header{
-    
+    width:100%;
+    height:80vh;
+    position: absolute;
+    top:0;
+    z-index: -1;
 }
 .tripNav{
     width:10%;
@@ -20,5 +24,5 @@
     right:0;
 }
 .back-to-top{
-    bottom:-8%;
+    bottom:-4%;
 }
