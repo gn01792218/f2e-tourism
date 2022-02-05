@@ -1,5 +1,6 @@
 .tripNav{
     width:10%;
+    height:80vh;
     position: fixed;
     top:10%;
     left:3%;
@@ -9,11 +10,20 @@
     @include flex-justifyContent(center);
     flex-direction: column;
     align-items: center;
+    z-index: 1;
     a{
         cursor: pointer;
     }
 }
 .tripBG{
-    top:0;
-    right:0;
+    min-width: 100%;
+}
+.nav-mobile{
+    .navbar{
+        background: rgba(255, 255, 255, 0.863);
+        border: 2px solid #D9D4D4;
+    }
+    ul{
+        align-items: center;
+    }
 }
