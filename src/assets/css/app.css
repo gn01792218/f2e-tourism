@@ -1415,20 +1415,13 @@ a {
   background-color: white;
 }
 
-.header {
-  width: 100%;
-  height: 80vh;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-}
-
 .tripNav {
   width: 10%;
   position: fixed;
   top: 10%;
   left: 3%;
-  background-color: rgba(254, 224, 177, 0.5);
+  background: rgba(255, 255, 255, 0.863);
+  border: 2px solid #D9D4D4;
   -webkit-box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
           box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
   display: -webkit-box;
@@ -1455,11 +1448,22 @@ a {
   right: 0;
 }
 
+.header {
+  width: 100%;
+  height: 80vh;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
 .back-to-top {
   bottom: -4%;
 }
 
-.hotScene, .hotActivity, .hotFood, .hotHtel {
+.hotScene,
+.hotActivity,
+.hotFood,
+.hotHtel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1470,7 +1474,10 @@ a {
   margin-bottom: 10px;
 }
 
-.hotScene p, .hotActivity p, .hotFood p, .hotHtel p {
+.hotScene p,
+.hotActivity p,
+.hotFood p,
+.hotHtel p {
   color: #5A6F49;
   margin: 0;
 }
@@ -1491,13 +1498,16 @@ a {
           align-items: center;
 }
 
-.header-containter {
-  margin-top: -50px;
+.home-containter {
   width: 95%;
   min-height: 800px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
+}
+
+.card-bg {
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
 }
 
 .footer {
@@ -1560,7 +1570,6 @@ a {
   min-height: 800px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
 }
 
 .itemInfo {
@@ -1641,7 +1650,6 @@ a {
   min-height: 800px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
 }
 
 .itemDisplay-info {
@@ -1726,12 +1734,10 @@ a {
   min-height: 800px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
 }
 
 .mynearbyItem-contain {
   width: 95%;
-  background-color: white;
   margin-left: auto;
   margin-right: auto;
   margin-top: -50px;

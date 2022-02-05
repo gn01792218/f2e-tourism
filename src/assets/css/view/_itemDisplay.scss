@@ -1,92 +1,109 @@
-.itemInfo{
-    max-width:650px;
+.itemInfo {
+    max-width: 650px;
     flex-direction: column;
     align-items: flex-start;
-    div{
+
+    div {
         margin-bottom: 10px;
         display: flex;
         align-items: center;
     }
 }
-.discrption{
+
+.discrption {
     text-indent: 32px;
-    p{
+
+    p {
         line-height: 2rem;
-        // font-size: $font-midium;
     }
 }
-.nearbyContainer{
+
+.nearbyContainer {
     background-color: brown;
 }
-.diplayTab{
+
+.diplayTab {
     justify-content: space-around;
 }
-.nav-item{
-    a{
+
+.nav-item {
+    a {
         cursor: pointer;
     }
-        display: flex;
-    
+
+    display: flex;
+
 }
-.itemInfo-Spec{
-    max-width:450px;
+
+.itemInfo-Spec {
+    max-width: 450px;
 }
-.travelInfo{
+
+.travelInfo {
     font-weight: bolder;
 }
-.itemDisplay-header{
-   color:white;
-   background-color: $decoration_color2;
-   height:250px;
-   border-radius: 20px;
-   @include flex-just-aligh-center;
+
+.itemDisplay-header {
+    color: white;
+    background-color: $decoration_color2;
+    height: 250px;
+    border-radius: 20px;
+    @include flex-just-aligh-center;
 }
-.itemDisplay-contain{
+
+.itemDisplay-contain {
     margin-top: -50px;
-    width:95%;
+    width: 95%;
     min-height: 800px;
     @include left-right-center;
-    background-color: white;
 }
-.itemDisplay-info{
+
+.itemDisplay-info {
     @include flex-justifyContent(space-between);
-    
 }
-.itemDisplay-img{
-    width:40%;
+
+.itemDisplay-img {
+    width: 40%;
     border-radius: 10px;
     overflow: hidden;
-    img{
-        width:100%;
-        height:auto;
+
+    img {
+        width: 100%;
+        height: auto;
     }
 }
-.itemDisplay-Discription{
-    img{
+
+.itemDisplay-Discription {
+    img {
         display: block;
     }
 }
-.nearbyType{
+
+.nearbyType {
     writing-mode: vertical-lr;
     text-orientation: upright;
 }
-.nearbyContainer{
+
+.nearbyContainer {
     min-height: 250px;
-    height:100%;
+    height: 100%;
 }
-.searchNearby{
-    width:100%;
+
+.searchNearby {
+    width: 100%;
 }
-.search-container{
-    width:30%;
+
+.search-container {
+    width: 30%;
     background-color: aquamarine;
-    height:50px;
+    height: 50px;
 }
-.nearByBox{
+
+.nearByBox {
     @include flex-justifyContent(flex-start);
     overflow-x: scroll;
-    // overflow:scroll;
 }
-.search-nearby{
+
+.search-nearby {
     cursor: pointer;
 }

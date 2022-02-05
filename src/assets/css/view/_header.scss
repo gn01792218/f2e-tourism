@@ -5,24 +5,6 @@
     top:0;
     z-index: -1;
 }
-.tripNav{
-    width:10%;
-    position: fixed;
-    top:10%;
-    left:3%;
-    background-color: rgba(254, 224, 177, 0.5);
-    box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
-    @include flex-justifyContent(center);
-    flex-direction: column;
-    align-items: center;
-    a{
-        cursor: pointer;
-    }
-}
-.tripBG{
-    top:0;
-    right:0;
-}
 .back-to-top{
     bottom:-4%;
 }
