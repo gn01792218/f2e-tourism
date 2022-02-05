@@ -16,7 +16,7 @@
       </div>
       <div class="hotActivity">
         <h3 class="title-font m-3">熱門活動</h3>
-      <span class="decorateLine"></span>
+        <span class="decorateLine"></span>
         <ActivityCardItem
           v-for="(activity, index) in hotActivity"
           :key="index"
@@ -25,7 +25,7 @@
       </div>
       <div class="hotFood">
         <h3 class="title-font m-3">熱門食物</h3>
-     <span class="decorateLine"></span>
+        <span class="decorateLine"></span>
         <FoodCardItem
           v-for="(food, index) in hotFood"
           :key="index"
@@ -34,7 +34,7 @@
       </div>
       <div class="hotHtel m-3">
         <h3 class="title-font">熱門旅宿</h3>
-     <span class="decorateLine"></span>
+        <span class="decorateLine"></span>
         <HotelCardItem
           v-for="(hotel, index) in hotHotel"
           :key="index"

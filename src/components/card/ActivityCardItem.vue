@@ -1,27 +1,26 @@
 <template>
-  <div class="activityCard card mb-3 me-3" style="width: 18rem;">
+  <div class="activityCard card mb-3">
     <div class="activityCard-img">
       <img class="w-100 h-100" @click="gotItemPage(activityData)" v-if="activityData.Picture.PictureUrl1" :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
-      <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
+      <img class="h-100" v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
     </div>
-    <div class="activityCard-content card-body">
+    <div class="activityCard-content p-2">
       <header class="activityCard-header">
         <p class="activitiName">{{activityData.ActivityName}}</p>
-        <span :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('ActivityID',activityData.ActivityID,activityData)"></span>
       </header>
-      <footer class="activityCard-footer">
+      <footer class="activityCard-footer position-relative">
         <div class="topInfo">
           <div class='d-flex'>
             <i class="bi bi-geo-alt-fill"></i>
             <p v-if="activityData.Location">{{activityData.Location}}</p>
             <p class="scene-city" v-else>猜猜我在哪</p>
           </div>
-          
           <p>{{activityData.Organizer}}</p>
         </div>
           <p>舉辦時間{{activityData.StartTime}}</p>
+          <div class="position-absolute top-0 end-0" :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('ActivityID',activityData.ActivityID,activityData)"></div>
       </footer>
-      <button type="button" class="cusButton btn" @click="gotItemPage(activityData)">more</button>
+        <button type="button" class="cusButton btn" @click="gotItemPage(activityData)">more</button>
     </div>
   </div>
 </template>
