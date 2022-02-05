@@ -1,371 +1,451 @@
-
 //line
 .decorateLine {
-    width:80%;
-    border-bottom:$decoration_color2 solid 5px;
-    margin-bottom: 20px;
+  width: 80%;
+  border-bottom: $decoration_color2 solid 5px;
+  margin-bottom: 20px;
 }
+
 //button
-.cusButton{
+.cusButton {
   background-color: $decoration_color;
   color: white;
 }
-.cusButton:hover{
+
+.cusButton:hover {
   transform: scale(0.9);
 }
 
 //font
 .title-font {
-    font-size: $font-large;
+  font-size: $font-large;
 }
+
 .subTitle-font {
-    font-size: $font-midium;
+  font-size: $font-midium;
 }
+
 .subTitle2-font {
-    font-size: $font-midium-2;
+  font-size: $font-midium-2;
 }
+
 .text-font {
-    font-size: $font-small;
+  font-size: $font-small;
 }
+
 .lineHeight {
   line-height: $textLineHeight;
 }
 
 //fade動畫
-.fade-left-enter-active, .fade-left-leave-active ,.fade-right-enter , .fade-right-leave-to { //進入和出去的過程是0.5s，漸進完成動畫
-    transition: all .5s ease-out;
-  }
-.fade-left-enter, .fade-left-leave-to ,.fade-right-enter , .fade-right-leave-to { //進入和出去的最後都是opacity0
-   opacity: 0;
-  }
-.fade-left-leave-to  {
-    transform: translateX(-100%);
+.fade-left-enter-active,
+.fade-left-leave-active,
+.fade-right-enter,
+.fade-right-leave-to {
+  //進入和出去的過程是0.5s，漸進完成動畫
+  transition: all .5s ease-out;
 }
 
-.fade-right-leave-to  {
-    transform: translateX(100%);
+.fade-left-enter,
+.fade-left-leave-to,
+.fade-right-enter,
+.fade-right-leave-to {
+  //進入和出去的最後都是opacity0
+  opacity: 0;
 }
+
+.fade-left-leave-to {
+  transform: translateX(-100%);
+}
+
+.fade-right-leave-to {
+  transform: translateX(100%);
+}
+
 //img
-.working{
+.working {
   background-repeat: no-repeat;
   background-image: url('../images/working.jpg');
-  width:600px;
-  height:500px;
+  width: 600px;
+  height: 500px;
   @include left-right-center;
 }
-.sceneHeaderBg{
+
+.sceneHeaderBg {
   width: 100%;
-  height:80vh;
-  @include bg-norepeat($sceneBg,no-repeat);
+  height: 80vh;
+  @include bg-norepeat($sceneBg, no-repeat);
   background-size: contain;
 }
-.fiveStarHotel{
+
+.fiveStarHotel {
   background-image: url('../images/fiveHotel.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(90%);
   color: white;
 }
-.fiveStarHotel:hover{
-  color:black;
+
+.fiveStarHotel:hover {
+  color: black;
   filter: brightness(100%);
 }
-.babyHotel{
+
+.babyHotel {
   background-image: url('../images/babyHotel.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.babyHotel:hover{
-  color:black;
+
+.babyHotel:hover {
+  color: black;
   filter: brightness(100%);
 }
-.spa{
+
+.spa {
   background-image: url('../images/spa.jpeg');
   background-size: cover;
   @include square(100);
   filter: brightness(90%);
   color: white;
 }
-.spa:hover{
-  color:black;
+
+.spa:hover {
+  color: black;
   filter: brightness(100%);
 }
-.sea{
+
+.sea {
   background-image: url('../images/ocenHotel.png');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.sea:hover{
-  color:black;
+
+.sea:hover {
+  color: black;
   filter: brightness(100%);
 }
-.trail{
+
+.trail {
   background-image: url('../images/trail.png');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.trail:hover{
-  color:black;
+
+.trail:hover {
+  color: black;
   filter: brightness(100%);
 }
-.babyScene{
+
+.babyScene {
   background-image: url('../images/babyScene.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.babyScene:hover{
-  color:black;
+
+.babyScene:hover {
+  color: black;
   filter: brightness(100%);
 }
-.diy{
+
+.diy {
   background-image: url('../images/diy.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.diy:hover{
-  color:black;
+
+.diy:hover {
+  color: black;
   filter: brightness(100%);
 }
-.chineseFood{
+
+.chineseFood {
   background-image: url('../images/chineseFood.png');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.chineseFood:hover{
-  color:black;
+
+.chineseFood:hover {
+  color: black;
   filter: brightness(100%);
 }
-.exotic{
+
+.exotic {
   background-image: url('../images/exotic.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.exotic:hover{
-  color:black;
+
+.exotic:hover {
+  color: black;
   filter: brightness(100%);
 }
-.coffe{
+
+.coffe {
   background-image: url('../images/coffe.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.coffe:hover{
-  color:black;
+
+.coffe:hover {
+  color: black;
   filter: brightness(100%);
 }
-.brunch{
+
+.brunch {
   background-image: url('../images/brunch.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.brunch:hover{
-  color:black;
+
+.brunch:hover {
+  color: black;
   filter: brightness(100%);
 }
-.hipster{
+
+.hipster {
   background-image: url('../images/hipster.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.hipster:hover{
-  color:black;
+
+.hipster:hover {
+  color: black;
   filter: brightness(100%);
 }
-.festival{
+
+.festival {
   background-image: url('../images/festival.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.festival:hover{
-  color:black;
+
+.festival:hover {
+  color: black;
   filter: brightness(100%);
 }
-.music{
+
+.music {
   background-image: url('../images/music.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
   color: white;
 }
-.music:hover{
-  color:black;
+
+.music:hover {
+  color: black;
   filter: brightness(100%);
 }
-.squid{
+
+.squid {
   background-image: url('../images/squid.jpg');
   background-size: cover;
   @include square(100);
   filter: brightness(90%);
   color: white;
 }
-.squid:hover{
-  color:black;
+
+.squid:hover {
+  color: black;
   filter: brightness(100%);
 }
 
 //icon
 //收藏icon
-.collect{
-    @include icon;
-    @include iconScale(0,0,0.6)
- }
- .collectforNav{
+.collect {
   @include icon;
-  @include iconScale(0,0,0.9)
-}
- .disCollect{
-     @include icon;
-     @include iconScale(-65,0,0.6)
-  }
-  .bootstrapIcon{
-    @include icon;
-    @include iconScale(-130,0,0.6)
-  }
-  .figamaIcon{
-    @include icon;
-    @include iconScale(-195,0,0.6)
-  }
-  .typscriptIcon{
-    @include icon;
-    @include iconScale(-2080,0,0.6)
-  }
-  .vueIcon{
-    @include icon;
-    @include iconScale(-1755,0,0.6)
-  }
-  .icons8Icon{
-    @include icon;
-    @include iconScale(-1040,0,0.6)
-  }
-  .randomIcon{
-    @include icon;
-    @include iconScale(-260,0,0.9)
-  }
-  .tszIcon{
-    @include icon;
-    @include iconScale(-325,0,0.6)
-  }
-  .scheduleIcon{
-    @include icon;
-    @include iconScale(-390,0,0.9)
-  }
-  .addScheduleIcon{
-    @include icon;
-    @include iconScale(-1430,0,0.9)
-  }
-  .seeScheduleIcon{
-    @include icon;
-    @include iconScale(-1625,0,0.6)
-  }
-  .clanderIcon{
-    @include icon;
-    @include iconScale(-585,0,0.6)
-  }
-  .deleteIcon{
-    @include icon;
-    @include iconScale(-650,0,0.6)
-  }
-  .filterIcon{
-    @include icon;
-    @include iconScale(-1690,0,1)
-  }
-  .sceneIcon{
-    @include icon;
-    @include iconScale(-520,0,0.9)
-  }
-  .activityIcon{
-    @include icon;
-    @include iconScale(-1105,0,0.9)
- }
- .foodIcon{
-    @include icon;
-    @include iconScale(-1560,0,0.9)
- }
- .hotelIcon{
-    @include icon;
-    @include iconScale(-975,0,0.9)
- }
- .priceIcon{
-    @include icon;
-    @include iconScale(-845,0,0.6)
- }
- .hotelGradeIcon{
-    @include icon;
-    @include iconScale(-1495,0,0.6)
- }
-.searchIcon{
-  @include icon;
-  @include iconScale(-1170,0,0.6)
-}
-.organizerIcon{
-    @include icon;
-    @include iconScale(-1300,0,0.6)
-}
-.webSiteIcon{
-    @include icon;
-    @include iconScale(-1820,0,0.6)
-}
-.locationIcon{
-    @include icon;
-    @include iconScale(-1885,0,0.6)
-}
-.locationIcon2{
-  @include icon;
-  @include iconScale(-1885,0,0.4)
-}
-.phoneIcon{
-    @include icon;
-    @include iconScale(-1365,0,0.6)
-}
-.bigAdventureIcon{
-    @include icon;
-    @include iconScale(-2015,0,0.9)
-}
-//離島icon
-.kin:hover{
-  @include island;
-  @include islandScale(0,0,0.5);
-}
-.kin{
-  @include island;
-  @include islandScale(-1595,0,0.5);
-}
-.ponho:hover{
-  @include island;
-  @include islandScale(-319,0,0.5);
-}
-.ponho{
-  @include island;
-  @include islandScale(-957,0,0.5);
-}
-.langjon{
-  @include island;
-  @include islandScale(-1276,0,0.5);
-}
-.langjon:hover{
-  @include island;
-  @include islandScale(-638,0,0.5);
+  @include iconScale(0, 0, 0.6)
 }
 
+.collectforNav {
+  @include icon;
+  @include iconScale(0, 0, 0.9)
+}
+
+.disCollect {
+  @include icon;
+  @include iconScale(-65, 0, 0.6)
+}
+
+.bootstrapIcon {
+  @include icon;
+  @include iconScale(-130, 0, 0.6)
+}
+
+.figamaIcon {
+  @include icon;
+  @include iconScale(-195, 0, 0.6)
+}
+
+.typscriptIcon {
+  @include icon;
+  @include iconScale(-2080, 0, 0.6)
+}
+
+.vueIcon {
+  @include icon;
+  @include iconScale(-1755, 0, 0.6)
+}
+
+.icons8Icon {
+  @include icon;
+  @include iconScale(-1040, 0, 0.6)
+}
+
+.randomIcon {
+  @include icon;
+  @include iconScale(-260, 0, 0.9)
+}
+
+.tszIcon {
+  @include icon;
+  @include iconScale(-325, 0, 0.6)
+}
+
+.scheduleIcon {
+  @include icon;
+  @include iconScale(-390, 0, 0.9)
+}
+
+.addScheduleIcon {
+  @include icon;
+  @include iconScale(-1430, 0, 0.9)
+}
+
+.seeScheduleIcon {
+  @include icon;
+  @include iconScale(-1625, 0, 0.6)
+}
+
+.clanderIcon {
+  @include icon;
+  @include iconScale(-585, 0, 0.6)
+}
+
+.deleteIcon {
+  @include icon;
+  @include iconScale(-650, 0, 0.6)
+}
+
+.filterIcon {
+  @include icon;
+  @include iconScale(-1690, 0, 1)
+}
+
+.sceneIcon {
+  @include icon;
+  @include iconScale(-520, 0, 0.9)
+}
+
+.activityIcon {
+  @include icon;
+  @include iconScale(-1105, 0, 0.9)
+}
+
+.foodIcon {
+  @include icon;
+  @include iconScale(-1560, 0, 0.9)
+}
+
+.hotelIcon {
+  @include icon;
+  @include iconScale(-975, 0, 0.9)
+}
+
+.priceIcon {
+  @include icon;
+  @include iconScale(-845, 0, 0.6)
+}
+
+.hotelGradeIcon {
+  @include icon;
+  @include iconScale(-1495, 0, 0.6)
+}
+
+.searchIcon {
+  @include icon;
+  @include iconScale(-1170, 0, 0.6)
+}
+
+.organizerIcon {
+  @include icon;
+  @include iconScale(-1300, 0, 0.6)
+}
+
+.webSiteIcon {
+  @include icon;
+  @include iconScale(-1820, 0, 0.6)
+}
+
+.locationIcon {
+  @include icon;
+  @include iconScale(-1885, 0, 0.6)
+}
+
+.locationIcon2 {
+  @include icon;
+  @include iconScale(-1885, 0, 0.4)
+}
+
+.phoneIcon {
+  @include icon;
+  @include iconScale(-1365, 0, 0.6)
+}
+
+.bigAdventureIcon {
+  @include icon;
+  @include iconScale(-2015, 0, 0.9)
+}
+
+//離島icon
+.kin:hover {
+  @include island;
+  @include islandScale(0, 0, 0.5);
+}
+
+.kin {
+  @include island;
+  @include islandScale(-1595, 0, 0.5);
+}
+
+.ponho:hover {
+  @include island;
+  @include islandScale(-319, 0, 0.5);
+}
+
+.ponho {
+  @include island;
+  @include islandScale(-957, 0, 0.5);
+}
+
+.langjon {
+  @include island;
+  @include islandScale(-1276, 0, 0.5);
+}
+
+.langjon:hover {
+  @include island;
+  @include islandScale(-638, 0, 0.5);
+}
