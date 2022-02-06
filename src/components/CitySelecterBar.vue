@@ -5,7 +5,7 @@
                     選擇縣市
             </button>
         </p>
-        <div class="show" id="cityListBtn">
+        <div class="collapse" id="cityListBtn">
             <div class="d-flex flex-wrap">
                 <button class="miniSelectBtn col-3 m-3 mb-1" v-for="(city,index) in cityList" :key="index" @click="toCity(city.CityID)">{{city.CityName}}</button>
             </div>
@@ -17,6 +17,7 @@
 import {defineComponent} from 'vue'
 import {useStore} from 'vuex'
 import {City} from '../types/enum'
+import * as bootstrap from 'bootstrap'
 export default defineComponent({
     components:{
 
@@ -40,6 +41,10 @@ export default defineComponent({
                      store.commit('switchCityChinese',"連江縣") 
                     break
             }
+            //選完之後，卷軸自動收合
+            let collapseEl = document.querySelector('#cityListBtn') as HTMLElement
+            let bootstrapCollapseEl = new bootstrap.Collapse(collapseEl)
+            bootstrapCollapseEl.hide()
         }
         return{
             //data
