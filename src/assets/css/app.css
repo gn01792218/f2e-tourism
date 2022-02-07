@@ -1467,6 +1467,10 @@ a {
           align-items: center;
 }
 
+.wheretoGo-title {
+  font-weight: bolder;
+}
+
 .header {
   width: 100%;
   height: 80vh;
@@ -1911,6 +1915,33 @@ a {
 @media screen and (max-width: 414px) {
   .home-header h1 {
     font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .bigAdventureIcon {
+    width: 39px;
+    height: 39px;
+    background-position: -1209px 0px;
+    background-size: 1287px auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .wheretoGo-title {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .bigAdventureIcon {
+    width: 32.5px;
+    height: 32.5px;
+    background-position: -1007.5px 0px;
+    background-size: 1072.5px auto;
+  }
+  .wheretoGo-title {
+    font-size: 0.8rem;
   }
 }
 /*# sourceMappingURL=app.css.map */
