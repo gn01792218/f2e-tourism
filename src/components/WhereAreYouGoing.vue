@@ -4,9 +4,9 @@
         <div class="modal fade" id="whereAreYouGoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header d-flex align-items-center">
                         <div class="bigAdventureIcon"></div>
-                        <h5 class="modal-title" id="exampleModalLabel">大冒險:請問，你要去哪裡?</h5>
+                        <h5 class="modal-title wheretoGo-title" id="exampleModalLabel">大冒險:請問，你要去哪裡?</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 <div class="modal-body ">

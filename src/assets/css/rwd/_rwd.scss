@@ -127,3 +127,21 @@
         }
     }
 }
+@media screen and (max-width: 375px){
+    .bigAdventureIcon{
+        @include iconScale(-2015, 0, 0.6)
+    }
+}
+@media screen and (max-width: 320px){
+    .wheretoGo-title{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 280px){
+    .bigAdventureIcon{
+        @include iconScale(-2015, 0, 0.5)
+    }
+    .wheretoGo-title{
+        font-size: 0.8rem;
+    }
+}
