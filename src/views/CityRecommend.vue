@@ -29,9 +29,8 @@
         <button class="brunch me-1 me-md-3" v-if="category=='Food'" @click="filte('Description','早午')">早午餐</button>
         <button class="squid me-1 me-md-3"  @click="filte('Description','魷魚')">魷魚</button>
     </div>
-    <p v-if="filterData.length<=0">無搜尋資料...</p>
     <h2 class="title-font">{{city}}{{category}}推薦</h2>
-    <div class="cardList row" v-if="category=='Scene'">
+    <div class="cardList row" v-if="category=='Scene' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <SceneCardItem 
                 v-for="(scene,index) in showData" :key="index"
@@ -39,7 +38,7 @@
             />
         </transition-group>
     </div>
-    <div class="cardList" v-if="category=='Hotel'">
+    <div class="cardList" v-if="category=='Hotel' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <HotelCardItem
                 v-for="(hotel,index) in showData" :key="index"
@@ -47,7 +46,7 @@
             />
         </transition-group>
     </div>
-    <div class="cardList" v-if="category=='Activity'">
+    <div class="cardList" v-if="category=='Activity' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <ActivityCardItem
                 v-for="(active,index) in showData" :key="index"
@@ -55,7 +54,7 @@
             />
         </transition-group>
     </div>
-    <div class="cardList" v-if="category=='Food'">
+    <div class="cardList" v-if="category=='Food' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <FoodCardItem
                 v-for="(food,index) in showData" :key="index"
@@ -63,6 +62,7 @@
             />
         </transition-group>
     </div>
+    <p v-if="filterData.length<=0">無搜尋資料...</p>
 </template>
 
 <script lang="ts">
@@ -120,16 +120,18 @@ export default defineComponent({
                 case CardCategory[1]:
                      if(city.value!==City[0]){
                          if(isFilter.value){
+                             console.log(store.state.Activity.filteData)
                              return store.state.Activity.filteData
                          }else{
                              return  getCurrentCityData(store.state.Activity.activityByCity)
                          }
                      }else{
                          if(isFilter.value){
+                             console.log(store.state.Activity.filteData)
                              return store.state.Activity.filteData
                          }else{
                             console.log("3.下載活動預設資料",store.state.Activity.allActivity)
-                          return store.state.Activity.allActivity  
+                          return store.state.Activity.allActivity 
                          }
                      }
                 case CardCategory[2]:
