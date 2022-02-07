@@ -34,12 +34,18 @@
   line-height: 1.5rem;
 }
 
-.fade-left-enter-active, .fade-left-leave-active, .fade-right-enter, .fade-right-leave-to {
+.fade-left-enter-active,
+.fade-left-leave-active,
+.fade-right-enter,
+.fade-right-leave-to {
   -webkit-transition: all .5s ease-out;
   transition: all .5s ease-out;
 }
 
-.fade-left-enter, .fade-left-leave-to, .fade-right-enter, .fade-right-leave-to {
+.fade-left-enter,
+.fade-left-leave-to,
+.fade-right-enter,
+.fade-right-leave-to {
   opacity: 0;
 }
 
@@ -1769,6 +1775,12 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+}
+
+@media screen and (max-width: 1280px) and (max-height: 610px) {
+  .header {
+    height: 100vh !important;
   }
 }
 
