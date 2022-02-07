@@ -126,6 +126,15 @@
             font-size: $font-midium;
         }
     }
+    .quickFilte{
+        button{
+            width:auto;
+        }
+    }
+    .mynearbyItem-contain{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 }
 @media screen and (max-width: 375px){
     .bigAdventureIcon{
@@ -136,6 +145,16 @@
     .wheretoGo-title{
         font-size: 1rem;
     }
+    .header{
+        height:40vh !important;
+    }
+    .home-header h1{
+        font-size: 1.3rem;
+    }
+    .itemDisplay-header h1 {
+        font-size: 1.5em;
+        margin-right: 0.5rem;
+    }
 }
 @media screen and (max-width: 280px){
     .bigAdventureIcon{
@@ -143,5 +162,8 @@
     }
     .wheretoGo-title{
         font-size: 0.8rem;
+    }
+    .itemDisplay-header h1 {
+        font-size: 1.3em;
     }
 }

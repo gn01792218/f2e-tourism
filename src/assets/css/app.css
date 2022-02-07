@@ -1759,13 +1759,6 @@ a {
   margin-right: auto;
 }
 
-.mynearbyItem-contain {
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -50px;
-}
-
 @media screen and (min-width: 1281px) {
   .navLi a {
     font-size: 0.9rem;
@@ -1916,6 +1909,13 @@ a {
   .home-header h1 {
     font-size: 1.6rem;
   }
+  .quickFilte button {
+    width: auto;
+  }
+  .mynearbyItem-contain {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -1931,6 +1931,16 @@ a {
   .wheretoGo-title {
     font-size: 1rem;
   }
+  .header {
+    height: 40vh !important;
+  }
+  .home-header h1 {
+    font-size: 1.3rem;
+  }
+  .itemDisplay-header h1 {
+    font-size: 1.5em;
+    margin-right: 0.5rem;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -1942,6 +1952,9 @@ a {
   }
   .wheretoGo-title {
     font-size: 0.8rem;
+  }
+  .itemDisplay-header h1 {
+    font-size: 1.3em;
   }
 }
 /*# sourceMappingURL=app.css.map */

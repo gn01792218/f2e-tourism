@@ -9,29 +9,28 @@
         </select>
     </div>
     <div class="quickFilte">
-        <div class="me-5">
+        <div class="me-lg-5">
             <div class="filterIcon"></div>
             <p>快速篩選</p>
         </div>
-        <button class="fiveStarHotel me-3" v-if="category=='Hotel'" @click="filte('Grade','五星')">五星級飯店</button>
-        <button class="sea me-3" v-if="category=='Hotel'" @click="filte('Description','海景')">海景</button>
-        <button class="babyHotel me-3" v-if="category=='Hotel'" @click="filte('Description','親子')">適合親子</button>
-        <button class="spa me-3" v-if="category=='Hotel'" @click="filte('Description','溫泉')">溫泉</button>
-        <button class="trail me-3" v-if="category=='Scene'" @click="filte('ScenicSpotName','步道')">登山步道</button>
-        <button class="diy me-3" v-if="category=='Scene'" @click="filte('DescriptionDetail','DIY')">手作DIY</button>
-        <button class="babyScene me-3" v-if="category=='Scene'" @click="filte('DescriptionDetail','親子')">適合親子</button>
-        <button class="hipster me-3" v-if="category=='Activity'" @click="filte('Class1','藝文')">文青路線</button>
-        <button class="music me-3" v-if="category=='Activity'" @click="filte('Description','音樂')">音樂活動</button>
-        <button class="festival me-3" v-if="category=='Activity'" @click="filte('Description','節慶')">文化節慶</button>
-        <button class="exotic me-3" v-if="category=='Food'" @click="filte('Class','異國')">異國料理</button>
-        <button class="chineseFood me-3" v-if="category=='Food'" @click="filte('Class','中式')">中式料理</button>
-        <button class="coffe me-3" v-if="category=='Food'" @click="filte('Description','咖啡')">特色咖啡廳</button>
-        <button class="brunch me-3" v-if="category=='Food'" @click="filte('Description','早午')">早午餐</button>
-        <button class="squid me-3"  @click="filte('Description','魷魚')">魷魚</button>
+        <button class="fiveStarHotel me-1 me-md-3" v-if="category=='Hotel'" @click="filte('Grade','五星')">五星級飯店</button>
+        <button class="sea me-1 me-md-3" v-if="category=='Hotel'" @click="filte('Description','海景')">海景</button>
+        <button class="babyHotel me-1 me-md-3" v-if="category=='Hotel'" @click="filte('Description','親子')">適合親子</button>
+        <button class="spa me-1 me-md-3" v-if="category=='Hotel'" @click="filte('Description','溫泉')">溫泉</button>
+        <button class="trail me-1 me-md-3" v-if="category=='Scene'" @click="filte('ScenicSpotName','步道')">登山步道</button>
+        <button class="diy me-1 me-md-3" v-if="category=='Scene'" @click="filte('DescriptionDetail','DIY')">手作DIY</button>
+        <button class="babyScene me-1 me-md-3" v-if="category=='Scene'" @click="filte('DescriptionDetail','親子')">適合親子</button>
+        <button class="hipster me-1 me-md-3" v-if="category=='Activity'" @click="filte('Class1','藝文')">文青路線</button>
+        <button class="music me-1 me-md-3" v-if="category=='Activity'" @click="filte('Description','音樂')">音樂活動</button>
+        <button class="festival me-1 me-md-3" v-if="category=='Activity'" @click="filte('Description','節慶')">文化節慶</button>
+        <button class="exotic me-1 me-md-3" v-if="category=='Food'" @click="filte('Class','異國')">異國料理</button>
+        <button class="chineseFood me-1 me-md-3" v-if="category=='Food'" @click="filte('Class','中式')">中式料理</button>
+        <button class="coffe me-1 me-md-3" v-if="category=='Food'" @click="filte('Description','咖啡')">特色咖啡廳</button>
+        <button class="brunch me-1 me-md-3" v-if="category=='Food'" @click="filte('Description','早午')">早午餐</button>
+        <button class="squid me-1 me-md-3"  @click="filte('Description','魷魚')">魷魚</button>
     </div>
-    <p v-if="filterData.length<=0">無搜尋資料...</p>
     <h2 class="title-font">{{city}}{{category}}推薦</h2>
-    <div class="cardList row" v-if="category=='Scene'">
+    <div class="cardList row" v-if="category=='Scene' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <SceneCardItem 
                 v-for="(scene,index) in showData" :key="index"
@@ -39,7 +38,7 @@
             />
         </transition-group>
     </div>
-    <div class="cardList" v-if="category=='Hotel'">
+    <div class="cardList" v-if="category=='Hotel' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <HotelCardItem
                 v-for="(hotel,index) in showData" :key="index"
@@ -47,7 +46,7 @@
             />
         </transition-group>
     </div>
-    <div class="cardList" v-if="category=='Activity'">
+    <div class="cardList" v-if="category=='Activity' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <ActivityCardItem
                 v-for="(active,index) in showData" :key="index"
@@ -55,7 +54,7 @@
             />
         </transition-group>
     </div>
-    <div class="cardList" v-if="category=='Food'">
+    <div class="cardList" v-if="category=='Food' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <FoodCardItem
                 v-for="(food,index) in showData" :key="index"
@@ -63,6 +62,7 @@
             />
         </transition-group>
     </div>
+    <p v-if="filterData.length<=0">無搜尋資料...</p>
 </template>
 
 <script lang="ts">
@@ -120,16 +120,18 @@ export default defineComponent({
                 case CardCategory[1]:
                      if(city.value!==City[0]){
                          if(isFilter.value){
+                             console.log(store.state.Activity.filteData)
                              return store.state.Activity.filteData
                          }else{
                              return  getCurrentCityData(store.state.Activity.activityByCity)
                          }
                      }else{
                          if(isFilter.value){
+                             console.log(store.state.Activity.filteData)
                              return store.state.Activity.filteData
                          }else{
                             console.log("3.下載活動預設資料",store.state.Activity.allActivity)
-                          return store.state.Activity.allActivity  
+                          return store.state.Activity.allActivity 
                          }
                      }
                 case CardCategory[2]:
