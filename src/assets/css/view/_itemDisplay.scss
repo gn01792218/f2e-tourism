@@ -17,24 +17,6 @@
         line-height: 2rem;
     }
 }
-
-.nearbyContainer {
-    background-color: brown;
-}
-
-.diplayTab {
-    justify-content: space-around;
-}
-
-.nav-item {
-    a {
-        cursor: pointer;
-    }
-
-    display: flex;
-
-}
-
 .itemInfo-Spec {
     max-width: 450px;
 }
@@ -77,33 +59,4 @@
     img {
         display: block;
     }
-}
-
-.nearbyType {
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-}
-
-.nearbyContainer {
-    min-height: 250px;
-    height: 100%;
-}
-
-.searchNearby {
-    width: 100%;
-}
-
-.search-container {
-    width: 30%;
-    background-color: aquamarine;
-    height: 50px;
-}
-
-.nearByBox {
-    @include flex-justifyContent(flex-start);
-    overflow-x: scroll;
-}
-
-.search-nearby {
-    cursor: pointer;
 }

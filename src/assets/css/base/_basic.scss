@@ -22,3 +22,18 @@ a{
     margin-top: 35%;
     margin-bottom: 10%;
 }
+//滾條樣式
+//1.全局的滾條設定
+::-webkit-scrollbar{
+    width: 10px;/*竖向滚动条的宽度*/
+    height: 10px;/*横向滚动条的高度*/
+}
+::-webkit-scrollbar-thumb{/*滚动条里面的小方块*/
+    // background: $secondary_color;
+    background-color: rgba(255, 255, 255, 0.863);
+    border-radius: 44px;
+    border: 1px solid #D9D4D4;
+}
+::-webkit-scrollbar-track{/*滚动条轨道的样式*/
+    background: transparent;
+}

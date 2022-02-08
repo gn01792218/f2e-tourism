@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .decorateLine {
   width: 80%;
   border-bottom: #5A6F49 solid 5px;
@@ -1006,6 +1007,25 @@ a {
   margin-bottom: 10%;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  /*竖向滚动条的宽度*/
+  height: 10px;
+  /*横向滚动条的高度*/
+}
+
+::-webkit-scrollbar-thumb {
+  /*滚动条里面的小方块*/
+  background-color: rgba(255, 255, 255, 0.863);
+  border-radius: 44px;
+  border: 1px solid #D9D4D4;
+}
+
+::-webkit-scrollbar-track {
+  /*滚动条轨道的样式*/
+  background: transparent;
+}
+
 .miniSelectBtn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1471,6 +1491,73 @@ a {
   font-weight: bolder;
 }
 
+.diplayTab {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nearbyContainer {
+  min-height: 250px;
+  height: 100%;
+}
+
+.nearbyContainer .nav-item {
+  background-color: rgba(255, 228, 196, 0.259);
+}
+
+.nearbyContainer .nav-item .nav-link {
+  cursor: pointer;
+  letter-spacing: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #926E56;
+  font-weight: 900;
+}
+
+.nearbyContainer-content {
+  background-color: rgba(255, 228, 196, 0.459);
+}
+
+.nearByBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow-x: scroll;
+}
+
+.nearbyType {
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+
+.searchNearby {
+  width: 100%;
+}
+
+.search-container {
+  width: 30%;
+  background-color: aquamarine;
+  height: 50px;
+}
+
+.search-nearby {
+  cursor: pointer;
+}
+
 .header {
   width: 100%;
   height: 80vh;
@@ -1624,25 +1711,6 @@ a {
   line-height: 2rem;
 }
 
-.nearbyContainer {
-  background-color: brown;
-}
-
-.diplayTab {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.nav-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.nav-item a {
-  cursor: pointer;
-}
-
 .itemInfo-Spec {
   max-width: 450px;
 }
@@ -1697,42 +1765,6 @@ a {
 
 .itemDisplay-Discription img {
   display: block;
-}
-
-.nearbyType {
-  -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
-  text-orientation: upright;
-}
-
-.nearbyContainer {
-  min-height: 250px;
-  height: 100%;
-}
-
-.searchNearby {
-  width: 100%;
-}
-
-.search-container {
-  width: 30%;
-  background-color: aquamarine;
-  height: 50px;
-}
-
-.nearByBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  overflow-x: scroll;
-}
-
-.search-nearby {
-  cursor: pointer;
 }
 
 .cityFilter-header {
@@ -1867,6 +1899,9 @@ a {
   .footertext {
     font-size: 1.3rem;
   }
+  .nearbyType {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1894,6 +1929,9 @@ a {
   .footertext {
     font-size: 0.8rem;
   }
+  .nearbyContainer .nav-item .nav-link {
+    letter-spacing: 0.5rem;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -1902,6 +1940,9 @@ a {
   }
   .navLi a {
     font-size: 0.9rem;
+  }
+  .nearbyContainer .nav-item .nav-link {
+    letter-spacing: 0rem;
   }
 }
 
@@ -1916,6 +1957,9 @@ a {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+  .nearbyContainer .nav-item .nav-link {
+    letter-spacing: 1rem;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -1924,6 +1968,9 @@ a {
     height: 39px;
     background-position: -1209px 0px;
     background-size: 1287px auto;
+  }
+  .nearbyContainer .nav-item .nav-link {
+    letter-spacing: 0.7rem;
   }
 }
 
@@ -1941,6 +1988,9 @@ a {
     font-size: 1.5em;
     margin-right: 0.5rem;
   }
+  .nearbyContainer .nav-item .nav-link {
+    letter-spacing: 0.4rem;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -1955,6 +2005,9 @@ a {
   }
   .itemDisplay-header h1 {
     font-size: 1.3em;
+  }
+  .nearbyContainer .nav-item .nav-link {
+    letter-spacing: 0rem;
   }
 }
 /*# sourceMappingURL=app.css.map */

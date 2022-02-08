@@ -62,22 +62,23 @@
         <div class="nearbyContainer">
             <ul class="diplayTab nav nav-tabs">
                 <li class="nav-item">
-                    <a :class="['nav-link',{'active':currentNearByTag=='美食'}]" @click="currentNearByTag='美食'"><div class="foodIcon"></div>周邊美食</a>
+                    <a :class="['nav-link',{'active':currentNearByTag=='美食'}]" @click="currentNearByTag='美食'"><div class="foodIcon mb-3"></div>周邊美食</a>
                 </li>
                 <li class="nav-item">
-                    <a :class="['nav-link',{'active':currentNearByTag=='活動'}]" @click="currentNearByTag='活動'"><div class="activityIcon"></div>周邊活動</a>
+                    <a :class="['nav-link',{'active':currentNearByTag=='活動'}]" @click="currentNearByTag='活動'"><div class="activityIcon mb-3"></div>周邊活動</a>
                 </li>
                 <li class="nav-item">
-                    <a :class="['nav-link',{'active':currentNearByTag=='景點'}]" @click="currentNearByTag='景點'"><div class="sceneIcon"></div>周邊景點</a>
+                    <a :class="['nav-link',{'active':currentNearByTag=='景點'}]" @click="currentNearByTag='景點'"><div class="sceneIcon mb-3"></div>周邊景點</a>
                 </li>
                 <li class="nav-item">
                     
-                    <a :class="['nav-link',{'active':currentNearByTag=='旅宿'}]" @click="currentNearByTag='旅宿'"><div class="hotelIcon"></div>周邊旅宿</a>
+                    <a :class="['nav-link',{'active':currentNearByTag=='旅宿'}]" @click="currentNearByTag='旅宿'"><div class="hotelIcon mb-3"></div>周邊旅宿</a>
                 </li>
             </ul>
-        <div v-if="currentNearByTag=='美食'" class="nearbyContainer mb-3 d-flex p-3">
+        <div v-if="currentNearByTag=='美食'" class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3">
             <h3 class="nearbyType title-font">周邊美食</h3>
             <div class="nearByBox">
+                <div v-if="nearbyFood.length==0">方圓裡查詢不到資料...</div>
                 <DrageItem
                     v-for="(i,index) in nearbyFood" :key="index"
                     :data="i"
@@ -85,9 +86,10 @@
                 />
             </div>
         </div>
-        <div v-if="currentNearByTag=='活動'" class="nearbyContainer mb-3 d-flex p-3">
+        <div v-if="currentNearByTag=='活動'" class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3">
             <h3 class="nearbyType title-font">周邊活動</h3>
             <div class="nearByBox">
+                <div v-if="nearbyActivity.length==0">方圓裡查詢不到資料...</div>
                 <DrageItem
                     v-for="(i,index) in nearbyActivity" :key="index"
                     :data="i"
@@ -95,8 +97,9 @@
                 />
             </div>
         </div>
-        <div v-if="currentNearByTag=='景點'" class="nearbyContainer mb-3 d-flex p-3">
+        <div v-if="currentNearByTag=='景點'" class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3">
             <h3 class="nearbyType title-font">周邊景點</h3>
+            <div v-if="nearbyScene.length==0">方圓裡查詢不到資料...</div>
             <div class="nearByBox">
                 <DrageItem
                     v-for="(i,index) in nearbyScene" :key="index"
@@ -105,8 +108,9 @@
                 />
             </div>
         </div>
-        <div v-if="currentNearByTag=='旅宿'" class="nearbyContainer mb-3 d-flex p-3">
+        <div v-if="currentNearByTag=='旅宿'" class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3">
             <h3 class="nearbyType title-font">周邊旅宿</h3>
+            <div v-if="nearbyHotel.length==0">方圓裡查詢不到資料...</div>
             <div class="nearByBox">
                  <DrageItem
                     v-for="(i,index) in nearbyHotel" :key="index"
@@ -120,7 +124,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onMounted, reactive, ref , watch} from 'vue'
+import {computed, defineComponent, onMounted , ref , watch} from 'vue'
 import {getSceneNearby,getFoodNearby,getHotelNearby,getActivityNearby} from '../api'
 import MyNearbyMap from '@/components/Map/MyNearbyMap.vue'
 import DrageItem from '@/components/card/DrageItem.vue'
