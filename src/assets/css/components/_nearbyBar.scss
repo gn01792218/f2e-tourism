@@ -1,0 +1,43 @@
+.diplayTab {
+    justify-content: center;
+}
+.nearbyContainer {
+    min-height: 250px;
+    height: 100%;
+    .nav-item {
+        background-color: rgba(255, 228, 196, 0.259);
+        .nav-link{
+            cursor: pointer;
+            letter-spacing: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $secondary_color;
+            font-weight: 900;
+        }
+    }
+}
+.nearbyContainer-content{
+    background-color: rgba(255, 228, 196, 0.459);
+}
+.nearByBox {
+    @include flex-justifyContent(flex-start);
+    overflow-x: scroll;
+}
+.nearbyType {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+//搜尋半進輸入框
+.searchNearby {
+    width: 100%;
+}
+
+.search-container {
+    width: 30%;
+    background-color: aquamarine;
+    height: 50px;
+}
+.search-nearby {
+    cursor: pointer;
+}

@@ -83,6 +83,9 @@
     .footertext{
         font-size: $font-midium-2;
     }
+    .nearbyType{
+        display: none;
+    }
 }
 @media screen and (max-width: 768px) {
     .sceneCard{
@@ -109,6 +112,13 @@
     .footertext{
         font-size: $font-small;
     }
+    .nearbyContainer {
+        .nav-item {
+            .nav-link{
+               letter-spacing: 0.5rem;
+            }
+        }
+    }
 }
 @media screen and (max-width:540px){
     .tripNav-body {
@@ -117,6 +127,13 @@
     .navLi{
         a{
             font-size: 0.9rem;
+        }
+    }
+    .nearbyContainer {
+        .nav-item {
+            .nav-link{
+               letter-spacing: 0rem;
+            }
         }
     }
 }
@@ -135,10 +152,24 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
+    .nearbyContainer {
+        .nav-item {
+            .nav-link{
+               letter-spacing: 1rem;
+            }
+        }
+    }
 }
 @media screen and (max-width: 375px){
     .bigAdventureIcon{
         @include iconScale(-2015, 0, 0.6)
+    }
+    .nearbyContainer {
+        .nav-item {
+            .nav-link{
+               letter-spacing: 0.7rem;
+            }
+        }
     }
 }
 @media screen and (max-width: 320px){
@@ -155,6 +186,13 @@
         font-size: 1.5em;
         margin-right: 0.5rem;
     }
+    .nearbyContainer {
+        .nav-item {
+            .nav-link{
+               letter-spacing: 0.4rem;
+            }
+        }
+    }
 }
 @media screen and (max-width: 280px){
     .bigAdventureIcon{
@@ -165,5 +203,12 @@
     }
     .itemDisplay-header h1 {
         font-size: 1.3em;
+    }
+    .nearbyContainer {
+        .nav-item {
+            .nav-link{
+               letter-spacing: 0rem;
+            }
+        }
     }
 }

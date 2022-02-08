@@ -128,7 +128,7 @@
           <a
             :class="['nav-link', { active: currentNearByTag == '美食' }]"
             @click="currentNearByTag = '美食'"
-            ><div class="foodIcon"></div>
+            ><div class="foodIcon mb-2"></div>
             周邊美食</a
           >
         </li>
@@ -136,7 +136,7 @@
           <a
             :class="['nav-link', { active: currentNearByTag == '活動' }]"
             @click="currentNearByTag = '活動'"
-            ><div class="activityIcon"></div>
+            ><div class="activityIcon mb-2"></div>
             周邊活動</a
           >
         </li>
@@ -144,7 +144,7 @@
           <a
             :class="['nav-link', { active: currentNearByTag == '景點' }]"
             @click="currentNearByTag = '景點'"
-            ><div class="sceneIcon"></div>
+            ><div class="sceneIcon mb-2"></div>
             周邊景點</a
           >
         </li>
@@ -152,17 +152,18 @@
           <a
             :class="['nav-link', { active: currentNearByTag == '旅宿' }]"
             @click="currentNearByTag = '旅宿'"
-            ><div class="hotelIcon"></div>
+            ><div class="hotelIcon mb-2"></div>
             周邊旅宿</a
           >
         </li>
       </ul>
       <div
         v-if="currentNearByTag == '美食'"
-        class="nearbyContainer mb-3 d-flex p-3"
+        class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3"
       >
         <h3 class="nearbyType title-font">周邊美食</h3>
         <div class="nearByBox">
+          <!-- <div v-if="nearbyFood.length==0">方圓裡查詢不到資料...</div> -->
           <DrageItem
             v-for="(i, index) in nearbyFood"
             :key="index"
@@ -173,10 +174,11 @@
       </div>
       <div
         v-if="currentNearByTag == '活動'"
-        class="nearbyContainer mb-3 d-flex p-3"
+        class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3"
       >
         <h3 class="nearbyType title-font">周邊活動</h3>
         <div class="nearByBox">
+          <!-- <div v-if="nearbyActivity.length==0">方圓裡查詢不到資料...</div> -->
           <DrageItem
             v-for="(i, index) in nearbyActivity"
             :key="index"
@@ -187,10 +189,11 @@
       </div>
       <div
         v-if="currentNearByTag == '景點'"
-        class="nearbyContainer mb-3 d-flex p-3"
+        class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3"
       >
         <h3 class="nearbyType title-font">周邊景點</h3>
         <div class="nearByBox">
+          <!-- <div v-if="nearbyScene.length==0">方圓裡查詢不到資料...</div> -->
           <DrageItem
             v-for="(i, index) in nearbyScene"
             :key="index"
@@ -201,10 +204,11 @@
       </div>
       <div
         v-if="currentNearByTag == '旅宿'"
-        class="nearbyContainer mb-3 d-flex p-3"
+        class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3"
       >
         <h3 class="nearbyType title-font">周邊旅宿</h3>
         <div class="nearByBox">
+          <!-- <div v-if="nearbyHotel.length==0">方圓裡查詢不到資料...</div> -->
           <DrageItem
             v-for="(i, index) in nearbyHotel"
             :key="index"
