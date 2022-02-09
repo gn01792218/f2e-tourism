@@ -5,7 +5,6 @@ import Food from "./Food";
 import Activity from "./Activity";
 import MyCollection from "./MyCollection";
 import RandomItem from "./RandomItem";
-import MyNearby from "./MyNearby";
 import NearbyBar from "./NearbyBar";
 import { CardCategory, City } from "@/types/enum";
 export default createStore({
@@ -226,7 +225,6 @@ export default createStore({
     Activity,
     MyCollection,
     RandomItem,
-    MyNearby,
     NearbyBar,
   },
 });

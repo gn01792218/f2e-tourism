@@ -111,29 +111,26 @@ export default defineComponent({
   setup() {
     onMounted(() => getUserLocation());
     const store = useStore();
-    let myLocation = computed(() => {
-      return store.state.MyNearby.userLocation;
-    });
     //地圖篩選種類
     const scene = ref(true);
     const hotel = ref(false);
     const food = ref(false);
     const activity = ref(false);
     watch(scene, () => {
-      store.commit("MyNearby/setScene", scene.value);
+      store.commit("NearbyBar/setScene", scene.value);
     });
     watch(hotel, () => {
-      store.commit("MyNearby/setHotel", hotel.value);
+      store.commit("NearbyBar/setHotel", hotel.value);
     });
     watch(food, () => {
-      store.commit("MyNearby/setFood", food.value);
+      store.commit("NearbyBar/setFood", food.value);
     });
     watch(activity, () => {
-      store.commit("MyNearby/setActivity", activity.value);
+      store.commit("NearbyBar/setActivity", activity.value);
     });
     //展示用的使用者點選的item資料
     const showItem = computed(() => {
-      return store.state.MyNearby.showItem;
+      return store.state.NearbyBar.showItem;
     });
     function getUserLocation() {
       if ("geolocation" in navigator) {
@@ -142,12 +139,6 @@ export default defineComponent({
             position.coords.longitude,
             position.coords.latitude,
           ])
-          store.commit("MyNearby/setUserLocation", [
-            position.coords.longitude,
-            position.coords.latitude,
-          ]);
-          // myLocation = [position.coords.latitude, position.coords.longitude]
-          // console.log(myLocation)
         });
       } else {
         alert("抱歉，您的裝置無法使用地理定位");
@@ -155,7 +146,6 @@ export default defineComponent({
     }
     return {
       //data
-      myLocation,
       scene,
       hotel,
       food,

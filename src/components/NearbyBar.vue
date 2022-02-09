@@ -140,41 +140,41 @@ export default defineComponent({
     //nearbyBar
     const currentNearByTag = ref("景點");
     const nearbyScene = computed(() => {
-      return store.state.MyNearby.sceneData;
+      return store.state.NearbyBar.sceneData;
     });
     const nearbyFood = computed(() => {
-      return store.state.MyNearby.foodData;
+      return store.state.NearbyBar.foodData;
     });
     const nearbyActivity = computed(() => {
-      return store.state.MyNearby.activityData;
+      return store.state.NearbyBar.activityData;
     });
     const nearbyHotel = computed(() => {
-      return store.state.MyNearby.hotelData;
+      return store.state.NearbyBar.hotelData;
     });
     function showNearby(searchDistance: number) {
       getSceneNearby(center.value[1], center.value[0], searchDistance)?.then(
         (res) => {
-          store.commit("MyNearby/setSceneData", res.data);
+          store.commit("NearbyBar/setSceneData", res.data);
           console.log(nearbyScene.value);
         }
       );
       getActivityNearby(center.value[1], center.value[0], searchDistance)?.then(
         (res) => {
-          store.commit("MyNearby/setActivityData", res.data);
+          store.commit("NearbyBar/setActivityData", res.data);
           console.log(nearbyActivity.value);
         }
       );
 
       getFoodNearby(center.value[1], center.value[0], searchDistance)?.then(
         (res) => {
-          store.commit("MyNearby/setFoodData", res.data);
+          store.commit("NearbyBar/setFoodData", res.data);
           console.log(nearbyFood.value);
         }
       );
 
       getHotelNearby(center.value[1], center.value[0], searchDistance)?.then(
         (res) => {
-          store.commit("MyNearby/setHotelData", res.data);
+          store.commit("NearbyBar/setHotelData", res.data);
           console.log(nearbyHotel.value);
         }
       );
