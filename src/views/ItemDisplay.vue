@@ -108,116 +108,8 @@
     </div>
   </div>
   <footer class="itemDisplay-footer">
-    <div class="search-container mb-3">
-      <div class="searchNearby input-group input-group-sm m-3">
-        <div class="searchIcon me-3" @click="reSearchNearby"></div>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm"
-          placeholder="以公尺為單位輸入搜尋的範圍,ex:1000"
-          @keypress="reSearchNearby"
-          v-model="nearbyDistance"
-        />
-      </div>
-    </div>
-    <div class="nearbyContainer">
-      <ul class="diplayTab nav nav-tabs">
-        <li class="nav-item">
-          <a
-            :class="['nav-link', { active: currentNearByTag == '美食' }]"
-            @click="currentNearByTag = '美食'"
-            ><div class="foodIcon mb-2"></div>
-            周邊美食</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            :class="['nav-link', { active: currentNearByTag == '活動' }]"
-            @click="currentNearByTag = '活動'"
-            ><div class="activityIcon mb-2"></div>
-            周邊活動</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            :class="['nav-link', { active: currentNearByTag == '景點' }]"
-            @click="currentNearByTag = '景點'"
-            ><div class="sceneIcon mb-2"></div>
-            周邊景點</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            :class="['nav-link', { active: currentNearByTag == '旅宿' }]"
-            @click="currentNearByTag = '旅宿'"
-            ><div class="hotelIcon mb-2"></div>
-            周邊旅宿</a
-          >
-        </li>
-      </ul>
-      <div
-        v-if="currentNearByTag == '美食'"
-        class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3"
-      >
-        <h3 class="nearbyType title-font">周邊美食</h3>
-        <div class="nearByBox">
-          <!-- <div v-if="nearbyFood.length==0">方圓裡查詢不到資料...</div> -->
-          <DrageItem
-            v-for="(i, index) in nearbyFood"
-            :key="index"
-            :data="i"
-            category="美食"
-          />
-        </div>
-      </div>
-      <div
-        v-if="currentNearByTag == '活動'"
-        class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3"
-      >
-        <h3 class="nearbyType title-font">周邊活動</h3>
-        <div class="nearByBox">
-          <!-- <div v-if="nearbyActivity.length==0">方圓裡查詢不到資料...</div> -->
-          <DrageItem
-            v-for="(i, index) in nearbyActivity"
-            :key="index"
-            :data="i"
-            category="活動"
-          />
-        </div>
-      </div>
-      <div
-        v-if="currentNearByTag == '景點'"
-        class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3"
-      >
-        <h3 class="nearbyType title-font">周邊景點</h3>
-        <div class="nearByBox">
-          <!-- <div v-if="nearbyScene.length==0">方圓裡查詢不到資料...</div> -->
-          <DrageItem
-            v-for="(i, index) in nearbyScene"
-            :key="index"
-            :data="i"
-            category="景點"
-          />
-        </div>
-      </div>
-      <div
-        v-if="currentNearByTag == '旅宿'"
-        class="nearbyContainer nearbyContainer-content mb-3 d-flex p-3"
-      >
-        <h3 class="nearbyType title-font">周邊旅宿</h3>
-        <div class="nearByBox">
-          <!-- <div v-if="nearbyHotel.length==0">方圓裡查詢不到資料...</div> -->
-          <DrageItem
-            v-for="(i, index) in nearbyHotel"
-            :key="index"
-            :data="i"
-            category="旅宿"
-          />
-        </div>
-      </div>
-    </div>
+    <!-- 搜尋周邊 -->
+    <NearbyBar/>
   </footer>
 </template>
 
@@ -225,19 +117,20 @@
 import { computed, defineComponent, onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import DrageItem from "@/components/card/DrageItem.vue";
-import {
-  getSceneNearby,
-  getFoodNearby,
-  getHotelNearby,
-  getActivityNearby,
-} from "../api";
+import NearbyBar from '@/components/NearbyBar.vue';
+import { useStore } from "vuex";
 export default defineComponent({
   components: {
     DrageItem,
+    NearbyBar,
   },
   setup() {
     onMounted(() => {
-      showNearby(nearbyDistance.value); //請求周邊資料
+      //設定搜尋周邊的中心點
+      store.commit("NearbyBar/setCenter",[
+            itemData.value.Position.PositionLon,
+            itemData.value.Position.PositionLat,
+          ])
         //判斷local中的收藏id是否符合本卡id，若是，就顯示true
         if(localStorage.getItem(itemData.value[itemCategory.value[0]])){
             collected.value = true
@@ -245,6 +138,7 @@ export default defineComponent({
             collected.value = false
         }
     });
+    const store = useStore()
     const route = useRoute();
     const itemData = computed(() => {
       if (route.query.data) {
@@ -263,7 +157,10 @@ export default defineComponent({
     })
     watch(itemData, () => {
       if (itemData.value) {
-        showNearby(nearbyDistance.value); //請求周邊資料
+        store.commit("NearbyBar/setCenter",[
+            itemData.value.Position.PositionLon,
+            itemData.value.Position.PositionLat,
+          ])
       }
     });
     function selected(category: string, id: string, data: any) {
@@ -309,42 +206,6 @@ export default defineComponent({
         }
       }
     }
-    function showNearby(searchDistance: number) {
-      getSceneNearby(
-        itemData.value.Position.PositionLat,
-        itemData.value.Position.PositionLon,
-        searchDistance
-      )?.then((res) => {
-        nearbyScene.value = res.data;
-      });
-
-      getActivityNearby(
-        itemData.value.Position.PositionLat,
-        itemData.value.Position.PositionLon,
-        searchDistance
-      )?.then((res) => {
-        nearbyActivity.value = res.data;
-      });
-
-      getFoodNearby(
-        itemData.value.Position.PositionLat,
-        itemData.value.Position.PositionLon,
-        searchDistance
-      )?.then((res) => {
-        nearbyFood.value = res.data;
-      });
-
-      getHotelNearby(
-        itemData.value.Position.PositionLat,
-        itemData.value.Position.PositionLon,
-        searchDistance
-      )?.then((res) => {
-        nearbyHotel.value = res.data;
-      });
-    }
-    function reSearchNearby() {
-      showNearby(nearbyDistance.value); //請求周邊資料
-    }
     return {
       //data
       itemData,
@@ -357,7 +218,6 @@ export default defineComponent({
       collected,
       itemCategory,
       //methods
-      reSearchNearby,
       selected,
     };
   },
