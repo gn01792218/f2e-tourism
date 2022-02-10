@@ -1066,6 +1066,71 @@ a {
   background-position: center center;
 }
 
+.drop {
+  background-color: transparent;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.drop p {
+  color: white !important;
+}
+
+.drop .drop-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.drop .card-city {
+  opacity: 0;
+  color: white;
+}
+
+@-webkit-keyframes cardCity {
+  from {
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(75px);
+            transform: translateY(75px);
+    opacity: 1;
+  }
+}
+
+@keyframes cardCity {
+  from {
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(75px);
+            transform: translateY(75px);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes dropTitle {
+  from {
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(80px);
+            transform: translateY(80px);
+  }
+}
+
+@keyframes dropTitle {
+  from {
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(80px);
+            transform: translateY(80px);
+  }
+}
+
 .sceneCard {
   width: 45%;
   height: 250px;
@@ -1279,43 +1344,46 @@ a {
   height: 300px;
 }
 
-.foodCard-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.foodCard-title p {
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
 .foodCard-img {
   height: 250px;
 }
 
+.foodCard-img:hover .drop {
+  background-color: rgba(0, 0, 0, 0.418);
+}
+
+.foodCard-img:hover .drop .drop-title {
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-name: dropTitle;
+          animation-name: dropTitle;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.foodCard-img:hover .drop .card-city {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: cardCity;
+          animation-name: cardCity;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.foodCard-img:hover .drop .bi-geo-alt-fill {
+  color: red;
+}
+
 .foodCard {
-  border-radius: 0;
-  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  background-color: transparent;
 }
 
-.foodCard-content {
-  background: rgba(255, 255, 255, 0.5);
-  -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-          filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.foodCard-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.food-collect {
+  top: -5%;
+  left: -5%;
 }
 
 .drageItem {
