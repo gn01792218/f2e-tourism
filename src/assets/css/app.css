@@ -1309,7 +1309,6 @@ a {
 }
 
 .activityCard {
-  width: 280px;
   -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -1342,6 +1341,32 @@ a {
 .activityCard-img {
   width: 100%;
   height: 300px;
+}
+
+.activityCard-img:hover .drop {
+  background-color: rgba(0, 0, 0, 0.418);
+}
+
+.activityCard-img:hover .drop .drop-title {
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-name: dropTitle;
+          animation-name: dropTitle;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.activityCard-img:hover .drop .card-city {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: cardCity;
+          animation-name: cardCity;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.activityCard-img:hover .drop .bi-geo-alt-fill {
+  color: red;
 }
 
 .foodCard-img {

@@ -1,10 +1,19 @@
 <template>
-  <div class="activityCard card mb-3">
+  <div class="activityCard card mb-3 col-12 col-md-3">
     <div class="activityCard-img">
       <img class="w-100 h-100" @click="gotItemPage(activityData)" v-if="activityData.Picture.PictureUrl1" :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
       <img class="h-100" v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
+      <div class="drop position-absolute">
+        <div class='d-flex'>
+            <i class="bi card-city bi-geo-alt-fill"></i>
+            <p class="card-city" v-if="activityData.Location">{{activityData.Location}}</p>
+            <p class="card-city" v-else>猜猜我在哪</p>
+          </div>
+        <p class="drop-title">{{activityData.ActivityName}}</p>
+        <p>開始時間{{activityData.StartTime}}</p>
+      </div>
     </div>
-    <div class="activityCard-content p-2">
+    <!-- <div class="activityCard-content p-2">
       <header class="activityCard-header">
         <p class="activitiName">{{activityData.ActivityName}}</p>
       </header>
@@ -21,7 +30,7 @@
           <div class="position-absolute top-0 end-0" :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('ActivityID',activityData.ActivityID,activityData)"></div>
       </footer>
         <button type="button" class="cusButton btn" @click="gotItemPage(activityData)">more</button>
-    </div>
+    </div> -->
   </div>
 </template>
 

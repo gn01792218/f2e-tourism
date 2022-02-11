@@ -15,6 +15,7 @@
           alt="作者無提供照片"
         />
         <div class="drop position-absolute">
+          <button type="button" class="cusButton btn" @click="gotItemPage(foodData)">more</button>
           <div class="d-flex">
                 <i class="bi card-city bi-geo-alt-fill"></i>
                 <p class="card-city" v-if="foodData.City">{{ foodData.City }}</p>

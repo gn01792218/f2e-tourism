@@ -149,7 +149,6 @@
 }
 //activity
 .activityCard{
-    width:280px;
     @include box-shadow;
 }
 .activityCard-header{
@@ -170,6 +169,22 @@
 .activityCard-img{
     width:100%;
     height:300px;
+}
+.activityCard-img:hover .drop{
+    background-color: rgba(0, 0, 0, 0.418);
+    .drop-title{
+        animation-duration: .5s;
+        animation-name: dropTitle;
+        animation-fill-mode: forwards;
+    }
+    .card-city{
+        animation-duration: 1s;
+        animation-name: cardCity;
+        animation-fill-mode: forwards;
+    }
+    .bi-geo-alt-fill{
+        color:red;
+    }
 }
 //food
 .foodCard-img{
