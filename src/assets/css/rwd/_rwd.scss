@@ -60,6 +60,9 @@
     }
 }
 @media screen and (max-width: 1024px) {
+    .container{
+        margin-top: 50%;
+    }
     .hotelCard{
         height:100%;
     }
@@ -121,6 +124,9 @@
     }
 }
 @media screen and (max-width:540px){
+    .container{
+        margin-top: 55%;
+    }
     .tripNav-body {
         width: 120%;
     }
@@ -138,6 +144,9 @@
     }
 }
 @media screen and (max-width: 414px) {
+    .container{
+        margin-top: 75%;
+    }
     .home-header{
         h1{
             font-size: $font-midium;
@@ -195,6 +204,9 @@
     }
 }
 @media screen and (max-width: 280px){
+    .container{
+        margin-top: 95%;
+    }
     .bigAdventureIcon{
         @include iconScale(-2015, 0, 0.5)
     }

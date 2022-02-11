@@ -1,12 +1,12 @@
 .tripNav{
-    width:10%;
+    width:8%;
     height:80vh;
     position: fixed;
     top:10%;
     left:3%;
     background: rgba(255, 255, 255, 0.863);
     border: 2px solid #D9D4D4;
-    box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
+    box-shadow: 5px 5px 0px rgba(188, 180, 180, 0.5);
     @include flex-justifyContent(center);
     flex-direction: column;
     align-items: center;

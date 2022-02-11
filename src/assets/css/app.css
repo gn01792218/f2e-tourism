@@ -1003,7 +1003,7 @@ a {
 }
 
 .container {
-  margin-top: 35%;
+  margin-top: 43%;
   margin-bottom: 10%;
 }
 
@@ -1561,15 +1561,15 @@ a {
 }
 
 .tripNav {
-  width: 10%;
+  width: 8%;
   height: 80vh;
   position: fixed;
   top: 10%;
   left: 3%;
   background: rgba(255, 255, 255, 0.863);
   border: 2px solid #D9D4D4;
-  -webkit-box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
-          box-shadow: 10px 10px 4px rgba(188, 180, 180, 0.5);
+  -webkit-box-shadow: 5px 5px 0px rgba(188, 180, 180, 0.5);
+          box-shadow: 5px 5px 0px rgba(188, 180, 180, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1989,6 +1989,9 @@ a {
 }
 
 @media screen and (max-width: 1024px) {
+  .container {
+    margin-top: 50%;
+  }
   .hotelCard {
     height: 100%;
   }
@@ -2053,6 +2056,9 @@ a {
 }
 
 @media screen and (max-width: 540px) {
+  .container {
+    margin-top: 55%;
+  }
   .tripNav-body {
     width: 120%;
   }
@@ -2065,6 +2071,9 @@ a {
 }
 
 @media screen and (max-width: 414px) {
+  .container {
+    margin-top: 75%;
+  }
   .home-header h1 {
     font-size: 1.6rem;
   }
@@ -2112,6 +2121,9 @@ a {
 }
 
 @media screen and (max-width: 280px) {
+  .container {
+    margin-top: 95%;
+  }
   .bigAdventureIcon {
     width: 32.5px;
     height: 32.5px;

@@ -41,7 +41,7 @@
     >
       <img
         class="w-100 h-100"
-        src="../assets/images/itemBg.jpg"
+        src="../assets/images/itemBg.png"
         alt="宮原眼科"
       />
     </div>
