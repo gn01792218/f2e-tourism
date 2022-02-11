@@ -10,12 +10,19 @@
         color:white !important;
     }
     .drop-title{
-        font-size: $font-midium-2;
+        @include textOverFlowHidden(3);
+        font-size: 1.1rem;
         font-weight: bold;
     }
-    .card-city{
+    .card-p{
         opacity: 0;
         color:white;
+    }
+    .activityCard-startTime{
+        opacity: 0;
+    }
+    .activityCard-orgnizer{
+       @include textOverFlowHidden(1);
     }
 }
 @keyframes cardCity {
@@ -149,7 +156,6 @@
 }
 //activity
 .activityCard{
-    width:280px;
     @include box-shadow;
 }
 .activityCard-header{
@@ -171,6 +177,28 @@
     width:100%;
     height:300px;
 }
+.activityCard-startTime{
+    color:red !important;
+}
+.activityCard-img:hover .drop{
+    background-color: rgba(0, 0, 0, 0.418);
+    .drop-title{
+        animation-duration: .5s;
+        animation-name: dropTitle;
+        animation-fill-mode: forwards;
+    }
+    .card-p{
+        animation-duration: 1s;
+        animation-name: cardCity;
+        animation-fill-mode: forwards;
+    }
+    .bi-geo-alt-fill{
+        color:red;
+    }
+    .activityCard-startTime{
+        opacity: 1;
+    }
+}
 //food
 .foodCard-img{
     height:250px;
@@ -182,7 +210,7 @@
         animation-name: dropTitle;
         animation-fill-mode: forwards;
     }
-    .card-city{
+    .card-p{
         animation-duration: 1s;
         animation-name: cardCity;
         animation-fill-mode: forwards;

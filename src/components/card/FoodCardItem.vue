@@ -15,10 +15,11 @@
           alt="作者無提供照片"
         />
         <div class="drop position-absolute">
+          <button type="button" class="cusButton btn" @click="gotItemPage(foodData)">more</button>
           <div class="d-flex">
-                <i class="bi card-city bi-geo-alt-fill"></i>
-                <p class="card-city" v-if="foodData.City">{{ foodData.City }}</p>
-                <p class="card-city" v-else>猜猜我在哪</p>
+                <i class="bi card-p bi-geo-alt-fill"></i>
+                <p class="card-p" v-if="foodData.City">{{ foodData.City }}</p>
+                <p class="card-p" v-else>猜猜我在哪</p>
             </div> 
             <p class="drop-title">{{ foodData.RestaurantName }}</p>
             

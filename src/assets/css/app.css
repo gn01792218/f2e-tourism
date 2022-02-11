@@ -1080,13 +1080,30 @@ a {
 }
 
 .drop .drop-title {
-  font-size: 1.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 1.1rem;
   font-weight: bold;
 }
 
-.drop .card-city {
+.drop .card-p {
   opacity: 0;
   color: white;
+}
+
+.drop .activityCard-startTime {
+  opacity: 0;
+}
+
+.drop .activityCard-orgnizer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 @-webkit-keyframes cardCity {
@@ -1309,7 +1326,6 @@ a {
 }
 
 .activityCard {
-  width: 280px;
   -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -1344,6 +1360,40 @@ a {
   height: 300px;
 }
 
+.activityCard-startTime {
+  color: red !important;
+}
+
+.activityCard-img:hover .drop {
+  background-color: rgba(0, 0, 0, 0.418);
+}
+
+.activityCard-img:hover .drop .drop-title {
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-name: dropTitle;
+          animation-name: dropTitle;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.activityCard-img:hover .drop .card-p {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: cardCity;
+          animation-name: cardCity;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.activityCard-img:hover .drop .bi-geo-alt-fill {
+  color: red;
+}
+
+.activityCard-img:hover .drop .activityCard-startTime {
+  opacity: 1;
+}
+
 .foodCard-img {
   height: 250px;
 }
@@ -1361,7 +1411,7 @@ a {
           animation-fill-mode: forwards;
 }
 
-.foodCard-img:hover .drop .card-city {
+.foodCard-img:hover .drop .card-p {
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
   -webkit-animation-name: cardCity;
