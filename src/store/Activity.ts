@@ -32,8 +32,9 @@ export const state = {
             })
             .sort((a:any,b:any)=>{
               return Date.parse(a.StartTime) - Date.parse(b.StartTime)
-            }) 
-            // console.log('hotActivity',state.hotActivity)
+            })
+            
+            console.log('hotActivity',state.hotActivity)
         }).catch((e:any)=>{
           console.log(e)
         })
