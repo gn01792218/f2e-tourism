@@ -17,7 +17,7 @@
           </div>
           <p>{{activityData.Organizer}}</p>
         </div>
-          <p>舉辦時間{{activityData.StartTime}}</p>
+          <p>舉辦時間{{dateFormat(activityData.StartTime)}}</p>
           <div class="position-absolute top-0 end-0" :class="[{'collect':collected},{'disCollect':!collected}]" @click="selected('ActivityID',activityData.ActivityID,activityData)"></div>
       </footer>
         <button type="button" class="cusButton btn" @click="gotItemPage(activityData)">more</button>
@@ -85,7 +85,7 @@ export default defineComponent({
         }
       }
     }
-     function gotItemPage (data:any) {
+    function gotItemPage (data:any) {
       let temp = JSON.stringify(data)
       router.push({
         path:`/ItemDisplay`,
@@ -94,11 +94,24 @@ export default defineComponent({
         }
       })
     }
+    function dateFormat(dateStr:string):string{
+      let weekList = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"]
+      let temp = new Date(dateStr)
+      let year = temp.getFullYear()
+      let mon = (temp.getMonth()+1)
+      let day = pad(temp.getDate())
+      let week = weekList[temp.getDay()]
+      return year+'.'+mon+'.'+day+week
+    }
+    function pad(num:number):string{
+      console.log(num)
+      return num<10?'0'+num as string:num as unknown as string
+    }
         return{
             //data
             collected,
             //mathods
-            selected,gotItemPage,
+            selected,gotItemPage,dateFormat
         }
     }
 })
