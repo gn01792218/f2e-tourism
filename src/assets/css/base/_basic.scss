@@ -1,3 +1,5 @@
+/*-----------------------------------*/
+/*basic setting*/  
 body{
     @include bg-norepeat($bg-img);
 }
@@ -37,3 +39,4 @@ a{
 ::-webkit-scrollbar-track{/*滚动条轨道的样式*/
     background: transparent;
 }
+/*-----------------------------------*/
