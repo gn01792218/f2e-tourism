@@ -10,33 +10,33 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const myLocation = computed(() => {
-      return store.state.MyNearby.userLocation;
+      return store.state.NearbyBar.userLocation;
     });
     //使用者篩選種類
     const scene = computed(() => {
-      return store.state.MyNearby.scene;
+      return store.state.NearbyBar.scene;
     });
     const hotel = computed(() => {
-      return store.state.MyNearby.hotel;
+      return store.state.NearbyBar.hotel;
     });
     const food = computed(() => {
-      return store.state.MyNearby.food;
+      return store.state.NearbyBar.food;
     });
     const activity = computed(() => {
-      return store.state.MyNearby.activity;
+      return store.state.NearbyBar.activity;
     });
     //各種種類data
     const sceneData = computed(() => {
-      return store.state.MyNearby.sceneData;
+      return store.state.NearbyBar.sceneData;
     });
     const foodData = computed(() => {
-      return store.state.MyNearby.foodData;
+      return store.state.NearbyBar.foodData;
     });
     const hotelData = computed(() => {
-      return store.state.MyNearby.hotelData;
+      return store.state.NearbyBar.hotelData;
     });
     const activityData = computed(() => {
-      return store.state.MyNearby.activityData;
+      return store.state.NearbyBar.activityData;
     });
     watch(myLocation, () => {
       //取得使用者座標時才產生地圖，否則沒有中心點，會報錯

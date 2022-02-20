@@ -1,22 +1,20 @@
 export const state = {
-  userLocation: [], //使用者的地理位置座標
+  center: [], //搜尋附近的中心點
   scene: true,
   activity: false,
   food: false,
   hotel: false,
-  sceneData:[],
-  hotelData:[],
-  foodData:[],
-  activityData:[],
-  showItem:{},
+  sceneData: [],
+  hotelData: [],
+  foodData: [],
+  activityData: [],
+  showItem: {},
 };
-export const actions = {
-
-}
+export const actions = {};
 
 export const mutations = {
-  setUserLocation(state: any, payload: number[]) {
-    state.userLocation = payload
+  setCenter(state: any, payload: number[]) {
+    state.center = payload;
   },
   setScene(state:any,selected:boolean){
     state.scene = selected
@@ -46,9 +44,7 @@ export const mutations = {
     state.showItem = payload
   }
 };
-export const getters = {
-
-}
+export const getters = {};
 
 export default {
   state,

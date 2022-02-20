@@ -1,4 +1,49 @@
-
+/*-----------------------------------*/
+/*card setting*/  
+//卡片遮罩
+.drop{
+    background-color: transparent;
+    padding:1rem;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    p{
+        color:white !important;
+    }
+    .drop-title{
+        @include textOverFlowHidden(3);
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .card-p{
+        opacity: 0;
+        color:white;
+    }
+    .activityCard-startTime{
+        opacity: 0;
+    }
+    .activityCard-orgnizer{
+       @include textOverFlowHidden(1);
+    }
+}
+@keyframes cardCity {
+    from{
+        opacity: 0;
+    }to{
+        transform: translateY(75px);
+        opacity: 1;
+    }
+}
+@keyframes dropTitle{
+    from{
+        
+    }to{
+        opacity: 1;
+        // transform: translateY(180%);
+        transform: translateY(80px);
+    }
+}
 //景點卡
 .sceneCard{
     width:45%;
@@ -113,7 +158,6 @@
 }
 //activity
 .activityCard{
-    width:280px;
     @include box-shadow;
 }
 .activityCard-header{
@@ -135,27 +179,56 @@
     width:100%;
     height:300px;
 }
-//food
-.foodCard-title{
-    @include flex-justifyContent(space-between);
-    p{
-        font-size: $font-midium-2;
-        font-weight: bold;
+.activityCard-startTime{
+    color:red !important;
+}
+.activityCard-img:hover .drop{
+    background-color: rgba(0, 0, 0, 0.418);
+    .drop-title{
+        animation-duration: .5s;
+        animation-name: dropTitle;
+        animation-fill-mode: forwards;
+    }
+    .card-p{
+        animation-duration: 1s;
+        animation-name: cardCity;
+        animation-fill-mode: forwards;
+    }
+    .bi-geo-alt-fill{
+        color:red;
+    }
+    .activityCard-startTime{
+        opacity: 1;
     }
 }
+//food
 .foodCard-img{
     height:250px;
 }
+.foodCard-img:hover .drop{
+    background-color: rgba(0, 0, 0, 0.418);
+    .drop-title{
+        animation-duration: .5s;
+        animation-name: dropTitle;
+        animation-fill-mode: forwards;
+    }
+    .card-p{
+        animation-duration: 1s;
+        animation-name: cardCity;
+        animation-fill-mode: forwards;
+    }
+    .bi-geo-alt-fill{
+        color:red;
+    }
+}
 .foodCard{
-    border-radius: 0;
-    @include box-shadow;
+    border-radius: 10px;
+    @include box-shadow-around;
+    background-color: transparent;
 }
-.foodCard-content{
-    background: rgba(255, 255, 255, 0.5);
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-}
-.foodCard-footer{
-    @include flex-justifyContent(space-between);
+.food-collect{
+    top:-5%;
+    left:-5%;
 }
 //拖拉卡
 //拖曳物
@@ -179,3 +252,4 @@
         margin: 0;
     }
 }
+/*-----------------------------------*/

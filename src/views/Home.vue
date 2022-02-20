@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <header class="home-header">
+    <!-- <header class="home-header">
       <h1 class="title-font">大冒險:請問，你要去哪裡?</h1>
-    </header>
+    </header> -->
     <div class="home-containter">
       <div class="hotScene">
         <div class="card-bg"></div>
