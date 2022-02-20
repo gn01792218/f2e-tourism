@@ -107,8 +107,6 @@
 //旅宿卡
 .hotelCard {
     height: 250px;
-    // @include flex-justifyContent(space-between);
-    // flex-wrap: wrap;
     @include box-shadow;
 }
 
@@ -145,38 +143,6 @@
         opacity: 1;
     }
 }
-
-// .hotelCard-content {
-//     background-color: white;
-//     border-bottom-right-radius: 10px;
-//     border-top-right-radius: 10px;
-//     height: 100%;
-
-//     .bi-telephone-forward-fill {
-//         color: $decoration_color_phone;
-//         margin-right: 5px;
-//     }
-// }
-
-// .hotelCard-header {
-//     @include flex-justifyContent(space-between);
-// }
-
-// .hotelName {
-//     border-bottom: 1px solid black;
-//     font-size: $font-midium-2;
-//     font-weight: bold;
-// }
-
-// .hotel-footer {
-//     display: flex;
-//     flex-direction: column;
-// }
-
-// .hotel-more {
-//     width: 35%;
-//     margin-left: auto;
-// }
 
 .phone {
     @include flex-justifyContent;
