@@ -13,10 +13,6 @@
   color: white;
 }
 
-.cusButton:hover {
-  transform: scale(0.9);
-}
-
 //font
 .title-font {
   font-size: $font-large;
@@ -36,6 +32,10 @@
 
 .lineHeight {
   line-height: $textLineHeight;
+}
+
+.text-white{
+  color:white;
 }
 
 //fade動畫
