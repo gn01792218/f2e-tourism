@@ -1,6 +1,6 @@
 <template>
   <div class="sceneCard mb-3 card col-12 col-md-3">
-    <div class="sceneCard-img">
+    <div class="sceneCard-img w-100 h-100">
       <img
         @click="gotItemPage(sceneData)"
         v-if="sceneData.Picture.PictureUrl1"
