@@ -1172,11 +1172,19 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sceneCard .bi-door-open-fill {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .sceneCard-img {
-  width: 100%;
-  height: 100%;
   overflow: hidden;
   padding: 0;
 }
@@ -1221,73 +1229,50 @@ a {
 }
 
 .hotelCard {
-  width: 45%;
   height: 250px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .hotelCard-img {
   border: 1px blanchedalmond solid;
-  height: 100%;
   padding: 0;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
   overflow: hidden;
 }
 
 .hotelCard-img img {
+  width: 100%;
   height: 100%;
 }
 
-.hotelCard-content {
-  background-color: white;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-  height: 100%;
+.hotelCard-img:hover .drop {
+  background-color: rgba(0, 0, 0, 0.418);
 }
 
-.hotelCard-content .bi-telephone-forward-fill {
-  color: blueviolet;
-  margin-right: 5px;
+.hotelCard-img:hover .drop .drop-title {
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-name: dropTitle;
+          animation-name: dropTitle;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
-.hotelCard-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.hotelCard-img:hover .drop .card-p {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-name: cardCity;
+          animation-name: cardCity;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
-.hotelName {
-  border-bottom: 1px solid black;
-  font-size: 1.3rem;
-  font-weight: bold;
+.hotelCard-img:hover .drop .bi-geo-alt-fill {
+  color: red;
 }
 
-.hotel-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.hotel-more {
-  width: 35%;
-  margin-left: auto;
+.hotelCard-img:hover .drop .activityCard-startTime {
+  opacity: 1;
 }
 
 .phone {
@@ -1320,38 +1305,8 @@ a {
           box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.activityCard-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.activitiName {
-  font-size: 1.3rem;
-  border-bottom: 1px solid black;
-  font-weight: bold;
-}
-
-.activityCard-content {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.activityCard-footer {
-  background: rgba(255, 255, 255, 0.5);
-  -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-          filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
 .activityCard-img {
-  width: 100%;
   height: 300px;
-}
-
-.activityCard-startTime {
-  color: red !important;
 }
 
 .activityCard-img:hover .drop {
