@@ -10,7 +10,7 @@
       />
       <img
         v-else
-        src="../../assets/images/defaultImg.png"
+        src="../../assets/images/defaultImg.webp"
         alt="作者無提供照片"
       />
       <div class="drop position-absolute">
@@ -60,7 +60,7 @@ export default defineComponent({
     const router = useRouter();
     const localStorage = window.localStorage;
     const collected = ref(false);
-    const defaultPicture = require("../../assets/images/icon.png");
+    const defaultPicture = require("../../assets/images/icon.webp");
     function selected(category: string, id: string, data: any) {
       //收藏
       collected.value = !collected.value;

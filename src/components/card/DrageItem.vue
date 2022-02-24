@@ -2,7 +2,7 @@
     <div :id="dataKeyList" class="drageItem m-2" @click="gotItemPage(data)" draggable="true" @dragstart="drag">
         <div class="drageItem-img">
             <img v-if="data.Picture.PictureUrl1" :src="data.Picture.PictureUrl1" :alt="data.Picture.PictureDescription1">
-            <img v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
+            <img v-else src='../../assets/images/defaultImg.webp' alt="作者無提供照片">
         </div>
         <div class="dragItem-content p-1">
             <p>{{category}}</p>

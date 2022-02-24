@@ -63,7 +63,7 @@ export default defineComponent({
         const store = useStore()
         const router = useRouter()
         const loading = ref(false)
-        const defaultPicture = require('../assets/images/icon.png')
+        const defaultPicture = require('../assets/images/icon.webp')
         const recommendData = computed(()=>{
             loading.value = false  //剛開始時不需要讓人家看到loading
             return store.state.RandomItem.randomItem

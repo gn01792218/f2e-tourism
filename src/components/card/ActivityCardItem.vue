@@ -2,7 +2,7 @@
   <div class="activityCard card mb-3 col-12 col-md-3">
     <div class="activityCard-img">
       <img class="w-100 h-100" @click="gotItemPage(activityData)" v-if="activityData.Picture.PictureUrl1" :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
-      <img class="h-100" v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
+      <img class="h-100" v-else src='../../assets/images/defaultImg.webp' alt="作者無提供照片">
       <div class="drop position-absolute">
         <p class="activityCard-orgnizer text-white">{{activityData.Organizer}}</p>
         <div class='d-flex'>

@@ -63,7 +63,7 @@
 
 .working {
   background-repeat: no-repeat;
-  background-image: url("../images/working.jpg");
+  background-image: url("../images/working.webp");
   width: 600px;
   height: 500px;
   margin-left: auto;
@@ -79,7 +79,7 @@
 }
 
 .fiveStarHotel {
-  background-image: url("../images/fiveHotel.jpg");
+  background-image: url("../images/fiveHotel.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -95,7 +95,7 @@
 }
 
 .babyHotel {
-  background-image: url("../images/babyHotel.jpg");
+  background-image: url("../images/babyHotel.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -111,7 +111,7 @@
 }
 
 .spa {
-  background-image: url("../images/spa.jpeg");
+  background-image: url("../images/spa.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -127,7 +127,7 @@
 }
 
 .sea {
-  background-image: url("../images/ocenHotel.png");
+  background-image: url("../images/ocenHotel.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -143,7 +143,7 @@
 }
 
 .trail {
-  background-image: url("../images/trail.png");
+  background-image: url("../images/trail.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -159,7 +159,7 @@
 }
 
 .babyScene {
-  background-image: url("../images/babyScene.jpg");
+  background-image: url("../images/babyScene.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -175,7 +175,7 @@
 }
 
 .diy {
-  background-image: url("../images/diy.jpg");
+  background-image: url("../images/diy.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -191,7 +191,7 @@
 }
 
 .chineseFood {
-  background-image: url("../images/chineseFood.png");
+  background-image: url("../images/chineseFood.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -207,7 +207,7 @@
 }
 
 .exotic {
-  background-image: url("../images/exotic.jpg");
+  background-image: url("../images/exotic.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -223,7 +223,7 @@
 }
 
 .coffe {
-  background-image: url("../images/coffe.jpg");
+  background-image: url("../images/coffe.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -239,7 +239,7 @@
 }
 
 .brunch {
-  background-image: url("../images/brunch.jpg");
+  background-image: url("../images/brunch.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -255,7 +255,7 @@
 }
 
 .hipster {
-  background-image: url("../images/hipster.jpg");
+  background-image: url("../images/hipster.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -271,7 +271,7 @@
 }
 
 .festival {
-  background-image: url("../images/festival.jpg");
+  background-image: url("../images/festival.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -287,7 +287,7 @@
 }
 
 .music {
-  background-image: url("../images/music.jpg");
+  background-image: url("../images/music.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -303,7 +303,7 @@
 }
 
 .squid {
-  background-image: url("../images/squid.jpg");
+  background-image: url("../images/squid.webp");
   background-size: cover;
   width: 100;
   height: 100;
@@ -320,7 +320,7 @@
 
 .collect {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: 0px 0px;
@@ -329,7 +329,7 @@
 
 .collectforNav {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: 0px 0px;
@@ -338,7 +338,7 @@
 
 .disCollect {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -39px 0px;
@@ -347,7 +347,7 @@
 
 .bootstrapIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -78px 0px;
@@ -356,7 +356,7 @@
 
 .figamaIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -117px 0px;
@@ -365,7 +365,7 @@
 
 .typscriptIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -1248px 0px;
@@ -374,7 +374,7 @@
 
 .vueIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -1053px 0px;
@@ -383,7 +383,7 @@
 
 .icons8Icon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -624px 0px;
@@ -392,7 +392,7 @@
 
 .randomIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: -234px 0px;
@@ -401,7 +401,7 @@
 
 .tszIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -195px 0px;
@@ -410,7 +410,7 @@
 
 .scheduleIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: -351px 0px;
@@ -419,7 +419,7 @@
 
 .addScheduleIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: -1287px 0px;
@@ -428,7 +428,7 @@
 
 .seeScheduleIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -975px 0px;
@@ -437,7 +437,7 @@
 
 .clanderIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -351px 0px;
@@ -446,7 +446,7 @@
 
 .deleteIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -390px 0px;
@@ -455,7 +455,7 @@
 
 .filterIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 65px;
   height: 65px;
   background-position: -1690px 0px;
@@ -464,7 +464,7 @@
 
 .sceneIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: -468px 0px;
@@ -473,7 +473,7 @@
 
 .activityIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: -994.5px 0px;
@@ -482,7 +482,7 @@
 
 .foodIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: -1404px 0px;
@@ -491,7 +491,7 @@
 
 .hotelIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: -877.5px 0px;
@@ -500,7 +500,7 @@
 
 .priceIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -507px 0px;
@@ -509,7 +509,7 @@
 
 .hotelGradeIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -897px 0px;
@@ -518,7 +518,7 @@
 
 .searchIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -702px 0px;
@@ -527,7 +527,7 @@
 
 .organizerIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -780px 0px;
@@ -536,7 +536,7 @@
 
 .webSiteIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -1092px 0px;
@@ -545,7 +545,7 @@
 
 .locationIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -1131px 0px;
@@ -554,7 +554,7 @@
 
 .locationIcon2 {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 26px;
   height: 26px;
   background-position: -754px 0px;
@@ -563,7 +563,7 @@
 
 .phoneIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 39px;
   height: 39px;
   background-position: -819px 0px;
@@ -572,7 +572,7 @@
 
 .bigAdventureIcon {
   cursor: pointer;
-  background-image: url("../images/icon.png");
+  background-image: url("../images/icon.webp");
   width: 58.5px;
   height: 58.5px;
   background-position: -1813.5px 0px;
@@ -581,7 +581,7 @@
 
 .kin:hover {
   cursor: pointer;
-  background-image: url("../images/island.png");
+  background-image: url("../images/island.webp");
   width: 159.5px;
   height: 94.5px;
   background-position: 0px 0px;
@@ -590,7 +590,7 @@
 
 .kin {
   cursor: pointer;
-  background-image: url("../images/island.png");
+  background-image: url("../images/island.webp");
   width: 159.5px;
   height: 94.5px;
   background-position: -797.5px 0px;
@@ -599,7 +599,7 @@
 
 .ponho:hover {
   cursor: pointer;
-  background-image: url("../images/island.png");
+  background-image: url("../images/island.webp");
   width: 159.5px;
   height: 94.5px;
   background-position: -159.5px 0px;
@@ -608,7 +608,7 @@
 
 .ponho {
   cursor: pointer;
-  background-image: url("../images/island.png");
+  background-image: url("../images/island.webp");
   width: 159.5px;
   height: 94.5px;
   background-position: -478.5px 0px;
@@ -617,7 +617,7 @@
 
 .langjon {
   cursor: pointer;
-  background-image: url("../images/island.png");
+  background-image: url("../images/island.webp");
   width: 159.5px;
   height: 94.5px;
   background-position: -638px 0px;
@@ -626,7 +626,7 @@
 
 .langjon:hover {
   cursor: pointer;
-  background-image: url("../images/island.png");
+  background-image: url("../images/island.webp");
   width: 159.5px;
   height: 94.5px;
   background-position: -319px 0px;
@@ -980,7 +980,7 @@ template {
 /*-----------------------------------*/
 /*basic setting*/
 body {
-  background-image: url("../images/bg.jpg");
+  background-image: url("../images/bg.webp");
   background-repeat: repeat;
 }
 

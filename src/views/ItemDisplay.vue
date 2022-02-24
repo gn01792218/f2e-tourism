@@ -17,7 +17,7 @@
           />
           <img
             v-else
-            src="../assets/images/defaultImg.png"
+            src="../assets/images/defaultImg.webp"
             alt="作者無提供照片"
           />
         </div>
