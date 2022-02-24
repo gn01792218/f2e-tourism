@@ -1,3 +1,5 @@
+/*-----------------------------------*/
+/*utils classes*/  
 //line
 .decorateLine {
   width: 80%;
@@ -9,10 +11,6 @@
 .cusButton {
   background-color: $decoration_color;
   color: white;
-}
-
-.cusButton:hover {
-  transform: scale(0.9);
 }
 
 //font
@@ -34,6 +32,10 @@
 
 .lineHeight {
   line-height: $textLineHeight;
+}
+
+.text-white{
+  color:white;
 }
 
 //fade動畫
@@ -64,7 +66,7 @@
 //img
 .working {
   background-repeat: no-repeat;
-  background-image: url('../images/working.jpg');
+  background-image: url('../images/working.webp');
   width: 600px;
   height: 500px;
   @include left-right-center;
@@ -78,7 +80,7 @@
 }
 
 .fiveStarHotel {
-  background-image: url('../images/fiveHotel.jpg');
+  background-image: url('../images/fiveHotel.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(90%);
@@ -91,7 +93,7 @@
 }
 
 .babyHotel {
-  background-image: url('../images/babyHotel.jpg');
+  background-image: url('../images/babyHotel.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -104,7 +106,7 @@
 }
 
 .spa {
-  background-image: url('../images/spa.jpeg');
+  background-image: url('../images/spa.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(90%);
@@ -117,7 +119,7 @@
 }
 
 .sea {
-  background-image: url('../images/ocenHotel.png');
+  background-image: url('../images/ocenHotel.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -130,7 +132,7 @@
 }
 
 .trail {
-  background-image: url('../images/trail.png');
+  background-image: url('../images/trail.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -143,7 +145,7 @@
 }
 
 .babyScene {
-  background-image: url('../images/babyScene.jpg');
+  background-image: url('../images/babyScene.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -156,7 +158,7 @@
 }
 
 .diy {
-  background-image: url('../images/diy.jpg');
+  background-image: url('../images/diy.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -169,7 +171,7 @@
 }
 
 .chineseFood {
-  background-image: url('../images/chineseFood.png');
+  background-image: url('../images/chineseFood.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -182,7 +184,7 @@
 }
 
 .exotic {
-  background-image: url('../images/exotic.jpg');
+  background-image: url('../images/exotic.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -195,7 +197,7 @@
 }
 
 .coffe {
-  background-image: url('../images/coffe.jpg');
+  background-image: url('../images/coffe.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -208,7 +210,7 @@
 }
 
 .brunch {
-  background-image: url('../images/brunch.jpg');
+  background-image: url('../images/brunch.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -221,7 +223,7 @@
 }
 
 .hipster {
-  background-image: url('../images/hipster.jpg');
+  background-image: url('../images/hipster.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -234,7 +236,7 @@
 }
 
 .festival {
-  background-image: url('../images/festival.jpg');
+  background-image: url('../images/festival.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -247,7 +249,7 @@
 }
 
 .music {
-  background-image: url('../images/music.jpg');
+  background-image: url('../images/music.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(80%);
@@ -260,7 +262,7 @@
 }
 
 .squid {
-  background-image: url('../images/squid.jpg');
+  background-image: url('../images/squid.webp');
   background-size: cover;
   @include square(100);
   filter: brightness(90%);
@@ -449,3 +451,4 @@
   @include island;
   @include islandScale(-638, 0, 0.5);
 }
+/*-----------------------------------*/

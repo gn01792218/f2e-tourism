@@ -1,3 +1,5 @@
+/*-----------------------------------*/
+/*basic setting*/  
 body{
     @include bg-norepeat($bg-img);
 }
@@ -19,7 +21,7 @@ a{
     text-align: center;
 }
 .container{
-    margin-top: 35%;
+    margin-top: 43%;
     margin-bottom: 10%;
 }
 //滾條樣式
@@ -37,3 +39,4 @@ a{
 ::-webkit-scrollbar-track{/*滚动条轨道的样式*/
     background: transparent;
 }
+/*-----------------------------------*/

@@ -10,7 +10,7 @@
     <div v-if="category == 'Food'" class="w-100 h-100">
       <img
         class="w-100 h-100"
-        src="../assets/images/foodBg.jpg"
+        src="../assets/images/foodBg.webp"
         alt="珍珠奶茶"
       />
     </div>
@@ -18,14 +18,14 @@
     <div v-if="category == 'Activity'" class="w-100 h-100">
       <img
         class="w-100 h-100"
-        src="../assets/images/activityBg.jpg"
+        src="../assets/images/activityBg.webp"
         alt="藝術展覽"
       />
     </div>
     <div v-if="category == 'Hotel'" class="w-100 h-100">
       <img
         class="w-100 h-100"
-        src="../assets/images/hotelBg.jpg"
+        src="../assets/images/hotelBg.webp"
         alt="特色旅宿"
       />
     </div>
@@ -41,7 +41,7 @@
     >
       <img
         class="w-100 h-100"
-        src="../assets/images/itemBg.jpg"
+        src="../assets/images/itemBg.webp"
         alt="宮原眼科"
       />
     </div>

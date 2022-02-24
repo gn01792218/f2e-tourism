@@ -11,24 +11,23 @@
         />
         <img
           v-else
-          src="../../assets/images/defaultImg.png"
+          src="../../assets/images/defaultImg.webp"
           alt="作者無提供照片"
         />
         <div class="drop position-absolute">
-          <button type="button" class="cusButton btn" @click="gotItemPage(foodData)">more</button>
           <div class="d-flex">
                 <i class="bi card-p bi-geo-alt-fill"></i>
                 <p class="card-p" v-if="foodData.City">{{ foodData.City }}</p>
                 <p class="card-p" v-else>猜猜我在哪</p>
             </div> 
-            <p class="drop-title">{{ foodData.RestaurantName }}</p>
-            
+            <p class="drop-title text-white">{{ foodData.RestaurantName }}</p>
+            <button type="button" class="cusButton btn position-absolute" @click="gotItemPage(foodData)">more</button>
         </div>
         <span
-              class="food-collect position-absolute"
+              class="card-collect position-absolute"
               :class="[{ collect: collected }, { disCollect: !collected }]"
               @click="selected('RestaurantID', foodData.RestaurantID, foodData)"
-            ></span>
+        ></span>
       </div>
     </div>
   </div>

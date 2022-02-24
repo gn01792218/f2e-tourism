@@ -2,17 +2,23 @@
   <div class="activityCard card mb-3 col-12 col-md-3">
     <div class="activityCard-img">
       <img class="w-100 h-100" @click="gotItemPage(activityData)" v-if="activityData.Picture.PictureUrl1" :src="activityData.Picture.PictureUrl1" :alt="activityData.Picture.PictureDescription1">
-      <img class="h-100" v-else src='../../assets/images/defaultImg.png' alt="作者無提供照片">
+      <img class="h-100" v-else src='../../assets/images/defaultImg.webp' alt="作者無提供照片">
       <div class="drop position-absolute">
-        <p class="activityCard-orgnizer">{{activityData.Organizer}}</p>
+        <p class="activityCard-orgnizer text-white">{{activityData.Organizer}}</p>
         <div class='d-flex'>
             <i class="bi card-p bi-geo-alt-fill"></i>
             <p class="card-p" v-if="activityData.Location">{{activityData.Location}}</p>
             <p class="card-p" v-else>猜猜我在哪</p>
           </div>
-        <p class="drop-title">{{activityData.ActivityName}}</p>
+        <p class="drop-title text-white">{{activityData.ActivityName}}</p>
         <p class="activityCard-startTime card-p">開始時間 : {{dateFormat(activityData.StartTime)}}</p>
+        <button type="button" class="cusButton btn position-absolute" @click="gotItemPage(activityData)">more</button>
       </div>
+      <span
+              class="card-collect position-absolute"
+              :class="[{ collect: collected }, { disCollect: !collected }]"
+              @click="selected('RestaurantID', activityData.RestaurantID, activityData)"
+        ></span>
     </div>
   </div>
 </template>

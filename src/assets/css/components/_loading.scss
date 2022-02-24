@@ -1,3 +1,5 @@
+/*-----------------------------------*/
+/*loading setting*/  
 .LoadingPage{
     top:0;
     background-color: $backdrop-color;
@@ -6,3 +8,4 @@
     font-size: $font-midium;
     @include bgImg-center-norepeat;
 }
+/*-----------------------------------*/
