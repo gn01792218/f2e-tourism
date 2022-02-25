@@ -17,7 +17,7 @@
       <span
               class="card-collect position-absolute"
               :class="[{ collect: collected }, { disCollect: !collected }]"
-              @click="selected('RestaurantID', activityData.RestaurantID, activityData)"
+              @click="selected('ActivityID', activityData.ActivityID, activityData)"
         ></span>
     </div>
   </div>
@@ -102,7 +102,6 @@ export default defineComponent({
       return year+'.'+mon+'.'+day+week
     }
     function pad(num:number):string{
-      console.log(num)
       return num<10?'0'+num as string:num as unknown as string
     }
         return{

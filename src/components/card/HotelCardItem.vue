@@ -33,7 +33,7 @@
     <span
       class="card-collect position-absolute"
       :class="[{ collect: collected }, { disCollect: !collected }]"
-      @click="selected('RestaurantID', hotelData.RestaurantID, hotelData)"
+      @click="selected('HotelID', hotelData.HotelID, hotelData)"
     ></span>
   </div>
 </template>

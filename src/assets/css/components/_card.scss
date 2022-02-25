@@ -250,5 +250,36 @@
         margin: 0;
     }
 }
-
+// 翻翻卡樣式
+.bigAdvanture{
+    width:300px;
+    height:400px;
+    perspective: 1500px;
+    .bottom{
+        bottom:0%;
+    }
+    .img{
+        width:100px;
+        height:100px;
+    }
+}
+.card-up,.card-down{
+    backface-visibility: hidden;
+    -webkit-backface-visibility:hidden;
+    cursor: pointer;
+}
+.card-up{
+    transform: rotateY(0deg);
+    img{
+        border-radius: 5px;
+    }
+}
+.card-down{
+    background-color: #FBE9CF;
+    transform: rotateY(-180deg);
+    border-radius: 5px;
+}
+.dataName{
+    @include textOverFlowHidden(3);
+}
 /*-----------------------------------*/

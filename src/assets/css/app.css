@@ -1401,6 +1401,52 @@ a {
   margin: 0;
 }
 
+.bigAdvanture {
+  width: 300px;
+  height: 400px;
+  -webkit-perspective: 1500px;
+          perspective: 1500px;
+}
+
+.bigAdvanture .bottom {
+  bottom: 0%;
+}
+
+.bigAdvanture .img {
+  width: 100px;
+  height: 100px;
+}
+
+.card-up, .card-down {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.card-up {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
+.card-up img {
+  border-radius: 5px;
+}
+
+.card-down {
+  background-color: #FBE9CF;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  border-radius: 5px;
+}
+
+.dataName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 /*-----------------------------------*/
 /*-----------------------------------*/
 /*TaiwanMap setting*/
@@ -1974,9 +2020,6 @@ a {
   .container {
     margin-top: 50%;
   }
-  .hotelCard {
-    height: 100%;
-  }
   .hotelCard-img {
     border-radius: 10px;
     height: 250px;
@@ -2044,6 +2087,16 @@ a {
   .tripNav-body {
     width: 120%;
   }
+  .bigAdvanture {
+    width: 200px;
+    height: 266.6666px;
+  }
+  .card-down {
+    padding: 5px !important;
+  }
+  .card-down p {
+    margin-bottom: 0;
+  }
   .navLi a {
     font-size: 0.9rem;
   }
@@ -2053,8 +2106,26 @@ a {
 }
 
 @media screen and (max-width: 414px) {
+  .bigAdvanture {
+    width: 150px;
+    height: 200px;
+  }
+  .bigAdvanture .img {
+    width: 80px;
+    height: 80px;
+  }
+  .card-down .bigAdventureIcon {
+    display: none;
+  }
+  .card-down p {
+    font-size: 12px;
+  }
+  .card-down .bigAdventureIcon + p {
+    color: blue;
+  }
   .container {
     margin-top: 75%;
+    overflow: hidden;
   }
   .home-header h1 {
     font-size: 1.6rem;
@@ -2084,6 +2155,17 @@ a {
 }
 
 @media screen and (max-width: 320px) {
+  .bigAdvanture {
+    width: 100px;
+    height: 134px;
+  }
+  .bigAdvanture .img {
+    width: 50px;
+    height: 50px;
+  }
+  .card-down p {
+    font-size: 12px;
+  }
   .wheretoGo-title {
     font-size: 1rem;
   }
