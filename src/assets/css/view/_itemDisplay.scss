@@ -42,10 +42,6 @@
     @include left-right-center;
 }
 
-.itemDisplay-info {
-    @include flex-justifyContent(space-between);
-}
-
 .itemDisplay-img {
     width: 40%;
     border-radius: 10px;

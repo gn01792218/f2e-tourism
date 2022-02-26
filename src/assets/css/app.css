@@ -14574,15 +14574,6 @@ a {
   margin-right: auto;
 }
 
-.itemDisplay-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 .itemDisplay-img {
   width: 40%;
   border-radius: 10px;
@@ -14771,6 +14762,9 @@ a {
   }
   .nearbyContainer .nav-item .nav-link {
     letter-spacing: 0.5rem;
+  }
+  .itemDisplay-img {
+    width: 80%;
   }
 }
 

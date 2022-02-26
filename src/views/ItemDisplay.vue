@@ -8,7 +8,7 @@
       <h1 v-show="itemData.ActivityName">{{ itemData.ActivityName }}</h1>
     </header>
     <div class="itemDisplay-contain p-4">
-      <div class="itemDisplay-info mb-3">
+      <div class="itemDisplay-info d-flex flex-column align-items-center  flex-lg-row justify-content-lg-between mb-3">
         <div class="itemDisplay-img">
           <img
             v-if="itemData.Picture.PictureUrl1"
