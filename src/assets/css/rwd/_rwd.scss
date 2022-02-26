@@ -75,6 +75,9 @@
         border-top-right-radius: 0;
         border-bottom-left-radius: 10px;
     }
+    .home-bigAdvanture {
+        margin-top: 4%;
+    }
     .phone{
         flex-direction: row;
         align-items: center;
@@ -161,6 +164,9 @@
             height:80px;
         }
     }
+    .advanture-sub-text{
+        font-size: $font-small;
+    }
     .card-down{
         .bigAdventureIcon{
             display: none;
@@ -174,7 +180,6 @@
     }
     .container{
         margin-top: 75%;
-        overflow: hidden;
     }
     .home-header{
         h1{
@@ -219,6 +224,9 @@
             height:50px;
         }
     }
+    .miniSelectBtn{
+        font-size: 14px;
+    }
     .card-down{
         p{
             font-size: 12px;
@@ -248,6 +256,9 @@
 @media screen and (max-width: 280px){
     .container{
         margin-top: 95%;
+    }
+    .miniSelectBtn{
+        font-size: 12px;
     }
     .bigAdventureIcon{
         @include iconScale(-2015, 0, 0.5)

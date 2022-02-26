@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="d-flex flex-column align-items-center">
+    <div class="home-bigAdvanture d-flex flex-column align-items-center">
       <div class="d-flex justify-content-center">
         <BigAdvantureCard
           @click="checkCard(index)"
@@ -10,9 +10,15 @@
           :data="i"
         />
       </div>
-      <div class="mt-3">
-        <div class="randomIcon" @click="randomRecommend"></div>
-        <p>洗牌</p>
+      <div class="mt-3 d-flex justifi-content-center">
+        <div>
+          <h3 >翻開牌來場大冒險吧~!</h3>
+          <p class="advanture-sub-text">Get start for a Big Advanture!</p>
+        </div>
+        <div>
+          <div class="randomIcon" @click="randomRecommend"></div>
+          <p>洗牌</p>
+        </div>
       </div>
     </div>
     <div class="home-containter">
@@ -110,19 +116,19 @@ export default defineComponent({
         //如果已經翻過牌，就得要先翻回來
         let cardUp = selectCardElement.value.children[0];
         let cardDown = selectCardElement.value.children[1];
-        gsap.to(cardUp, { rotateY: "0deg" })
-        gsap.to(cardDown, { rotateY: "180deg" }).then(()=>{
+        gsap.to(cardUp, { rotateY: "0deg" });
+        gsap.to(cardDown, { rotateY: "180deg" }).then(() => {
           selectCardElement.value = null;
           store.dispatch("RandomItem/getRandomItem");
           store.dispatch("RandomItem/getRandomItem2");
-          ShuffleCardAnimate()
-        })
+          ShuffleCardAnimate();
+        });
       } else {
         //直接洗牌
         selectCard.value = true; //防止洗牌中翻牌
         store.dispatch("RandomItem/getRandomItem");
         store.dispatch("RandomItem/getRandomItem2");
-        ShuffleCardAnimate()
+        ShuffleCardAnimate();
       }
     }
     function checkCard(cardIndex: number) {
@@ -147,14 +153,16 @@ export default defineComponent({
           { duration: 1, x: 0, ease: Power4.easeOut },
         ],
       });
-      gsap.to(card2, {
-        keyframes: [
-          { x: -200, repeat: 3 },
-          { duration: 1, x: 0, ease: Power4.easeOut },
-        ],
-      }).then(()=>{
-        selectCard.value = false; //洗完牌之後都是可以選擇的
-      });
+      gsap
+        .to(card2, {
+          keyframes: [
+            { x: -200, repeat: 3 },
+            { duration: 1, x: 0, ease: Power4.easeOut },
+          ],
+        })
+        .then(() => {
+          selectCard.value = false; //洗完牌之後都是可以選擇的
+        });
     }
     return {
       //data

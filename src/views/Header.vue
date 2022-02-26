@@ -42,7 +42,7 @@
       <img
         class="w-100 h-100"
         src="../assets/images/itemBg.webp"
-        alt="宮原眼科"
+        alt="大冒險去吧~~!"
       />
     </div>
   </header>

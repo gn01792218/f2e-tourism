@@ -6,8 +6,8 @@
             </button>
         </p>
         <div class="collapse" id="cityListBtn">
-            <div class="d-flex flex-wrap">
-                <button class="miniSelectBtn col-3 m-3 mb-1" v-for="(city,index) in cityList" :key="index" @click="toCity(city.CityID)">{{city.CityName}}</button>
+            <div class="d-flex flex-wrap justify-content-around">
+                <button class="miniSelectBtn col-3 m-1 m-md-3 mb-1" v-for="(city,index) in cityList" :key="index" @click="toCity(city.CityID)">{{city.CityName}}</button>
             </div>
         </div>
     </div>
