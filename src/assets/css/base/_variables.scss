@@ -31,3 +31,9 @@ $insideShadow: inset -4px -4px 9px rgba(255, 255, 255, 0.88),
   inset 4px 4px 14px #c1d5ee;
 //border-radius
 $borderRadius: 7px;
+
+//costum Bootstrap的變數
+@import "../../../../node_modules/bootstrap/scss/functions";
+$enable-negative-margins: true;
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../../node_modules/bootstrap/scss/variables";

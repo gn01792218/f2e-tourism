@@ -2,6 +2,7 @@
 /*basic setting*/  
 body{
     @include bg-norepeat($bg-img);
+    font-family: 'Permanent Marker', cursive;
 }
 ul{
     list-style: none;
