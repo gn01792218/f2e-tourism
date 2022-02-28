@@ -26,7 +26,7 @@
             </ol-vector-layer>
             <!-- 附近餐飲位置 -->
             <div v-if="food">
-                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i,index) in foodData" :key="index">
+                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i) in foodData" :key="i">
                     <template v-slot="slotProps">
                         <div class="overlay-content d-flex flex-column align-items-center" @click="showItem(i)">
                             <div class="foodIcon"></div>
@@ -38,7 +38,7 @@
             </div>
             <!-- 附近景點位置 -->
             <div v-if="scene">
-                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i,index) in sceneData" :key="index">
+                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i) in sceneData" :key="i">
                     <template v-slot="slotProps">
                         <div class="overlay-content d-flex flex-column align-items-center" @click="showItem(i)">
                             <div class="sceneIcon"></div>
@@ -50,7 +50,7 @@
             </div>
             <!-- 附近旅宿位置 -->
             <div v-if="hotel">
-                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i,index) in hotelData" :key="index">
+                <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i) in hotelData" :key="i">
                     <template v-slot="slotProps">
                         <div class="overlay-content d-flex flex-column align-items-center" @click="showItem(i)">
                             <div class="hotelIcon"></div>
@@ -62,7 +62,7 @@
             </div>
             <!-- 附近活動位置 -->
             <div v-if="activity">
-                 <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i,index) in activityData" :key="index">
+                 <ol-overlay :position="[i.Position.PositionLon,i.Position.PositionLat]" v-for="(i) in activityData" :key="i">
                     <template v-slot="slotProps">
                         <div class="overlay-content d-flex flex-column align-items-center" @click="showItem(i)">
                             <div class="activityIcon"></div>

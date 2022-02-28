@@ -3,7 +3,7 @@
         {{scheduleData.scheduleTitle}}
         {{scheduleData.scheduleDscription}}
         <button @click="deletSchedule">刪除行程</button>
-        <div class="row mb-5" v-for="(i,index) in scheduleData.Date" :key="index">
+        <div class="row mb-5" v-for="(i,index) in scheduleData.Date" :key="i">
             <header class="col-2">
                 {{i.split('/')[0]}}{{i.split('/')[1]}}
             </header>
