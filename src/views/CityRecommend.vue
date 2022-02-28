@@ -33,7 +33,7 @@
     <div class="cardList row" v-if="category=='Scene' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <SceneCardItem 
-                v-for="(scene,index) in showData" :key="index"
+                v-for="(scene) in showData" :key="scene"
                 :sceneData="scene"
             />
         </transition-group>
@@ -41,7 +41,7 @@
     <div class="cardList" v-if="category=='Hotel' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <HotelCardItem
-                v-for="(hotel,index) in showData" :key="index"
+                v-for="(hotel) in showData" :key="hotel"
                 :hotelData="hotel"
             />
         </transition-group>
@@ -49,7 +49,7 @@
     <div class="cardList" v-if="category=='Activity' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <ActivityCardItem
-                v-for="(active,index) in showData" :key="index"
+                v-for="(active) in showData" :key="active"
                 :activityData="active"
             />
         </transition-group>
@@ -57,7 +57,7 @@
     <div class="cardList" v-if="category=='Food' && filterData.length>0">
         <transition-group @enter="cardFadIn">
             <FoodCardItem
-                v-for="(food,index) in showData" :key="index"
+                v-for="(food) in showData" :key="food"
                 :foodData="food"
             />
         </transition-group>

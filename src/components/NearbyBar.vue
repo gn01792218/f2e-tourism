@@ -58,8 +58,8 @@
       <div class="nearByBox">
         <div v-if="nearbyFood.length == 0">方圓裡查詢不到資料...</div>
         <DrageItem
-          v-for="(i, index) in nearbyFood"
-          :key="index"
+          v-for="(i) in nearbyFood"
+          :key="i"
           :data="i"
           category="美食"
         />
@@ -73,8 +73,8 @@
       <div class="nearByBox">
         <div v-if="nearbyActivity.length == 0">方圓裡查詢不到資料...</div>
         <DrageItem
-          v-for="(i, index) in nearbyActivity"
-          :key="index"
+          v-for="(i) in nearbyActivity"
+          :key="i"
           :data="i"
           category="活動"
         />
@@ -88,8 +88,8 @@
       <div v-if="nearbyScene.length == 0">方圓裡查詢不到資料...</div>
       <div class="nearByBox">
         <DrageItem
-          v-for="(i, index) in nearbyScene"
-          :key="index"
+          v-for="(i) in nearbyScene"
+          :key="i"
           :data="i"
           category="景點"
         />
@@ -103,8 +103,8 @@
       <div v-if="nearbyHotel.length == 0">方圓裡查詢不到資料...</div>
       <div class="nearByBox">
         <DrageItem
-          v-for="(i, index) in nearbyHotel"
-          :key="index"
+          v-for="(i) in nearbyHotel"
+          :key="i"
           :data="i"
           category="旅宿"
         />

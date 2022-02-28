@@ -17,28 +17,28 @@
     </div>
     <div class="d-flex flex-wrap" v-if="currentTag=='景點'">
         <DrageItem
-            v-for="(scene,index) in SceneDataList" :key="index"
+            v-for="(scene) in SceneDataList" :key="scene"
             :data="scene"
             category='景點'
         />
     </div>
     <div class="d-flex flex-wrap" v-if="currentTag=='旅宿'">
         <DrageItem
-            v-for="(hotel,index) in HotelDataList" :key="index"
+            v-for="(hotel) in HotelDataList" :key="hotel"
             :data="hotel"
             category='旅宿'
         />
     </div>
     <div class="d-flex flex-wrap" v-if="currentTag=='餐飲'">
         <DrageItem
-            v-for="(food,index) in FoodDataList" :key="index"
+            v-for="(food) in FoodDataList" :key="food"
             :data="food"
             category="餐飲"
         />
     </div>
     <div class="d-flex flex-wrap" v-if="currentTag=='活動'">
         <DrageItem
-            v-for="(active,index) in ActivityDataList" :key="index"
+            v-for="(active) in ActivityDataList" :key="active"
             :data="active"
             category="活動"
         />

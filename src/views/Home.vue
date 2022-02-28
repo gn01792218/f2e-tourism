@@ -5,7 +5,7 @@
         <BigAdvantureCard
           @click="checkCard(index)"
           v-for="(i, index) in randomList"
-          :key="index"
+          :key="i"
           :index="index"
           :data="i"
         />
@@ -27,8 +27,8 @@
         <h3 class="title-font m-3">熱門景點</h3>
         <span class="decorateLine"></span>
         <SceneCardItem
-          v-for="(scene, index) in hotScene"
-          :key="index"
+          v-for="(scene) in hotScene"
+          :key="scene"
           :sceneData="scene"
         />
       </div>
@@ -36,8 +36,8 @@
         <h3 class="title-font m-3">熱門活動</h3>
         <span class="decorateLine"></span>
         <ActivityCardItem
-          v-for="(activity, index) in hotActivity"
-          :key="index"
+          v-for="(activity) in hotActivity"
+          :key="activity"
           :activityData="activity"
         />
       </div>
@@ -45,8 +45,8 @@
         <h3 class="title-font m-3">熱門食物</h3>
         <span class="decorateLine"></span>
         <FoodCardItem
-          v-for="(food, index) in hotFood"
-          :key="index"
+          v-for="(food) in hotFood"
+          :key="food"
           :foodData="food"
         />
       </div>
@@ -54,8 +54,8 @@
         <h3 class="title-font">熱門旅宿</h3>
         <span class="decorateLine"></span>
         <HotelCardItem
-          v-for="(hotel, index) in hotHotel"
-          :key="index"
+          v-for="(hotel) in hotHotel"
+          :key="hotel"
           :hotelData="hotel"
         />
       </div>
