@@ -14439,6 +14439,39 @@ a {
   margin-top: -30%;
 }
 
+.randomIcon:hover {
+  -webkit-animation-name: randomAnimate;
+          animation-name: randomAnimate;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+          animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+@-webkit-keyframes randomAnimate {
+  from {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  to {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+}
+
+@keyframes randomAnimate {
+  from {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  to {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+}
+
 /*-----------------------------------*/
 /*-----------------------------------*/
 /*footer setting*/
