@@ -34,4 +34,17 @@
 .home-bigAdvanture{
     margin-top: -30%;
 }
+.randomIcon:hover{
+    animation-name: randomAnimate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+@keyframes randomAnimate {
+    from{
+        transform: rotate(15deg);
+    }to{
+        transform: rotate(-15deg);
+    }
+}
 /*-----------------------------------*/

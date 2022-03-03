@@ -2,12 +2,12 @@
   <div class="home">
     <div class="home-bigAdvanture d-flex flex-column align-items-center">
       <div class="d-flex justify-content-center">
-        <BigAdvantureCard
+          <BigAdvantureCard
           @click="checkCard(index)"
-          v-for="(i, index) in randomList"
-          :key="i"
+          v-for="(card, index) in randomList"
+          :key="index"
           :index="index"
-          :data="i"
+          :data="card"
         />
       </div>
       <div class="mt-3 d-flex justifi-content-center">
@@ -84,6 +84,7 @@ export default defineComponent({
     onMounted(() => {
       store.dispatch("RandomItem/getRandomItem");
       store.dispatch("RandomItem/getRandomItem2");
+      bigAdvantureAnimate()
     });
     //基本資料
     const selectCard = ref(false); //是否已經選擇了大冒險卡
@@ -164,6 +165,10 @@ export default defineComponent({
           selectCard.value = false; //洗完牌之後都是可以選擇的
         });
     }
+    function bigAdvantureAnimate(){
+      gsap.fromTo('.bigAdvantureCard0',{scale:5,opacity:0,x:400},{scale:1,duration:2,opacity:1,x:0,ease:Power4.easeOut})
+      gsap.fromTo('.bigAdvantureCard1',{scale:5,opacity:0,x:-400},{scale:1,duration:2,opacity:1,x:0,ease:Power4.easeInOut})
+    }
     return {
       //data
       hotScene,
@@ -174,6 +179,7 @@ export default defineComponent({
       //methods
       randomRecommend,
       checkCard,
+      bigAdvantureAnimate,
     };
   },
 });
