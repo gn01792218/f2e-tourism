@@ -91,37 +91,37 @@
         <li class="navLi mb-3">
           <router-link to="/SearchMyNearby">搜尋附近</router-link>
         </li>
-        <li class="navLi mb-3">
+        <li class="navLi mb-3" id="hotel">
           <a @click="switchCategory(0)"
             ><div class="hotelIcon"></div>
             旅宿搜尋</a
           >
         </li>
-        <li class="navLi mb-3">
+        <li class="navLi mb-3" id="activity">
           <a @click="switchCategory(1)"
             ><div class="activityIcon"></div>
             活動搜尋</a
           >
         </li>
-        <li class="navLi mb-3">
+        <li class="navLi mb-3" id="scene">
           <a @click="switchCategory(2)"
             ><div class="sceneIcon"></div>
             景點搜尋</a
           >
         </li>
-        <li class="navLi mb-3">
+        <li class="navLi mb-3" id="food">
           <a @click="switchCategory(3)"
             ><div class="foodIcon"></div>
             餐飲搜尋</a
           >
         </li>
-        <li class="navLi mb-3">
+        <li class="navLi mb-3" id="collection">
           <router-link to="/MyCollection"
             ><div class="collectforNav"></div>
             我的收藏</router-link
           >
         </li>
-        <li class="navLi mb-3">
+        <li class="navLi mb-3" id="bigAdvanture">
           <a data-bs-toggle="modal" data-bs-target="#whereAreYouGoModal"
             ><div class="bigAdventureIcon"></div>
             大冒險</a
@@ -145,22 +145,43 @@
 </template>
 
 <script lang="ts">
-import { defineComponent ,ref } from "vue";
+import { defineComponent ,ref ,onMounted} from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { CardCategory } from "../types/enum";
 import WhereAreYouGoing from "@/components/WhereAreYouGoing.vue";
 import * as bootstrap from 'bootstrap'
+import ScrollReveal from 'scrollreveal'
 export default defineComponent({
   components: {
     WhereAreYouGoing,
   },
   setup() {
+    onMounted(()=>{
+      navScrollAnimate();
+      itemAnimate()
+    })
     const store = useStore();
     const router = useRouter();
     function switchCategory(categoryIndex: number) {
       store.commit("switchCategory", CardCategory[categoryIndex]);
       router.push(`/CityFilter/${CardCategory[categoryIndex]}`);
+    }
+    function navScrollAnimate(){
+      ScrollReveal({
+		  reset:true,  //true的時候，每次滾到範圍內都會觸發一次動畫
+		  distance:'160px',
+		  duration:2000,
+  	  })
+     ScrollReveal().reveal('.tripNav')
+    }
+    function itemAnimate(){
+      ScrollReveal().reveal('#hotel,#activity,#scene,#food,#collection,#bigAdvanture',{
+        interval:200,
+        distance:'150%',
+        reset:false,
+        
+      })
     }
 
     return {
