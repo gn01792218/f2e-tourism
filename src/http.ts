@@ -1,8 +1,8 @@
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
+import axios, { AxiosResponse, AxiosRequestConfig,AxiosInstance } from 'axios';
 import jsSHA from 'jssha';
 
 // axios實例
-const service = axios.create({
+const service:AxiosInstance = axios.create({
   baseURL:'https://ptx.transportdata.tw/MOTC/',
   headers: { 'Content-Type': 'application/json' },
   timeout: 20000 // 超时时间
